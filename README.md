@@ -265,6 +265,9 @@ These are the main colours used throughout the project:
   1. [GitPod](https://gitpod.io/):
     Open-source developer platform used for development.
 
+  1. [MaterializeCSS](https://en.wikipedia.org/wiki/Material_Design):
+    MaterializeCSS was used to help in constructing an attractive, consistent, and functional web page.
+
 ## **Deployment**
 
   ### **Heroku**
