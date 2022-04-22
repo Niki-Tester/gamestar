@@ -90,6 +90,12 @@ These are the main colours used throughout the project:
 
   If a user chooses a username that already exists, or the passwords do not match, they will be presented the relevant flash message.
 
+### **Log In Page**:
+
+  This page will be available by clicking the login link in the naviagion bar/menu. A user will be able to log in to a previously created user profile.
+
+  If a user enteres a username that does not exist, or the if password is incorrect, they will be presented with the flash message "Username/Password combination not recognised".
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
