@@ -55,7 +55,7 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
 ---
 
-# **Design**
+# **Frontend Design**
 
 ## **Colours**:
 
@@ -228,11 +228,21 @@ These are the main colours used throughout the project:
 
 ---
 
+# **Database Schema**
+  
+  Using drawSQL i created custom models, which I predicted would be required when building the website. 
+  In order for users to create reviews a custom review model was required, which would be linked to the users id through a foreign key. 
+  
+  ![Database_Schema](/doc/images/drawSQL-export.png)
+
+---
+
 ## **Technologies Used**:
   * [HTML5](https://en.wikipedia.org/wiki/HTML5)
   * [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
   * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
   * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  * [MongoDB](https://en.wikipedia.org/wiki/MongoDB)
 
 ## **Frameworks, Libraries and Programs Used**:
 
