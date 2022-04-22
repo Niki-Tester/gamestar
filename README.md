@@ -110,6 +110,18 @@ These are the main colours used throughout the project:
 
   2. If a user has submitted a review, this page will display a list of the reviews they have created, each with a link to the review, along with the option to delete or edit their review.
 
+### **Add Game Page**:
+
+  This page will be available by clicking the add review link/button found on the home page if the user is logged in, or via the Manage Reviews page.
+
+  Once loaded the user will be greeted with a search bar, allowing the user to enter the name of a game they wish to leave a review for.
+
+  This will make a request to the IGDB api, returning a list of games matching the users search criteria.
+
+  Each game returned from the api will generate a collapsable list containing the game cover art, game name and a summary of the game.
+
+  The user will also find a button prompting them to add the game.
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
