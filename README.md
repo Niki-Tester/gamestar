@@ -237,22 +237,22 @@ These are the main colours used throughout the project:
 ## **Frameworks, Libraries and Programs Used**:
 
   1. [Google Fonts](https://fonts.google.com/):
-    * Google fonts was used to import the 'Roboto' & Saira Stencil One fonts into the style.css file which is used on all pages throughout the project.
+  * Google fonts was used to import the 'Roboto' & Saira Stencil One fonts into the style.css file which is used on all pages throughout the project.
 
   1. [Font Awesome](https://fontawesome.com/):
-    * Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+  * Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 
   1. [Git](https://git-scm.com/):
-    * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 
   1. [GitHub](https://github.com/):
-    * GitHub is used to store the projects code after being pushed from Git.
+  * GitHub is used to store the projects code after being pushed from Git.
 
   1. [Balsamiq](https://balsamiq.com/):
-    * Balsamiq was used to create the wireframes during the design process.
+  * Balsamiq was used to create the wireframes during the design process.
 
   1. [GitPod](https://gitpod.io/):
-    * Open-source developer platform used for development.
+  * Open-source developer platform used for development.
 
 ## **Deployment**
 
