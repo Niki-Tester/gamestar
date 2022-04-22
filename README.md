@@ -122,6 +122,16 @@ These are the main colours used throughout the project:
 
   The user will also find a button prompting them to add the game.
 
+### **Add Review Page**:
+
+  This page will be available by clicking the add game button found in the collapsible list of the relevant game from the Add Game Page.
+
+  Once loaded the user will be greeted with a form asking them to give their review a heading, what they liked about the game, what they disliked about the game and how many hours they played the game.
+
+  The user will then be asked "How do you rate" the game, and will be presented with a range slider that has a range between 0-5. When the user activates the slider, they will all so that the "rating stars" will update dynamically with the value of the range slider.
+
+  The user will then need to click the submit button in order for their review to be saved. This will submit their review and return them to the home screen, displaying a flash message if the review has/not been successfully created.
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
