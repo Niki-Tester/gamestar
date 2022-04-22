@@ -84,6 +84,12 @@ These are the main colours used throughout the project:
 
   This is the page that the user will be greeted with upon arriving at the site. This page will consist of a navigation bar along the top, containint the website name, as well as links to other pages within the web app.
 
+### **Register Page**:
+
+  This page will be available by clicking the register link in the naviagion bar/menu. A user will be able to create a profile by choosing a username, and setting a password. 
+
+  If a user chooses a username that already exists, or the passwords do not match, they will be presented the relevant flash message.
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
