@@ -231,8 +231,9 @@ These are the main colours used throughout the project:
 # **Database Schema**
   
   Using drawSQL i created custom models, which I predicted would be required when building the website. 
-  In order for users to create reviews a custom review model was required, which would be linked to the users id through a foreign key. 
-  
+
+  In order for users to create reviews custom user, game and review models are required, the user id will be used as a foreign key in the review model, along with the game id being used as a foreign key also in the review model.
+
   ![Database_Schema](/doc/images/drawSQL-export.png)
 
 ---
