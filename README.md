@@ -96,6 +96,10 @@ These are the main colours used throughout the project:
 
   If a user enteres a username that does not exist, or the if password is incorrect, they will be presented with the flash message "Username/Password combination not recognised".
 
+### **User Profile Page**:
+
+  This page will be available by clicking the profile link in the naviagion bar/menu, allowing a user to change their password by first confiriming their current password, followed by entering their new password and matching confirm password.
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
