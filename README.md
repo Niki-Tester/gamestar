@@ -100,6 +100,16 @@ These are the main colours used throughout the project:
 
   This page will be available by clicking the profile link in the naviagion bar/menu, allowing a user to change their password by first confiriming their current password, followed by entering their new password and matching confirm password.
 
+### **Manage Reviews Page**:
+
+  This page will be available by clicking the manage reviews link in the naviagion bar/menu.
+
+  On this page a user with be greeted by one of two outcomes.
+
+  1. If a user has not submitted any reviews, the page will display "You have not added any reviews yet". Followed by a prompt to add a review.
+
+  2. If a user has submitted a review, this page will display a list of the reviews they have created, each with a link to the review, along with the option to delete or edit their review.
+
 ### **Game Review Page**:
 
   This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
