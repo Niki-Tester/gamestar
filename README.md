@@ -103,44 +103,80 @@ Below are links to each wireframe page of the project, created to cover both Mob
 
 ### **Mobile Wireframes**:
 
+  **Home Page**:
+
+  ![Homepage](/doc/Wireframes/Mobile/Home.png)
+
+  **User Registration**:
+
+  ![Register](/doc/Wireframes/Mobile/Register.png)
+
+  **User Login**:
+
+  ![Login](/doc/Wireframes/Mobile/Login.png)
+  
+  **User Profile**:
+
+  ![User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
+
+  **Manage Reviews (No Reviews)**:
+
+  ![Game_Review_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
+
+  **Manage Reviews**:
+
+  ![Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
+
+  **Add Game**:
+
+  ![Add_Game](/doc/Wireframes/Mobile/Add_Game.png)
+  
+  **Add Review**:
+
+  ![Add_Review](/doc/Wireframes/Mobile/Add_Review.png)
+  
+  **Game Review**:
+
+  ![Game_Review](/doc/Wireframes/Mobile/Game_Review.png)
+
 
 ### **Desktop Wireframes**:
 
   **Home Page**:
 
   ![Homepage](/doc/Wireframes/Desktop/Home.png)
-  
-  **Game Review**:
 
-  ![Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
-
-  User Registration:
+  **User Registration**:
 
   ![Register](/doc/Wireframes/Desktop/Register.png)
 
-  User Login:
+  **User Login**:
 
   ![Login](/doc/Wireframes/Desktop/Login.png)
   
-  User Profile:
+  **User Profile**:
 
   ![User_Profile](/doc/Wireframes/Desktop/User_Profile.png)
 
-  Manage Reviews (No Reviews Found):
+  **Manage Reviews (No Reviews)**:
 
-  ![Homepage](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
+  ![Manage_Reviews_No_Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
 
-  Manage Reviews:
+  **Manage Reviews**:
 
-  ![Homepage](/doc/Wireframes/Desktop/Manage_Reviews.png)
+  ![Manage_Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
 
-  Add Game:
+  **Add Game**:
 
-  ![Homepage](/doc/Wireframes/Desktop/Add_Game.png)
+  ![Add_Game](/doc/Wireframes/Desktop/Add_Game.png)
   
-  Add Review:
+  **Add Review**:
 
-  ![Homepage](/doc/Wireframes/Desktop/Add_Review.png)
+  ![Add_Review](/doc/Wireframes/Desktop/Add_Review.png)
+    
+  **Game Review**:
+
+  ![Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
 
 ---
 
@@ -227,4 +263,4 @@ $ git clone https://github.com/Niki-Tester/gamestar.git
 ```
 
 ### *Link to deployed website*:
-[Heroku - GameStar]()
+[Heroku - GameStar](https://gamestar-app.herokuapp.com/)
