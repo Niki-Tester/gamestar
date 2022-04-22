@@ -18,3 +18,10 @@ app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 
 mongo = Pymongo(app)
+
+@app.route('/')
+def index():
+    """
+    Display test page
+    """
+    return 'Hello Gamers!'
