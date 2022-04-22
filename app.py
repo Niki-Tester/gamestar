@@ -6,7 +6,7 @@ Full readme available at: https://github.com/Niki-Tester/gamestar
 """
 
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 
 if os.path.exists('env.py'):
@@ -25,7 +25,7 @@ def index():
     """
     Display test page
     """
-    return 'Hello Gamers!'
+    return render_template('home.html') 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
