@@ -68,15 +68,15 @@ These are the main colours used throughout the project:
   * ![#03A9F4](https://via.placeholder.com/15/03A9F4/000000?text=+) `#03A9F4`
   * ![#F8CE0B](https://via.placeholder.com/15/F8CE0B/000000?text=+) `#F8CE0B`
 
-A contrast grid was used to ensure that the contrast between background and forground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
+  A contrast grid was used to ensure that the contrast between background and forground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
 
-![Contrast Grid Image](doc/images/contrast_grid.png)
+  ![Contrast Grid Image](doc/images/contrast_grid.png)
 
 ## **Typography**:
-* Two fonts are used throughout the project, Roboto is used for all main text. With Saira Stencil One being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
+  * Two fonts are used throughout the project, Roboto is used for all main text. With Saira Stencil One being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
 
 ## **Imagery**:
-* Imagery is especially important in this project, the background image is used throughout the website, with the execption where a game review is being displayed, and a game image is available.
+  * Imagery is especially important in this project, the background image is used throughout the website, with the execption where a game review is being displayed, and a game image is available.
 
 ## **Features**
 
@@ -97,9 +97,9 @@ A contrast grid was used to ensure that the contrast between background and forg
   At the very bottom of each review, will be a like and dislkie button and counter.
 
 ## **Wireframes**
-To organize and streamline the development process, I created wireframes for this project, to help me during the development process and to prevent scope creep.
+  To organize and streamline the development process, I created wireframes for this project, to help me during the development process and to prevent scope creep.
 
-Below are links to each wireframe page of the project, created to cover both Mobile and Desktop versions.
+  Below are links to each wireframe page of the project, created to cover both Mobile and Desktop versions.
 
 ### **Mobile Wireframes**:
 
@@ -181,86 +181,86 @@ Below are links to each wireframe page of the project, created to cover both Mob
 ---
 
 ## **Technologies Used**:
-* [HTML5](https://en.wikipedia.org/wiki/HTML5)
-* [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  * [HTML5](https://en.wikipedia.org/wiki/HTML5)
+  * [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+  * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+  * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ## **Frameworks, Libraries and Programs Used**:
 
-1. [Google Fonts](https://fonts.google.com/):
-   * Google fonts was used to import the 'Roboto' & Saira Stencil One fonts into the style.css file which is used on all pages throughout the project.
+  1. [Google Fonts](https://fonts.google.com/):
+    * Google fonts was used to import the 'Roboto' & Saira Stencil One fonts into the style.css file which is used on all pages throughout the project.
 
-1. [Font Awesome](https://fontawesome.com/):
-   * Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+  1. [Font Awesome](https://fontawesome.com/):
+    * Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 
-1. [Git](https://git-scm.com/):
-   * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  1. [Git](https://git-scm.com/):
+    * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 
-1. [GitHub](https://github.com/):
-   * GitHub is used to store the projects code after being pushed from Git.
+  1. [GitHub](https://github.com/):
+    * GitHub is used to store the projects code after being pushed from Git.
 
-1. [Balsamiq](https://balsamiq.com/):
-   * Balsamiq was used to create the wireframes during the design process.
+  1. [Balsamiq](https://balsamiq.com/):
+    * Balsamiq was used to create the wireframes during the design process.
 
-1. [GitPod](https://gitpod.io/):
-   * Open-source developer platform used for development.
+  1. [GitPod](https://gitpod.io/):
+    * Open-source developer platform used for development.
 
 ## **Deployment**
 
-### **Heroku**
-Before you can deploy your app to Heroku, initialize a local Git repository and commit your application code to it.
+  ### **Heroku**
+  Before you can deploy your app to Heroku, initialize a local Git repository and commit your application code to it.
 
-#### **Create a Heroku Remote**
-Git remotes are versions of your repository that live on other servers. You deploy your app by pushing its code to a special Heroku-hosted remote that’s associated with your app.
+  #### **Create a Heroku Remote**
+  Git remotes are versions of your repository that live on other servers. You deploy your app by pushing its code to a special Heroku-hosted remote that’s associated with your app.
 
-#### **For a New App**:
+  #### **For a New App**:
 
-The heroku create CLI command creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
+  The heroku create CLI command creates a new empty application on Heroku, along with an associated empty Git repository. If you run this command from your app’s root directory, the empty Heroku Git repository is automatically set as a remote for your local repository.
 
-    heroku create -a gamestar-app
+      heroku create -a gamestar-app
 
-You can use the "git remote -v" command to confirm that a remote named heroku has been set for your app.
+  You can use the "git remote -v" command to confirm that a remote named heroku has been set for your app.
 
-#### **For an Existing App**:
+  #### **For an Existing App**:
 
-Add a remote to your local repository with the heroku git:remote command. All you need is your Heroku app’s name:
+  Add a remote to your local repository with the heroku git:remote command. All you need is your Heroku app’s name:
 
-    heroku git:remote -a gamestar-app
+      heroku git:remote -a gamestar-app
 
-#### **Deploy Your Code**:
-To deploy your app to Heroku, use the "git push" command to push the code from your local repository’s main branch to your heroku remote. For example:
+  #### **Deploy Your Code**:
+  To deploy your app to Heroku, use the "git push" command to push the code from your local repository’s main branch to your heroku remote. For example:
 
-    git push heroku main
+      git push heroku main
 
-Use this same command whenever you want to deploy the latest committed version of your code to Heroku.
+  Use this same command whenever you want to deploy the latest committed version of your code to Heroku.
 
-Heroku only deploys code that you push to the master or main branches of the remote. Pushing code to another branch of the heroku remote has no effect.
+  Heroku only deploys code that you push to the master or main branches of the remote. Pushing code to another branch of the heroku remote has no effect.
 
----
+  ---
 
-### **Forking the GitHub Repository**
-By forking the GitHub Repository you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original repository.
+  ### **Forking the GitHub Repository**
+  By forking the GitHub Repository you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original repository.
 
-You can do this by completing the following steps:
+  You can do this by completing the following steps:
 
-1. Log in to GitHub and locate the GitHub Repository
-1. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-1. You should now have a copy of the original repository in your GitHub account.
+  1. Log in to GitHub and locate the GitHub Repository
+  1. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+  1. You should now have a copy of the original repository in your GitHub account.
 
----
+  ---
 
-### **Making a Local Clone**:
-1. Log in to GitHub and locate the GitHub Repository
-1. Under the repository name, click "Clone or download".
-1. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-1. Open Git Bash
-1. Change the current working directory to the location where you want the cloned directory to be made.
-1. Type git clone, and then paste the URL you copied in Step 3.
+  ### **Making a Local Clone**:
+  1. Log in to GitHub and locate the GitHub Repository
+  1. Under the repository name, click "Clone or download".
+  1. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+  1. Open Git Bash
+  1. Change the current working directory to the location where you want the cloned directory to be made.
+  1. Type git clone, and then paste the URL you copied in Step 3.
 
-```
-$ git clone https://github.com/Niki-Tester/gamestar.git
-```
+  
+    $ git clone https://github.com/Niki-Tester/gamestar.git
+  
 
-### *Link to deployed website*:
+### **Link to deployed website**:
 [Heroku - GameStar](https://gamestar-app.herokuapp.com/)
