@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Saira+Stencil+One&display=swap');
 
 body{
-    background-color: #999;
+    background-color: #444;
+    background-image: url(/static/images/carl-raw-m3hn2Kn5Bns-unsplash.jpg);
+    background-attachment: fixed;
+    background-position: top;
+    background-blend-mode: overlay;
 }
 
 #nav-logo{
-    height: 55px;
+    height: 45px;
     margin-top: 6px;
+}
+
+.card{
+    max-width: 310px;
+}
+
+.card .card-content .rating{
+    margin-top: 1rem;
+    font-size: 1.5rem;
 }
