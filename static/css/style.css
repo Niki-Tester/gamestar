@@ -8,6 +8,11 @@ body{
     background-blend-mode: overlay;
 }
 
+#page-logo{
+    width: 100%;
+    margin-top: 1rem;
+}
+
 #nav-logo{
     height: 45px;
     margin-top: 6px;
