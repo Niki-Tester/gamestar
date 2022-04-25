@@ -8,6 +8,10 @@ body{
     background-blend-mode: overlay;
 }
 
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Saira Stencil One', cursive;
+}
+
 #page-logo{
     max-width: 100%;
     margin-top: 1rem;
@@ -32,4 +36,12 @@ body{
 .card .card-content .rating{
     margin-top: 1rem;
     font-size: 1.5rem;
+}
+
+#register-dialog{
+    margin-top: 4rem;
+}
+
+#register-form .row .input-field{
+    padding-right: 2rem;
 }
