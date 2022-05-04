@@ -4,7 +4,7 @@
         <div class="col s12 m6 offset-m3 center-align grey darken-3 white-text">
             <h3>Register</h3>
             <p>Register and create your own reviews!</p>
-            <form id="register-form" method="POST" action="#">
+            <form id="register-form" method="POST" action="{{url_for('register')}}">
                 <div class="row">
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-user-plus prefix"></i>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col s12 center-align">
-                    <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit" name="action">Register</button>
+                    <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Register</button>
                     <p class="white-text">Already Registered? <a href="#" class="amber-text text-lighten-">Log In</a></p>
                 </div>
                 </div>

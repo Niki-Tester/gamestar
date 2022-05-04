@@ -1,6 +1,6 @@
 """Application Routes"""
 
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from gamestar import app, db
 from gamestar.models import User, Game, Review
 
@@ -13,7 +13,7 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     """
     GET: Render register.html template.
