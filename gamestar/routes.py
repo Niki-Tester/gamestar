@@ -45,9 +45,9 @@ def register():
                       Please Try Again!')
             return render_template('register.html')
 
-        existing_user = User.query.filter(User.username == username).count()
+        existing_user = User.query.filter_by(username=username).first()
 
-        if existing_user > 0:
+        if existing_user:
             flash('Registration Failed:\
                  Username taken.\
                       Please Try Again!')
