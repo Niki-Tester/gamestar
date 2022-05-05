@@ -27,7 +27,6 @@
                 </ul>
             </div>
         </nav>
-
         <!-- Mobile Navbar -->
         <ul class="sidenav grey darken-3 z-depth-3" id="mobile-demo">
             <li><a href="#" class="amber-text text-lighten-1">Home</a></li>
@@ -38,6 +37,20 @@
             <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
         </ul>
     </header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <!-- Flash Messages -->
+            <section class="container">
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <div class="col s12 m6 offset-m3">
+                            <p class="flash amber lighten-1 center-align">{{message}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+        {% endif %}
+    {% endwith %}
     <main class="container">
         {% block content %}
         {% endblock content %}
