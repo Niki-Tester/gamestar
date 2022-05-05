@@ -22,7 +22,7 @@
                     {% if session.username %}
                         <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
                         <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
-                        <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+                        <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
                     {% else %}
                         <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
                         <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
@@ -36,7 +36,7 @@
             {% if session.username %}
                 <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
                 <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
-                <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+                <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
             {% else %}
                 <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
                 <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>

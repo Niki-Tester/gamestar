@@ -90,7 +90,22 @@ def login():
             return render_template('login.html')
 
         session['username'] = existing_user.username
-        flash('Logged In Successfully')
+        flash('Successfully Logged In')
         return redirect(url_for('home'))
 
     return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+    """
+    Logs user out by clearing the session cookie.
+    """
+    try:
+        if session['username']:
+            session.clear()
+            flash('Successfully Logged Out')
+    except KeyError:
+        print('User attempted to log out when not logged in.')
+
+    return redirect(url_for('home'))
