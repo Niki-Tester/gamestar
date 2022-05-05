@@ -27,16 +27,13 @@ def register():
         password = request.form.get('password')
         password_confirm = request.form.get('confirm_password')
 
-        print(request.form.get('username').lower().strip())
-
         if len(username) < 3 or len(username) > 16:
             flash('Registration Failed:\
                  Username must be between 3-16 characters in length.\
                       Please Try Again!')
-            print('Username not of required length')
             return render_template('register.html')
 
-        if re.search('[^a-Z0-9]', username):
+        if re.search('[^A-z0-9]', username):
             flash('Registration Failed:\
                  Username must only contain letters and numbers.\
                       Please Try Again!')
