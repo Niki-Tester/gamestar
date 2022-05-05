@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Saira+Stencil+One&display=swap');
 
-body{
+body {
     background-color: #444;
     background-image: url(/static/images/carl-raw-m3hn2Kn5Bns-unsplash.jpg);
     background-attachment: fixed;
@@ -8,40 +8,50 @@ body{
     background-blend-mode: overlay;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Saira Stencil One', cursive;
 }
 
-#page-logo{
+#page-logo {
     max-width: 100%;
     margin-top: 1rem;
 }
 
-#nav-logo{
+#nav-logo {
     height: 45px;
     margin-top: 6px;
 }
 
-.card-container{
+.flashes {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.card{
+.card {
     max-width: 310px;
 }
 
-.card .card-content .rating{
+.card .card-content .rating {
     margin-top: 1rem;
     font-size: 1.5rem;
 }
 
-#register-dialog{
+#register-dialog {
     margin-top: 4rem;
 }
 
-#register-form .row .input-field{
+#register-form .row .input-field {
     padding-right: 2rem;
 }
