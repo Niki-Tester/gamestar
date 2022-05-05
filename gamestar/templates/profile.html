@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row" id="profile-dialog">
+        <div class="col s12 m6 offset-m3 center-align grey darken-3 white-text">
+            <h3>Welcome {{user|capitalize}}</h3>
+            <p>Change your password</p>
+            <form id="profile-form" method="POST" action="{{url_for('profile')}}">
+                <div class="row">
+                    <!-- Current Password -->
+                    <div class="input-field col s12 amber-text text-lighten-1">
+                        <i class="fa-solid fa-key prefix"></i>
+                        <input id="current" name="current" type="password" class="white-text validate" required>
+                        <label for="current">Current Password</label>
+                    </div>
+                    <!-- New Password -->
+                    <div class="input-field col s12 amber-text text-lighten-1">
+                        <i class="fa-solid fa-lock prefix"></i>
+                        <input id="password" name="password" type="password" class="white-text validate" minlength="8" title="Passwords must be at least 8 characters long." required>
+                        <label for="password">Password</label>
+                    </div>
+                    <!-- Confirm New Password -->
+                    <div class="input-field col s12 amber-text text-lighten-1">
+                        <i class="fa-solid fa-lock prefix"></i>
+                        <input id="confirm_password" name="confirm_password" type="password" class="white-text validate" minlength="8" title="Must match Password exactly." required>
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Change Password</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script defer src="{{url_for('static', filename='js/inputValidation.js')}}"></script>
+    </div>
+{% endblock content %}

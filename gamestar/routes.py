@@ -110,3 +110,54 @@ def logout():
         print('User attempted to log out when not logged in.')
 
     return redirect(url_for('home'))
+
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    """
+    GET: Renders profile.html template
+    POST: Gets form data for changing users password
+    """
+    # POST Request
+    if request.method == 'POST':
+        current_password = request.form.get('current')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        if password != confirm_password:
+            flash('Password Change Failed:\
+                 Passwords do not match.\
+                      Please Try Again!')
+            return redirect(url_for('profile'))
+
+        existing_user = User.query.filter_by(
+            username=session['username']).first()
+
+        if not existing_user:
+            flash('Password Change Failed:\
+                 Username not found.\
+                      Please Try Again!')
+            return redirect(url_for('profile'))
+
+        passwords_match = check_password_hash(
+            existing_user.password, current_password)
+
+        if not passwords_match:
+            flash('Password Change Failed:\
+                 Current Password incorrect.\
+                      Please Try Again!')
+            return redirect(url_for('profile'))
+
+        existing_user.password = generate_password_hash(password)
+        # pylint: disable = no-member
+        db.session.commit()
+        flash('Password Changed Successfully')
+        return render_template('profile.html', user=session['username'])
+
+    # GET Request
+    try:
+        if session['username']:
+            return render_template('profile.html', user=session['username'])
+    except KeyError:
+        print('User attempted to view profile while not logged in.')
+        return redirect(url_for('home'))

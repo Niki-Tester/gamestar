@@ -79,11 +79,13 @@ main {
 }
 
 #register-dialog,
-#login-dialog {
+#login-dialog,
+#profile-dialog {
     margin-top: 4rem;
 }
 
 #register-form .row .input-field,
-#login-form .row .input-field {
+#login-form .row .input-field,
+#profile-form .row .input-field {
     padding-right: 2rem;
 }
