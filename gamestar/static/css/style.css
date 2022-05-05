@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Saira+Stencil+One&display=swap');
 
 body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     background-color: #444;
     background-image: url(/static/images/carl-raw-m3hn2Kn5Bns-unsplash.jpg);
     background-attachment: fixed;
@@ -30,6 +33,14 @@ h6 {
 .flashes {
     font-size: 1.25rem;
     font-weight: bold;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+main .container {
+    margin-bottom: 13rem;
 }
 
 .card-container {

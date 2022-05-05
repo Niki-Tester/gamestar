@@ -61,6 +61,37 @@
         {% block content %}
         {% endblock content %}
     </main>
+    <!--Footer -->
+    <footer class="page-footer grey darken-3">
+        {% if url_for(request.endpoint) == '/' %}
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">About GameStar</h5>
+                        <p class="grey-text text-lighten-4">Welcome to Gamestar! We are the games website that hepls you make the most of your money and time.</p>
+                        <p class="grey-text text-lighten-4">On GameStar we always aim to inform and inspire though our game reviews.</p>
+                        <p class="grey-text text-lighten-4">We allow our community to grow, and share their thoughts on the games they have played.</p>
+                        <p class="grey-text text-lighten-4">If the game exists, you can leave a reveiew for it.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Socials</h5>
+                        <ul>
+                            <li><a class="amber-text text-lighten-3" href="#!"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                            <li><a class="amber-text text-lighten-3" href="#!"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+                            <li><a class="amber-text text-lighten-3" href="#!"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                            <li><a class="amber-text text-lighten-3" href="#!"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="footer-copyright grey darken-4">
+            <div class="container">
+                &copy; 2022 Gamestar, All Rights Reserved
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
