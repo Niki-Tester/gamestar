@@ -47,3 +47,28 @@ def new_access_token():
         # pylint: disable = no-member
         db.session.add(token)
         db.session.commit()
+
+
+def get_access_token():
+    """
+    Checks if current access token has expired,
+    if so calls new_access_token and stores the
+    new access token in the database.
+
+    If current access token has not expires,
+    returns the current access token from database.
+    """
+
+    current_token = Twitch.query.get(1)
+
+    current_token_expires = current_token.date_added + current_token.expires_in
+
+    difference = current_token_expires - math.floor(time.time())
+
+    if difference < 86400:  # Less than one day remaining on access_token
+        new_access_token()
+        token = Twitch.query.get(1)
+        return (token.access_token, token.token_type)
+
+    else:
+        return (current_token.access_token, current_token.token_type)
