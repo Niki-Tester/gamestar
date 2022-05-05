@@ -50,3 +50,20 @@ class Review(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the for of a string
         return self.heading
+
+
+class Twitch(db.Model):
+    """Schema for the User model"""
+    id = db.Column(db.Integer, primary_key=True)
+    access_token = db.Column(db.String, nullable=False)
+    expires_in = db.Column(db.Integer, nullable=False)
+    token_type = db.Column(db.String, nullable=False)
+    date_added = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return f'ID: {self.id} | '\
+            f'Access Token: {self.access_token} | '\
+            f'Expires In: {self.expires_in} | '\
+            f'Token Type: {self.token_type} | '\
+            f'Date Added: {self.date_added}'
