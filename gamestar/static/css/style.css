@@ -46,6 +46,7 @@ h6 {
 .flash {
     position: relative;
     cursor: pointer;
+    z-index: 2;
 }
 
 .flash i {
