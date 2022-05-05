@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row" id="login-dialog">
+        <div class="col s12 m6 offset-m3 center-align grey darken-3 white-text">
+            <h3>Log In</h3>
+            <p>Log In and create your own reviews!</p>
+            <form id="login-form" method="POST" action="{{url_for('login')}}">
+                <div class="row">
+                    <div class="input-field col s12 amber-text text-lighten-1">
+                        <i class="fa-solid fa-user prefix"></i>
+                        <input id="username" name="username" type="text" class="validate white-text" minlength="3" maxlength="16" pattern="[a-zA-Z0-9]+" title="Usernames are between 3-16 characters long and can include lower/uppercase letters and numbers." required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field col s12 amber-text text-lighten-1">
+                        <i class="fa-solid fa-lock prefix"></i>
+                        <input id="password" name="password" type="password" class="white-text validate" minlength="8" title="Passwords are at least 8 characters long." required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Log In</button>
+                    <p class="white-text">Not Registered? <a href="{{url_for('register')}}" class="amber-text text-lighten-">Register</a></p>
+                </div>
+                </div>
+            </form>
+        </div>
+        <script defer src="{{url_for('static', filename='js/inputValidation.js')}}"></script>
+    </div>
+{% endblock content %}

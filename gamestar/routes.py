@@ -1,10 +1,10 @@
 """Application Routes"""
 
 import re
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from gamestar import app, db
 from gamestar.models import User, Game, Review
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route('/')
@@ -19,7 +19,7 @@ def home():
 def register():
     """
     GET: Render register.html template.
-    POST: Get form data for user registration. 
+    POST: Get form data for user registration.
     If valid, store in User table in database.
     """
     if request.method == 'POST':
@@ -62,3 +62,35 @@ def register():
         db.session.commit()
 
     return render_template('register.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """
+    GET: Render login.html template.
+    POST: Get form data for user login.
+    If username/password match log user in and store in session.
+    """
+    if request.method == 'POST':
+        username = request.form.get('username').lower().strip()
+        password = request.form.get('password')
+
+        existing_user = User.query.filter_by(username=username).first()
+
+        if not existing_user:
+            flash('Log In Failed:\
+                 Username not found.\
+                      Please Try Again!')
+            return render_template('login.html')
+
+        if not check_password_hash(existing_user.password, password):
+            flash('Log In Failed:\
+                 Username/Password combination not recognized.\
+                      Please Try Again!')
+            return render_template('login.html')
+
+        session['username'] = existing_user.username
+        flash('Logged In Successfully')
+        return redirect(url_for('home'))
+
+    return render_template('login.html')

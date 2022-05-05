@@ -48,10 +48,12 @@ h6 {
     font-size: 1.5rem;
 }
 
-#register-dialog {
+#register-dialog,
+#login-dialog {
     margin-top: 4rem;
 }
 
-#register-form .row .input-field {
+#register-form .row .input-field,
+#login-form .row .input-field {
     padding-right: 2rem;
 }
