@@ -58,6 +58,7 @@ def register():
         user = User(
             username=username, password=password_hash
             )
+        # pylint: disable = no-member
         db.session.add(user)
         db.session.commit()
 
