@@ -19,22 +19,28 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{url_for('home')}}" class="amber-text text-lighten-1">Home</a></li>
-                    <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
-                    <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
-                    <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
-                    <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
-                    <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+                    {% if session.username %}
+                        <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
+                        <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
+                        <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
+                        <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
         <!-- Mobile Navbar -->
         <ul class="sidenav grey darken-3 z-depth-3" id="mobile-demo">
             <li><a href="{{url_for('home')}}" class="amber-text text-lighten-1">Home</a></li>
-            <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
-            <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
-            <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
-            <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
-            <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+            {% if session.username %}
+                <li><a href="#" class="amber-text text-lighten-1">Manage Reviews</a></li>
+                <li><a href="#" class="amber-text text-lighten-1">Profile</a></li>
+                <li><a href="#" class="amber-text text-lighten-1">Log Out</a></li>
+            {% else %}
+                <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
+                <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
+            {% endif %}
         </ul>
     </header>
     {% with messages = get_flashed_messages() %}
