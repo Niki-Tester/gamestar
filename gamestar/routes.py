@@ -1,7 +1,7 @@
 """Application Routes"""
 
 import re
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from gamestar import app, db
 from gamestar.models import User, Game, Review
 from werkzeug.security import generate_password_hash
@@ -30,22 +30,30 @@ def register():
         print(request.form.get('username').lower().strip())
 
         if len(username) < 3 or len(username) > 16:
+            flash('Registration Failed:\
+                 Username must be between 3-16 characters in length.\
+                      Please Try Again!')
             print('Username not of required length')
             return render_template('register.html')
 
-        if re.search('[^A-z0-9]', username):
-            print(re.search('[^A-z0-9]', username))
-            print('Invalid characters in username')
+        if re.search('[^a-Z0-9]', username):
+            flash('Registration Failed:\
+                 Username must only contain letters and numbers.\
+                      Please Try Again!')
             return render_template('register.html')
 
         if password != password_confirm:
-            print('Password mismatch')
+            flash('Registration Failed:\
+                 Passwords do not match.\
+                      Please Try Again!')
             return render_template('register.html')
 
         existing_user = User.query.filter(User.username == username).count()
 
         if existing_user > 0:
-            print('User name already exists in DB')
+            flash('Registration Failed:\
+                 Username taken.\
+                      Please Try Again!')
             return render_template('register.html')
 
         password_hash = generate_password_hash(password)
