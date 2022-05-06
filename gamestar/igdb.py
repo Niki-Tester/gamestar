@@ -62,9 +62,33 @@ def get_game_cover_art(game_id):
     return image_url
 
 
-game = get_game_data_by_string('elden ring')
+game = get_game_data_by_string('Rocket League')
 game_id = game[0]['id']
 
 # Test get_game_cover_art
 # Returned: https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg
-print(get_game_cover_art(game_id))
+# print(get_game_cover_art(game_id))
+
+
+def get_game_artwork(game_id):
+    """
+    Gets game background art via API request using game_id
+    """
+    artwork = api_request('artworks', f'fields url; where game = {game_id};')
+    backgrounds = []
+    for image in artwork:
+        del image['id']
+        image['url'] = image['url'].replace(
+                '//', 'https://').replace('t_thumb', 't_screenshot_big')
+        backgrounds.append(image)
+    return backgrounds
+
+
+# Test get_game_cover_art
+# Returned: [
+#  {'url':
+# 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/ar4ur.jpg'},
+#  {'url':
+# 'https://images.igdb.com/igdb/image/upload/t_screenshot_big/ar4us.jpg'}
+# ]
+print(get_game_artwork(game_id))
