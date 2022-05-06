@@ -1,5 +1,10 @@
 
-"""Gamestar Application Initialization"""
+"""
+GameStar - A web application for users to find reviews
+on games they would like to play, and leave reviews
+on games they have played.
+Full readme available at: https://github.com/Niki-Tester/gamestar
+"""
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
