@@ -31,7 +31,7 @@ def api_request(url_param, body):
 
 def get_game_data_by_string(query):
     """
-    Send the request to the IGDB API using 'games' as 
+    Send the request to the IGDB API using 'games' as
     the endpoint for the API.
 
     :param query: The name of the game
@@ -45,5 +45,26 @@ def get_game_data_by_string(query):
     return api_request('games', body)
 
 
-# Test get_game_data_by_string
-print(get_game_data_by_string('elden ring'))
+def get_game_cover_art(game_id):
+    """
+    Send the request to the IGDB API using 'covers' as
+    the endpoint.
+
+    :param game_id: The IGDB ID for the game
+    :type game_id: int
+    :return The request response
+    :rtype str
+    """
+    cover_url = api_request('covers',
+                            f'fields url; where game = {game_id};')
+    image_url = cover_url[0]['url'].replace(
+                '//', 'https://').replace('t_thumb', 't_cover_big')
+    return image_url
+
+
+game = get_game_data_by_string('elden ring')
+game_id = game[0]['id']
+
+# Test get_game_cover_art
+# Returned: https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg
+print(get_game_cover_art(game_id))
