@@ -162,3 +162,12 @@ def profile():
     except KeyError:
         print('User attempted to view profile while not logged in.')
         return redirect(url_for('home'))
+
+
+@app.route('/manage')
+def manage():
+    """
+    GET: Renders manage.html template.
+    Displaying reviews user has created if any.
+    """
+    return render_template('manage.html')
