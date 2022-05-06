@@ -170,4 +170,10 @@ def manage():
     GET: Renders manage.html template.
     Displaying reviews user has created if any.
     """
-    return render_template('manage.html')
+    try:
+        if session['username']:
+            return render_template('manage.html')
+    except KeyError:
+        print('User attempted to manage reviews when not logged in.')
+
+    return redirect(url_for('home'))
