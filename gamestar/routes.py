@@ -177,3 +177,17 @@ def manage():
         print('User attempted to manage reviews when not logged in.')
 
     return redirect(url_for('home'))
+
+
+@app.route('/search')
+def search():
+    """
+    GET: Renders search.html template.
+    """
+    try:
+        if session['username']:
+            return render_template('search.html')
+    except KeyError:
+        print('User attempted to search games when not logged in.')
+
+    return redirect(url_for('home'))
