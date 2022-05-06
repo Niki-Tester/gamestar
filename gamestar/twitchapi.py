@@ -57,6 +57,8 @@ def get_access_token():
 
     If current access token has not expires,
     returns the current access token from database.
+
+    :return access_token, token_type
     """
 
     current_token = Twitch.query.get(1)
