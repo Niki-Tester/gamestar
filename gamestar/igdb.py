@@ -8,7 +8,7 @@ from gamestar.twitchapi import get_access_token
 
 def api_request(url_param, body):
     """
-    Send the request to the IGDB API
+    Send the request to the IGDB API.
 
     :param url: The endpoint to which the query relates
     :type url: str
@@ -29,16 +29,21 @@ def api_request(url_param, body):
     return response.json()
 
 
-def test():
+def get_game_data_by_string(query):
     """
-    Testing API
+    Send the request to the IGDB API using 'games' as 
+    the endpoint for the API.
+
+    :param query: The name of the game
+    :type query: str
+    :return The Request response
+    :rtype Json
     """
-    url_param = 'games'
-    body = 'search "Elden Ring"; fields name, cover, summary; '\
+    body = f'search "{query}"; fields name, cover, summary; '\
         'where version_parent = null; limit 10;'
-    print('|-----------------------------------------------------|')
-    print(api_request(url_param, body))
-    print('|-----------------------------------------------------|')
+
+    return api_request('games', body)
 
 
-test()
+# Test get_game_data_by_string
+print(get_game_data_by_string('elden ring'))
