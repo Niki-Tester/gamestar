@@ -1,6 +1,6 @@
 """
 The TwitchAPI is used to obtain an access token.
-The access token is stored in a mongoDB database.
+The access token is stored in the gamestardb database.
 The access token has an expiry date, and must be
 updated before the token expires.
 """
