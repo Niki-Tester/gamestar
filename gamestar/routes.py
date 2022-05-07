@@ -1,9 +1,9 @@
 """Application Routes"""
 
 import re
-from flask import render_template, request, redirect, url_for, flash, session
+from flask import render_template, request, redirect, url_for, flash, session, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-import gamestar.igdb
+from gamestar.igdb import get_game_data_by_string, get_game_cover_art
 from gamestar import app, db
 from gamestar.models import User, Game, Review
 
@@ -179,11 +179,26 @@ def manage():
     return redirect(url_for('home'))
 
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def search():
     """
     GET: Renders search.html template.
+    POST: Search IGDB by game name and return results
     """
+    # POST:
+    if request.method == 'POST':
+        query = request.form.get('search')
+
+        data = get_game_data_by_string(query)
+
+        for game in data:
+            if 'cover' in game:
+                game['img_url'] = get_game_cover_art(game['id'])
+            else:
+                game['img_url'] = ''
+
+        return jsonify(data)
+    # GET:
     try:
         if session['username']:
             return render_template('search.html')
