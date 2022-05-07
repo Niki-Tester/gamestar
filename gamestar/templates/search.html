@@ -1,9 +1,34 @@
+
 {% extends 'base.html' %}
 {% block content %}
+    <!-- Page Heading -->
     <div class="row">
-        <div class="col s12 center-align white-text">
-            <h1>Search Games</h1>
-            <p>Search for a game to leave a review</p>
+        <div class="col s12 white-text center-align">
+            <h3>Search For A Game</h3>
+            <p>Search and select the game you would like to add a reivew to.</p>
         </div>
     </div>
+    <!-- Search Bar -->
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div id="game-search" class="input-field col s12">
+                    <i class="fa-solid fa-gamepad prefix amber-text text-lighten-1"></i>
+                    <input type="text" id="search-game" class="white-text">
+                    <label for="search-game" class="amber-text text-lighten-1">Search Games</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Loading Animation -->
+    <div class="row">
+        <div id="loader" class="col s12 progress hide">
+            <div class="indeterminate"></div>
+        </div>
+        <!-- Results from IGDB API -->
+        <div class="col s12">
+            <div id="results" class="amber-text text-lighten-1"></div>
+        </div>
+    </div>
+    <script defer src="{{url_for('static', filename='js/searchGames.js')}}"></script>
 {% endblock content %}
