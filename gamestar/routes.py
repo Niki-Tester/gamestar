@@ -1,9 +1,19 @@
 """Application Routes"""
 
 import re
-from flask import render_template, request, redirect, url_for, flash, session, jsonify
+import random
+from flask import (
+                    render_template,
+                    request,
+                    redirect,
+                    url_for,
+                    flash,
+                    session,
+                    jsonify
+                    )
 from werkzeug.security import generate_password_hash, check_password_hash
-from gamestar.igdb import get_game_data_by_string, get_game_cover_art
+from gamestar.igdb import (get_game_data_by_string, get_game_cover_art,
+                            get_game_data_by_id, get_game_artwork)
 from gamestar import app, db
 from gamestar.models import User, Game, Review
 
@@ -195,9 +205,13 @@ def search():
             if 'cover' in game:
                 game['img_url'] = get_game_cover_art(game['id'])
             else:
-                game['img_url'] = ''
+                game['img_url'] = url_for('static',
+                                    filename='images/no_cover.webp')
+
+            game['form_action'] = url_for('add_review')
 
         return jsonify(data)
+
     # GET:
     try:
         if session['username']:
@@ -206,3 +220,32 @@ def search():
         print('User attempted to search games when not logged in.')
 
     return redirect(url_for('home'))
+
+
+@app.route('/add_review', methods=['GET', 'POST'])
+def add_review():
+    """
+    GET:    Redirects to /search
+    POST:   1) Adds game to database if does not exist.
+            2) Adds review to database.
+    """
+
+    # POST:
+    if request.method == 'POST':
+        game_id = request.form.get('game_id')
+        game = get_game_data_by_id(game_id)[0]
+        if 'cover' in game:
+            game['cover'] = get_game_cover_art(game_id)
+        else:
+            game['cover'] = url_for('static', filename='images/no_cover.webp')
+
+        game['artworks'] = get_game_artwork(game_id)
+
+        if len(game['artworks']) > 0:
+            return render_template('add_review.html', data=game,
+                                   background=random.choice(game['artworks']))
+
+        return render_template('add_review.html', data=game)
+
+    # GET:
+    return redirect('search')
