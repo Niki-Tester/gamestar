@@ -95,12 +95,20 @@ function displayResults(data) {
         form.setAttribute('method', 'POST');
         form.setAttribute('action', data[i].form_action);
 
+        const hiddenInput = document.createElement('input')
+        hiddenInput.setAttribute('class', 'hide')
+        hiddenInput.setAttribute('type', 'number')
+        hiddenInput.setAttribute('id', 'game_id')
+        hiddenInput.setAttribute('name', 'game_id')
+        hiddenInput.setAttribute('value', data[i].id)
+
         const submitButton = document.createElement('input');
         submitButton.setAttribute('value', 'Add Game');
         submitButton.setAttribute('type', 'submit');
         submitButton.setAttribute('id', 'submit');
         submitButton.setAttribute('class', 'btn waves-effect waves-light green darken-4');
 
+        form.append(hiddenInput);
         form.append(submitButton);
         divBodyInner.append(gameImage);
         divBodyInner.append(form)
