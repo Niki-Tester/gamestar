@@ -98,5 +98,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='js/materializeInit.js')}}"></script>
     <script src="{{url_for('static', filename='js/messageHandler.js')}}"></script>
+    <script>
+        const body = document.querySelector('body');
+        {% if background %}
+            body.style.backgroundImage = `url({{background.url}})`
+        {% else %}
+            body.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.jpg')}})`;
+        {% endif %}
+        body.style.backgroundAttachment = 'fixed';
+        body.style.backgroundPosition = 'top';
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundRepeat = 'no-repeat';
+        body.style.backgroundBlendMode = 'overlay';
+    </script>
 </body>
 </html>
