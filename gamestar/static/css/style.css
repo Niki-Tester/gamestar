@@ -4,11 +4,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #444;
-    background-image: url(/static/images/carl-raw-m3hn2Kn5Bns-unsplash.jpg);
-    background-attachment: fixed;
-    background-position: top;
-    background-blend-mode: overlay;
+    background-color: #333;
 }
 
 h1,
@@ -18,6 +14,10 @@ h4,
 h5,
 h6 {
     font-family: 'Saira Stencil One', cursive;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .container {
@@ -88,4 +88,36 @@ main {
 #login-form .row .input-field,
 #profile-form .row .input-field {
     padding-right: 2rem;
+}
+
+textarea.materialize-textarea:focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label {
+    color: #ffca28;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+textarea.materialize-textarea:focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #ffca28;
+    box-shadow: 0 1px 0 0 #ffca28;
+}
+
+textarea.materialize-textarea:not([readonly])+label,
+input[type=text]:not(.browser-default):not([readonly])+label,
+input[type=number]:not(.browser-default):not([readonly])+label,
+input[type=password]:not(.browser-default):not([readonly])+label {
+    color: #ccc;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+textarea.materialize-textarea:not([readonly]),
+input[type=text]:not(.browser-default):not([readonly]),
+input[type=number]:not(.browser-default):not([readonly]),
+input[type=password]:not(.browser-default):not([readonly]) {
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px 0 0 #ccc;
 }
