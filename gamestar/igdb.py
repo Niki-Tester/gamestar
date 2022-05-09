@@ -45,6 +45,21 @@ def get_game_data_by_string(query):
     return api_request('games', body)
 
 
+def get_game_data_by_id(query):
+    """
+    Send the request to the IGDB API using 'games' as
+    the endpoint for the API.
+
+    :param query: The name of the game
+    :type query: str
+    :return The Request response
+    :rtype Json
+    """
+    body = f'fields name, cover, summary; where id = {query};'
+
+    return api_request('games', body)
+
+
 def get_game_cover_art(game_id):
     """
     Send the request to the IGDB API using 'covers' as
