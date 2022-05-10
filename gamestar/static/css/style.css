@@ -121,3 +121,55 @@ input[type=password]:not(.browser-default):not([readonly]) {
     border-bottom: 1px solid #ccc;
     box-shadow: 0 1px 0 0 #ccc;
 }
+
+.rating-outer {
+    position: relative;
+    display: inline-block;
+
+}
+
+.rating-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.rating-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #999;
+    font-size: 2rem;
+}
+
+.rating-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #f8ce0b;
+    font-size: 2rem;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: #ffca28;
+}
+
+input[type=range]::-moz-range-thumb {
+    background-color: #ffca28;
+}
+
+input[type=range]::-ms-thumb {
+    background-color: #ffca28;
+}
+
+input[type=range]+.thumb {
+    background-color: #ffca28;
+}
+
+input[type=range]+.thumb.active .value {
+    color: #000;
+    font-weight: bold;
+}
