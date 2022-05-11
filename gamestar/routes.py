@@ -3,16 +3,8 @@
 import re
 import random
 import json
-from flask import (
-                    render_template,
-                    request,
-                    redirect,
-                    url_for,
-                    flash,
-                    session,
-                    jsonify,
-                    make_response
-                    )
+from flask import (render_template, request, redirect, url_for, flash,
+                   session, jsonify)
 from werkzeug.security import generate_password_hash, check_password_hash
 from gamestar.igdb import (get_game_data_by_string, get_game_cover_art,
                            get_game_data_by_id, get_game_artwork)
