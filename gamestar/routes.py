@@ -2,6 +2,7 @@
 
 import re
 import random
+import json
 from flask import (
                     render_template,
                     request,
@@ -9,11 +10,12 @@ from flask import (
                     url_for,
                     flash,
                     session,
-                    jsonify
+                    jsonify,
+                    make_response
                     )
 from werkzeug.security import generate_password_hash, check_password_hash
 from gamestar.igdb import (get_game_data_by_string, get_game_cover_art,
-                            get_game_data_by_id, get_game_artwork)
+                           get_game_data_by_id, get_game_artwork)
 from gamestar import app, db
 from gamestar.models import User, Game, Review
 
@@ -174,7 +176,7 @@ def profile():
         return redirect(url_for('home'))
 
 
-@app.route('/manage')
+@app.route('/manage', methods=['GET', 'POST'])
 def manage():
     """
     GET: Renders manage.html template.
@@ -206,7 +208,7 @@ def search():
                 game['img_url'] = get_game_cover_art(game['id'])
             else:
                 game['img_url'] = url_for('static',
-                                    filename='images/no_cover.webp')
+                                          filename='images/no_cover.webp')
 
             game['form_action'] = url_for('add_review')
 
@@ -249,3 +251,57 @@ def add_review():
 
     # GET:
     return redirect('search')
+
+
+@app.route('/submit_review/<game_id>', methods=['POST'])
+def submit_review(game_id):
+    """
+    Adds users review to database.
+    """
+
+    existing_game = Game.query.filter_by(igdb_id=game_id).first()
+
+    if not existing_game:
+        igdb_game_data = get_game_data_by_id(game_id)[0]
+        igdb_game_artwork = get_game_artwork(game_id)
+        igdb_game_cover = get_game_cover_art(game_id)
+
+        game = Game(
+            name=igdb_game_data['name'],
+            artwork=json.dumps(igdb_game_artwork),
+            summary=igdb_game_data['summary'],
+            igdb_id=igdb_game_data['id'],
+            cover_art=igdb_game_cover
+        )
+
+        # pylint: disable = no-member
+        db.session.add(game)
+        db.session.commit()
+
+    user = User.query.filter_by(username=session['username']).first()
+    game = Game.query.filter_by(igdb_id=game_id).first()
+
+    existing_review = Review.query.filter_by(user_id=user.id,
+                                             game_id=game.id).first()
+
+    review = Review(
+        user_id=user.id,
+        game_id=game.id,
+        rating=float(request.form.get('review-rating')),
+        heading=request.form.get('review-heading'),
+        liked_text=request.form.get('liked-text'),
+        disliked_text=request.form.get('disliked-text'),
+        hours=int(request.form.get('review-hours')),
+    )
+
+    if existing_review:
+        print(request)
+        flash('You have already created a review for this game')
+        return redirect(url_for('manage'))
+
+    # pylint: disable = no-member
+    db.session.add(review)
+    db.session.commit()
+
+    flash('Review added successfully')
+    return redirect(url_for('home'))
