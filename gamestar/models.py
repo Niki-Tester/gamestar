@@ -1,3 +1,4 @@
+"""Flask SQL-Alchemy Database Models"""
 from gamestar import db
 
 
@@ -9,7 +10,7 @@ class User(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return self.username
+        return f'Id: {self.id} | Username: {self.username}'
 
 
 class Game(db.Model):
@@ -23,7 +24,7 @@ class Game(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return self.name
+        return f'Id: {self.id} | Name: {self.name}'
 
 
 class Review(db.Model):
@@ -49,7 +50,8 @@ class Review(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the for of a string
-        return self.heading
+        return f'Id: {self.id} | User_Id: {self.user_id} | '\
+               f'Game_Id: {self.game_id}'
 
 
 class Twitch(db.Model):
