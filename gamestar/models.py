@@ -17,7 +17,7 @@ class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
     artwork = db.Column(db.Text, nullable=False)
-    summary = db.Column(db.Boolean, default=False, nullable=False)
+    summary = db.Column(db.Text, default=False, nullable=False)
     igdb_id = db.Column(db.Integer, unique=True, nullable=False)
     cover_art = db.Column(db.Text, nullable=False)
 
