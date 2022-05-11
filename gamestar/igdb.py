@@ -48,7 +48,8 @@ def get_game_data_by_string(query):
 def get_game_data_by_id(query):
     """
     Send the request to the IGDB API using 'games' as
-    the endpoint for the API.
+    the endpoint for the API. Returning the games igdb id,
+    name, cover id, and summary
 
     :param query: The name of the game
     :type query: str
