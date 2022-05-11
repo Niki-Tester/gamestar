@@ -63,7 +63,7 @@ def register():
         user = User(
             username=username, password=password_hash
             )
-        # pylint: disable = no-member
+
         db.session.add(user)
         db.session.commit()
 
@@ -154,7 +154,7 @@ def profile():
             return redirect(url_for('profile'))
 
         existing_user.password = generate_password_hash(password)
-        # pylint: disable = no-member
+
         db.session.commit()
         flash('Password Changed Successfully')
         return render_template('profile.html', user=session['username'])
@@ -266,7 +266,6 @@ def submit_review(game_id):
             cover_art=igdb_game_cover
         )
 
-        # pylint: disable = no-member
         db.session.add(game)
         db.session.commit()
 
@@ -291,7 +290,6 @@ def submit_review(game_id):
         flash('You have already created a review for this game')
         return redirect(url_for('manage'))
 
-    # pylint: disable = no-member
     db.session.add(review)
     db.session.commit()
 
