@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="row">
-    <form class="col s12" action="" method='POST'>
+    <form class="col s12" action="{{url_for('submit_review', game_id=data.id)}}" method='POST'>
         <div class="row">
             <div class="col s6">
                 <h6 class="amber-text text-shadow">How do you Rate {{data.name}}?</h6>
@@ -63,8 +63,7 @@
             <input id="igdb-summary" name="igdb-summary" type="text" value="{{data.igdb_summary}}">
             <input id="igdb-cover-url" name="igdb-cover-url" type="text" value="{{data.igdb_cover_url}}">
           </div>
-        <button id="submit-review" class="btn waves-effect waves-light amber black-text" type="submit"
-            name="action">Submit</button>
+        <button id="submit-review" class="btn waves-effect waves-light amber black-text" type="submit">Submit</button>
     </form>
     <script src="{{url_for('static', filename='js/ratingSlider.js')}}"></script>
 </div>
