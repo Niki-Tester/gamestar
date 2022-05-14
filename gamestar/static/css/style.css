@@ -70,7 +70,11 @@ main {
 }
 
 .card {
-    max-width: 310px;
+    width: 200px;
+}
+
+.card .card-title {
+    font-size: 1.1rem;
 }
 
 .card .card-content .rating {
@@ -151,6 +155,11 @@ input[type=password]:not(.browser-default):not([readonly]) {
     font-weight: 900;
     color: #f8ce0b;
     font-size: 2rem;
+}
+
+.card .rating-outer::before,
+.card .rating-inner::before {
+    font-size: 1.75rem;
 }
 
 input[type=range]::-webkit-slider-thumb {
