@@ -17,7 +17,17 @@ def home():
     """
     Render home.html template.
     """
-    return render_template('home.html')
+    games = Game.query.all()
+    for game in games:
+        reviews = Review.query.filter_by(game_id=game.id).all()
+        total_rating = 0
+        for review in reviews:
+            total_rating += review.rating
+
+        average_rating = total_rating / len(reviews)
+        game.average_rating = average_rating
+
+    return render_template('home.html', games=games)
 
 
 @app.route('/register', methods=['GET', 'POST'])
