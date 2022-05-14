@@ -7,90 +7,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="card-container col s12 m6 l4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg">
-                </div>
-                <div class="card-content">
-                    <p class="card-title bold-text center-align">The Witcher 3: Wild Hunt</p>
-                    <div class="rating center-align">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+        {% for game in games %}
+            <div class="card-container col s12 m3 l3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="{{game.cover_art}}">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-title bold-text center-align truncate">{{game.name}}</p>
+                        <div class="rating-outer center-align">
+                            <div class="rating-inner center-align" style="width: {{game.average_rating * (100 / 5)}}%"></div>
+                        </div>
+                    </div>
+                    <div class="card-action grey darken-4">
+                        <i class="fa-solid fa-align-left amber-text text-lighten-1"></i>
+                        <a href="#">Reviews</a>
                     </div>
                 </div>
-                <div class="card-action grey darken-4">
-                    <i class="fa-solid fa-align-left amber-text text-lighten-1"></i>
-                    <a href="#">Reviews</a>
-                </div>
             </div>
-        </div>
-        <div class="card-container col s12 m6 l4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg">
-                </div>
-                <div class="card-content">
-                    <p class="card-title bold-text center-align">The Witcher 3: Wild Hunt</p>
-                    <div class="rating center-align">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </div>
-                <div class="card-action grey darken-4">
-                    <i class="fa-solid fa-align-left amber-text text-lighten-1"></i>
-                    <a href="#">Reviews</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col s12 m6 l4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg">
-                </div>
-                <div class="card-content">
-                    <p class="card-title bold-text center-align">The Witcher 3: Wild Hunt</p>
-                    <div class="rating center-align">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </div>
-                <div class="card-action grey darken-4">
-                    <i class="fa-solid fa-align-left amber-text text-lighten-1"></i>
-                    <a href="#">Reviews</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-container col s12 m6 l4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg">
-                </div>
-                <div class="card-content">
-                    <p class="card-title bold-text center-align">The Witcher 3: Wild Hunt</p>
-                    <div class="rating center-align">
-                        <!-- Template Ratings -->
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </div>
-                <div class="card-action grey darken-4">
-                    <i class="fa-solid fa-align-left amber-text text-lighten-1"></i>
-                    <a href="#">Reviews</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock content %}
