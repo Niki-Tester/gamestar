@@ -186,7 +186,17 @@ def manage():
     """
     try:
         if session['username']:
-            return render_template('manage.html')
+            user = User.query.filter_by(username=session['username']).first()
+            reviews = Review.query.filter_by(user_id=user.id).all()
+            user_reviews = []
+            for review in reviews:
+                game = Game.query.filter_by(id=review.game_id).first()
+                user_reviews.append({
+                                'game': game,
+                                'review': review
+                                })
+
+            return render_template('manage.html', user_reviews=user_reviews)
     except KeyError:
         print('User attempted to manage reviews when not logged in.')
 
