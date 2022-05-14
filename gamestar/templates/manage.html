@@ -5,56 +5,59 @@
             <h1>Manage Reviews</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 center-align white-text">
-            <p>You have not created any reviews yet.</p>
-            <p>Would you like to create one? <a href="{{url_for('search')}}" class="amber-text lighten-1">Add Review</a></p>
+    {% if not user_reviews %}
+        <div class="row">
+            <div class="col s12 center-align white-text">
+                <p>You have not created any reviews yet.</p>
+                <p>Would you like to create one? <a href="{{url_for('search')}}" class="amber-text lighten-1">Add Review</a></p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12 white-text">
-            {% for user_review in user_reviews %}
-                <a href="#modal{{user_review.review.id}}" class="modal-trigger">
-                    <div class="card-container col s12 m3 l3">
-                        <div class="card hoverable">
-                            <div class="card-image">
-                                <img src="{{user_review.game.cover_art}}">
-                            </div>
-                            <div class="card-content black-text">
-                                <p class="card-title bold-text center-align truncate">{{user_review.game.name}}</p>
-                                <div class="rating-outer center-align text-shadow">
-                                    <div class="rating-inner center-align text-shadow" style="width: {{user_review.review.rating * (100 / 5)}}%"></div>
+    {% else %}
+        <div class="row">
+            <div class="col s12 white-text">
+                {% for user_review in user_reviews %}
+                    <a href="#modal{{user_review.review.id}}" class="modal-trigger">
+                        <div class="card-container col s12 m3 l3">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="{{user_review.game.cover_art}}">
+                                </div>
+                                <div class="card-content grey darken-3">
+                                    <p class="card-title bold-text center-align white-text text-shadow truncate">{{user_review.game.name}}</p>
+                                    <div class="rating-outer center-align text-shadow">
+                                        <div class="rating-inner center-align text-shadow" style="width: {{user_review.review.rating * (100 / 5)}}%"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                  <!-- Modal Structure -->
-                <div id="modal{{user_review.review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
-                    <div class="modal-content">
-                        <h5>{{user_review.game.name}}</h5>
-                        <h6>Heading:</h6>
-                        <p class="white-text">{{user_review.review.heading}}</p>
-                        <br>
-                        <h6>What You Liked:</h6>
-                        <p class="white-text">{{user_review.review.liked_text}}</p>
-                        <br>
-                        <h6>What You Didn't Like:</h6>
-                        <p class="white-text">{{user_review.review.disliked_text}}</p>
-                        <br>
-                        <h6>Your Rating:</h6>
-                        <p class="white-text">{{user_review.review.rating}} stars out of 5</p>
-                        <br>
-                        <h6>Hours You Played:</h6>
-                        <p class="white-text">{{user_review.review.hours}} Hours</p>
+                    <!-- Modal Structure -->
+                    <div id="modal{{user_review.review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
+                        <div class="modal-content">
+                            <h5>{{user_review.game.name}}</h5>
+                            <h6>Heading:</h6>
+                            <p class="white-text">{{user_review.review.heading}}</p>
+                            <br>
+                            <h6>What You Liked:</h6>
+                            <p class="white-text">{{user_review.review.liked_text}}</p>
+                            <br>
+                            <h6>What You Didn't Like:</h6>
+                            <p class="white-text">{{user_review.review.disliked_text}}</p>
+                            <br>
+                            <h6>Your Rating:</h6>
+                            <p class="white-text">{{user_review.review.rating}} stars out of 5</p>
+                            <br>
+                            <h6>Hours You Played:</h6>
+                            <p class="white-text">{{user_review.review.hours}} Hours</p>
+                        </div>
+                        <div class="modal-footer grey darken-3">
+                            <a href="" class="btn text-shadow">Edit</a>
+                            <a href="" class="btn red darken-2 text-shadow">Delete</a>
+                        </div>
                     </div>
-                    <div class="modal-footer grey darken-3">
-                        <a href="" class="btn text-shadow">Edit</a>
-                        <a href="" class="btn red darken-2 text-shadow">Delete</a>
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock content %}
