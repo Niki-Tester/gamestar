@@ -77,6 +77,10 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        session['username'] = user.username
+        flash('Successfully Registered & Logged In!')
+        return redirect(url_for('home'))
+
     return render_template('register.html')
 
 
