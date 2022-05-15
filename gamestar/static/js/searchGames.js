@@ -1,7 +1,7 @@
 const searchInput = document.getElementById('search-game');
 const results = document.getElementById('results')
 let typingTimer;
-let doneTypingInterval = 300;
+let doneTypingInterval = 600;
 
 searchInput.addEventListener('submit', submitForm);
 
@@ -15,6 +15,9 @@ searchInput.addEventListener('keyup', () => {
 });
 
 function submitForm() {
+
+    // Clears previously received results
+    results.innerHTML = ''
 
     // Clears results when search input is empty
     if (searchInput.value.length == 0) {
