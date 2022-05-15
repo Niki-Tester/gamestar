@@ -6,25 +6,37 @@
             <p id="page-caption" class="white-text">Your place for video game reviews</p>
         </div>
     </div>
+    {% if not games %}
+        <div class="col s12 center-align white-text">
+            <p>Want to be the first to create a review?</p>
+            <p>
+                <a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a> / 
+                <a href="{{url_for('login')}}" class="amber-text text-lighten-1">Login</a> 
+                to create a review?
+            </p>
+        </div>
+    {% else %}
+    <div class="col s12 center-align"></div>
     <div class="row">
         {% for game in games %}
-            <a href="#">
-                <div class="card-container col s12 m6 l4 xl3">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="{{game.cover_art}}">
-                        </div>
-                        <div class="card-content grey darken-3">
-                            <p class="card-title bold-text center-align white-text text-shadow truncate">{{game.name}}</p>
-                            <div class="rating">
-                                <div class="rating-outer text-shadow center-align">
-                                    <div class="rating-inner text-shadow center-align" style="width: {{game.average_rating * (100 / 5)}}%"></div>
-                                </div>
+        <a href="#">
+            <div class="card-container col s12 m6 l4 xl3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="{{game.cover_art}}">
+                    </div>
+                    <div class="card-content grey darken-3">
+                        <p class="card-title bold-text center-align white-text text-shadow truncate">{{game.name}}</p>
+                        <div class="rating">
+                            <div class="rating-outer text-shadow center-align">
+                                <div class="rating-inner text-shadow center-align" style="width: {{game.average_rating * (100 / 5)}}%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
+        </a>
         {% endfor %}
     </div>
+    {% endif %}
 {% endblock content %}
