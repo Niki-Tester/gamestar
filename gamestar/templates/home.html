@@ -9,11 +9,17 @@
     {% if not games %}
         <div class="col s12 center-align white-text">
             <p>Want to be the first to create a review?</p>
-            <p>
-                <a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a> / 
-                <a href="{{url_for('login')}}" class="amber-text text-lighten-1">Login</a> 
-                to create a review?
-            </p>
+            {% if not session.username %}
+                <p>
+                    <a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a> / 
+                    <a href="{{url_for('login')}}" class="amber-text text-lighten-1">Login</a> 
+                    to create a review?
+                </p>
+            {% else %}
+                <p>
+                    <a href="{{url_for('search')}}" class="btn-large amber black-text waves-effect waves-light">Add Review</a>
+                </p>
+            {% endif %}
         </div>
     {% else %}
     <div class="col s12 center-align"></div>
