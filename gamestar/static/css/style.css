@@ -125,6 +125,26 @@ input[type=password]:not(.browser-default):not([readonly]) {
     box-shadow: 0 1px 0 0 #ccc;
 }
 
+.progress {
+    background-color: #000;
+}
+
+.progress .indeterminate {
+    background-color: #f8ce0b;
+}
+
+.collapsible-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.collapsible-header i {
+    margin: 0;
+    padding: 0;
+    transform: translateY(-2.5px);
+}
+
 .rating {
     display: flex;
     justify-content: center;
