@@ -3,6 +3,7 @@
 import re
 import random
 import json
+from datetime import datetime
 from flask import (render_template, request, redirect, url_for, flash,
                    session, jsonify)
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -348,3 +349,19 @@ def submit_review(game_id):
 
     flash('Review added successfully')
     return redirect(url_for('home'))
+
+
+@app.route('/game/<int:game_id>')
+def game(game_id):
+    """Render users reviews for selected game"""
+
+    reviews_data = Review.query.filter_by(game_id=game_id).all()
+
+    for review in reviews_data:
+        review.username = User.query.filter_by(id=review.user_id).first().username
+        review.created_date = datetime.fromtimestamp(review.timestamp).strftime('%B %d, %Y')
+
+    game_data = Game.query.filter_by(id=game_id).first()
+    background = random.choice(json.loads(game_data.artwork))
+    return render_template('game.html', game=game_data,
+                           reviews=reviews_data, background=background)

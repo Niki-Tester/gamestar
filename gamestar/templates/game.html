@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col s3">
+            <img src="{{game.cover_art}}" alt="{{game.name}} cover art">
+        </div>
+        <div class="col s9">
+            <h1 class="white-text">{{game.name}}</h1>
+            <p class="white-text">{{game.summary}}</p>
+        </div>
+    </div>
+    {% for review in reviews %}
+        <!-- Modal Trigger -->
+        <a href="#review{{review.id}}" class="modal-trigger">
+            <div class="row grey darken-1 hoverable">
+                <div class="col s12">
+                    <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
+                </div>
+            </div>
+        </a>
+
+        <!-- Modal Structure -->
+        <div id="review{{review.id}}" class="modal white-text">
+            <div class="modal-content grey darken-3 white-text">
+               <h4 class='center-align'>{{review.heading}}</h4>
+               <br>
+               <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Liked:</h6>
+               <p>{{review.liked_text}}</p>
+               <br>
+               <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Disliked:</h6>
+               <p>{{review.disliked_text}}</p>
+            </div>
+            <div class="modal-footer grey darken-1">
+                <!--<p><i class="fa-solid fa-thumbs-up"></i> {{review.likes}}</p>-->
+                <p><a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a> ({{review.hours}} hours) - {{review.created_date}} </p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

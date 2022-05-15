@@ -25,7 +25,7 @@
     <div class="col s12 center-align"></div>
     <div class="row">
         {% for game in games %}
-        <a href="#">
+        <a href="{{url_for('game', game_id=game.id)}}">
             <div class="card-container col s12 m6 l4 xl3">
                 <div class="card hoverable">
                     <div class="card-image">
