@@ -1,4 +1,6 @@
 """Flask SQL-Alchemy Database Models"""
+import time
+import math
 from gamestar import db
 
 
@@ -42,9 +44,6 @@ class Review(db.Model):
     disliked_text = db.Column(db.Text, nullable=False)
     hours = db.Column(db.Integer, nullable=False)
     likes = db.Column(
-        db.Integer, db.ForeignKey("user.id"), nullable=True
-        )
-    dislikes = db.Column(
         db.Integer, db.ForeignKey("user.id"), nullable=True
         )
 
