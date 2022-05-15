@@ -186,6 +186,11 @@ input[type=range]+.thumb.active .value {
     font-weight: bold;
 }
 
+#delete-profile {
+    padding-bottom: 1rem;
+    border: 2px #df0101 solid;
+}
+
 @media screen and (min-width: 601px) {
     #nav-logo {
         margin-top: 0.75rem;

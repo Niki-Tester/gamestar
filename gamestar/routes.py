@@ -182,6 +182,30 @@ def profile():
         return redirect(url_for('home'))
 
 
+@app.route('/profile/delete', methods=['GET', 'POST'])
+def delete_user():
+    """Delete user profile, and remove all user data"""
+
+    # POST Request
+    if request.method == 'POST':
+        username = request.form.get('username')
+        if username != session['username']:
+            flash('Error deleting profile, '
+                  'please contact an administrator')
+            return redirect(url_for('profile'))
+
+        flash('User profile successfully deleted!')
+        return redirect(url_for('home'))
+
+    # GET Request
+    try:
+        if session['username']:
+            return redirect(url_for('profile'))
+    except KeyError:
+        print('User attempted to delete user while not logged in.')
+        return redirect(url_for('home'))
+
+
 @app.route('/manage', methods=['GET', 'POST'])
 def manage():
     """
