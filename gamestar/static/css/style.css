@@ -211,6 +211,12 @@ input[type=range]+.thumb.active .value {
     border: 2px #df0101 solid;
 }
 
+#review-liked p,
+#review-disliked p {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
 @media screen and (min-width: 601px) {
     #nav-logo {
         margin-top: 0.75rem;

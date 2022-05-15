@@ -28,22 +28,21 @@
                        <h4 class='center-align'>{{review.heading}}</h4>
                    </div>
                </div>
-               <div class="row">
-                   <div class="col s12">
+               <div class="row grey darken-2">
+                   <div id="review-like" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Liked:</h6>
-                        <p class="col s11" style="white-space: pre-wrap; line-height: 1.5;">{{review.liked_text}}</p>
+                        <p class="col s11">{{review.liked_text}}</p>
                    </div>
                </div>
-               <div class="row">
-                   <div class="col s12">
-                        <h6 class="amber-text text-lighten-1" style="white-space: pre-wrap;">What {{review.username|capitalize}} Disliked:</h6>
-                        <p class="col s11" style="white-space: pre-wrap; line-height: 1.5;">{{review.disliked_text}}</p>
+               <div class="row grey darken-2">
+                   <div id="review-dislike" class="col s12">
+                        <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Disliked:</h6>
+                        <p class="col s11">{{review.disliked_text}}</p>
                    </div>
                </div>
             </div>
             
             <div class="modal-footer grey darken-1">
-                <!--<p><i class="fa-solid fa-thumbs-up"></i> {{review.likes}}</p>-->
                 <p><a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a> ({{review.hours}} hours) - {{review.created_date}} </p>
             </div>
         </div>
