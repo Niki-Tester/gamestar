@@ -47,6 +47,10 @@ class Review(db.Model):
         db.Integer, db.ForeignKey("user.id"), nullable=True
         )
 
+    timestamp = db.Column(db.Integer,
+                          nullable=False,
+                          default=math.floor(time.time()))
+
     def __repr__(self):
         # __repr__ to represent itself in the for of a string
         return f'Id: {self.id} | User_Id: {self.user_id} | '\
