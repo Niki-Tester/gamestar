@@ -27,7 +27,7 @@ def home():
         average_rating = total_rating / len(reviews)
         game.average_rating = average_rating
 
-    return render_template('home.html', games=games)
+    return render_template('home.html', games=games, title='Home')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -81,7 +81,7 @@ def register():
         flash('Successfully Registered & Logged In!')
         return redirect(url_for('home'))
 
-    return render_template('register.html')
+    return render_template('register.html', title='Register')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -101,19 +101,19 @@ def login():
             flash('Log In Failed:\
                  Username not found.\
                       Please Try Again!')
-            return render_template('login.html')
+            return redirect(url_for('login'))
 
         if not check_password_hash(existing_user.password, password):
             flash('Log In Failed:\
                  Username/Password combination not recognized.\
                       Please Try Again!')
-            return render_template('login.html')
+            return redirect(url_for('login'))
 
         session['username'] = existing_user.username
         flash('Successfully Logged In')
         return redirect(url_for('home'))
 
-    return render_template('login.html')
+    return render_template('login.html', title='Login')
 
 
 @app.route('/logout')
@@ -171,12 +171,13 @@ def profile():
 
         db.session.commit()
         flash('Password Changed Successfully')
-        return render_template('profile.html', user=session['username'])
+        return redirect(url_for('profile'))
 
     # GET Request
     try:
         if session['username']:
-            return render_template('profile.html', user=session['username'])
+            return render_template('profile.html', user=session['username'],
+                                   title='Your Profile')
     except KeyError:
         print('User attempted to view profile while not logged in.')
         return redirect(url_for('home'))
@@ -224,7 +225,8 @@ def manage():
                                 'review': review
                                 })
 
-            return render_template('manage.html', user_reviews=user_reviews)
+            return render_template('manage.html', user_reviews=user_reviews,
+                                   title='Your Reviews')
     except KeyError:
         print('User attempted to manage reviews when not logged in.')
 
@@ -257,7 +259,7 @@ def search():
     # GET:
     try:
         if session['username']:
-            return render_template('search.html')
+            return render_template('search.html', title='Search Games')
     except KeyError:
         print('User attempted to search games when not logged in.')
 
@@ -284,10 +286,13 @@ def add_review():
         game['artworks'] = get_game_artwork(game_id)
 
         if len(game['artworks']) > 0:
-            return render_template('add_review.html', data=game,
-                                   background=random.choice(game['artworks']))
+            return render_template('add_review.html',
+                                   data=game,
+                                   background=random.choice(game['artworks']),
+                                   title='Create Review')
 
-        return render_template('add_review.html', data=game)
+        return render_template('add_review.html', data=game,
+                               title='Create Review')
 
     # GET:
     return redirect('search')
