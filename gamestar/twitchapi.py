@@ -63,6 +63,10 @@ def get_access_token():
 
     current_token = Twitch.query.get(1)
 
+    if not current_token:
+        new_access_token()
+        current_token = Twitch.query.get(1)
+
     current_token_expires = current_token.date_added + current_token.expires_in
 
     difference = current_token_expires - math.floor(time.time())
