@@ -67,7 +67,7 @@
     </main>
     <!--Footer -->
     <footer class="page-footer grey darken-3">
-        {% if url_for(request.endpoint) == '/' %}
+        {% if request.endpoint == '/' %}
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
