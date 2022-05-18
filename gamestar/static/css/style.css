@@ -180,6 +180,15 @@ input[type=password]:not(.browser-default):not([readonly]) {
     font-size: 2rem;
 }
 
+.rating-small .rating-inner::before,
+.rating-small .rating-outer::before {
+    font-size: 0.9rem;
+}
+
+.review-details {
+    margin: 5px 0px;
+}
+
 .card .rating-outer::before,
 .card .rating-inner::before {
     font-size: 1.75rem;
