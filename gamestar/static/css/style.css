@@ -42,10 +42,9 @@ h6 {
     font-weight: bold;
 }
 
-
-.info {
-    background-color: #ffca28;
-    color: #000;
+.success {
+    background-color: #128812;
+    color: #fff;
 }
 
 .error {
