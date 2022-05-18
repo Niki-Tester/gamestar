@@ -79,4 +79,15 @@
             </div>
         </div>
     {% endfor %}
+    {% if not session.username %}
+        <div class="row">
+            <div class="col s12 white-text center-align">
+                <p class="white-text">
+                    <a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a> /
+                    <a href="{{url_for('login')}}" class="amber-text text-lighten-1">Login</a>
+                    to Create Reviews
+                </p>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
