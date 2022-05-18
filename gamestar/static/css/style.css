@@ -38,28 +38,10 @@ h6 {
     margin-top: 6px;
 }
 
-#flashes {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    left: 0;
-    font-size: 1.25rem;
+.toast {
+    background-color: #ffca28;
+    color: #000;
     font-weight: bold;
-}
-
-.flash {
-    position: relative;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.flash i {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    pointer-events: none;
-    font-size: 1.5rem;
 }
 
 main {
