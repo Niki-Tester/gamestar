@@ -30,13 +30,13 @@
                 <div class="col s4 grey darken-3 review-details">
                     <span class="rating-small">
                         <span class="rating-outer">
-                            <span class="rating-inner" style="width: {{game.average_rating * (100 / 5)}}%">
+                            <span class="rating-inner" style="width: {{review.rating * (100 / 5)}}%">
                             </span>
                         </span>
                     </span>
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
-                    <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i><span class="white-text"> 283</span>
+                    <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i><span class="white-text"> {{review.likes if review.likes is not none else 0}}</span>
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
                     <a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
