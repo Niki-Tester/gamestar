@@ -16,13 +16,17 @@
                     to create a review?
                 </p>
             {% else %}
-                <p>
                     <a href="{{url_for('search')}}" class="btn-large amber black-text waves-effect waves-light">Add Review</a>
-                </p>
             {% endif %}
         </div>
     {% else %}
-    <div class="col s12 center-align"></div>
+    <div class="row">
+        <div class="col s12 left-align">
+            {% if session.username %}
+                <a href="{{url_for('search')}}" class="btn-small amber black-text waves-effect waves-light">Add Review</a>
+            {% endif %}
+        </div>
+    </div>
     <div class="row">
         {% for game in games %}
         <a href="{{url_for('game', game_id=game.id)}}">
