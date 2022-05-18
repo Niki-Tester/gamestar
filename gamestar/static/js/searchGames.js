@@ -1,5 +1,5 @@
 const searchInput = document.getElementById('search-game');
-const results = document.getElementById('results')
+const results = document.getElementById('results');
 let typingTimer;
 let doneTypingInterval = 600;
 
@@ -93,11 +93,6 @@ function displayResults(data) {
         gameSummary.innerText = data[i].summary;
         gameSummary.setAttribute('class', 'white-text col s12 m8 l9');
 
-
-        const form = document.createElement('form');
-        form.setAttribute('method', 'POST');
-        form.setAttribute('action', data[i].form_action);
-
         const hiddenInput = document.createElement('input')
         hiddenInput.setAttribute('class', 'hide')
         hiddenInput.setAttribute('type', 'number')
@@ -105,16 +100,13 @@ function displayResults(data) {
         hiddenInput.setAttribute('name', 'game_id')
         hiddenInput.setAttribute('value', data[i].id)
 
-        const submitButton = document.createElement('input');
-        submitButton.setAttribute('value', 'Add Game');
-        submitButton.setAttribute('type', 'submit');
-        submitButton.setAttribute('id', 'submit');
-        submitButton.setAttribute('class', 'btn waves-effect waves-light green darken-4');
+        const addReviewLink = document.createElement('a');
+        addReviewLink.innerText = 'Add Game';
+        addReviewLink.setAttribute('class', 'btn waves-effect waves-light green darken-4');
+        addReviewLink.href = data[i].anchor_href;
 
-        form.append(hiddenInput);
-        form.append(submitButton);
         divBodyInner.append(gameImage);
-        divBodyInner.append(form)
+        divBodyInner.append(addReviewLink)
         divBodyInner.append(gameSummary);
         divBody.append(divBodyInner)
 
@@ -130,4 +122,40 @@ function displayResults(data) {
 
     // Initializes collapsible element from Materialize CSS
     $('.collapsible').collapsible();
+
+    const loading = e => {
+
+        const wrapper = document.createElement('div');
+        wrapper.setAttribute('class', 'preloader-wrapper small active');
+
+        const spinner = document.createElement('div');
+        spinner.setAttribute('class', 'spinner-layer spinner-white-only');
+
+        const circleLeft = document.createElement('div');
+        circleLeft.setAttribute('class', 'circle-clipper left');
+
+        const gap = document.createElement('div');
+        gap.setAttribute('class', 'gap-patch');
+
+        const circleRight = document.createElement('div');
+        circleRight.setAttribute('class', 'circle-clipper right');
+
+        const circle = document.createElement('div');
+        circle.setAttribute('class', 'circle');
+
+        circleLeft.append(circle);
+        gap.append(circle);
+        circleRight.append(circle);
+
+        spinner.append(circleLeft, gap, circleRight);
+
+        wrapper.append(spinner);
+
+        e.currentTarget.replaceWith(wrapper);
+    }
+
+    const links = document.getElementsByClassName('btn');
+    for (const link of links) {
+        link.addEventListener('click', loading)
+    }
 }
