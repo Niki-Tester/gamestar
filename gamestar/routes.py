@@ -253,7 +253,7 @@ def search():
                 game['img_url'] = url_for('static',
                                           filename='images/no_cover.webp')
 
-            game['form_action'] = url_for('add_review')
+            game['anchor_href'] = url_for('add_review', game_id=game['id'])
 
         return jsonify(data)
 
@@ -267,36 +267,28 @@ def search():
     return redirect(url_for('home'))
 
 
-@app.route('/add_review', methods=['GET', 'POST'])
-def add_review():
+@app.route('/add_review/<game_id>', methods=['GET'])
+def add_review(game_id):
     """
-    GET:    Redirects to /search
-    POST:   1) Adds game to database if does not exist.
-            2) Adds review to database.
+    GET: Search IGDB for game by ID, return and render result
     """
 
-    # POST:
-    if request.method == 'POST':
-        game_id = request.form.get('game_id')
-        game = get_game_data_by_id(game_id)[0]
-        if 'cover' in game:
-            game['cover'] = get_game_cover_art(game_id)
-        else:
-            game['cover'] = url_for('static', filename='images/no_cover.webp')
+    game = get_game_data_by_id(game_id)[0]
+    if 'cover' in game:
+        game['cover'] = get_game_cover_art(game_id)
+    else:
+        game['cover'] = url_for('static', filename='images/no_cover.webp')
 
-        game['artworks'] = get_game_artwork(game_id)
+    game['artworks'] = get_game_artwork(game_id)
 
-        if len(game['artworks']) > 0:
-            return render_template('add_review.html',
-                                   data=game,
-                                   background=random.choice(game['artworks']),
-                                   title='Create Review')
-
-        return render_template('add_review.html', data=game,
+    if len(game['artworks']) > 0:
+        return render_template('add_review.html',
+                               data=game,
+                               background=random.choice(game['artworks']),
                                title='Create Review')
 
-    # GET:
-    return redirect('search')
+    return render_template('add_review.html', data=game,
+                           title='Create Review')
 
 
 @app.route('/submit_review/<game_id>', methods=['POST'])
