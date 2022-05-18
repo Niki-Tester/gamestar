@@ -103,10 +103,10 @@
         body.style.backgroundBlendMode = 'overlay';
     </script>
     <!-- Flash Messages -->
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            {% for message in messages %}
-                <script> M.toast({html: '{{message}}'})</script>
+            {% for category, message in messages %}
+                <script> M.toast({html: '{{message}}', classes: '{{category}}'})</script>
             {% endfor %}
         {% endif %}
     {% endwith %}

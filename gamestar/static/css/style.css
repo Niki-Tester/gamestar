@@ -39,9 +39,18 @@ h6 {
 }
 
 .toast {
+    font-weight: bold;
+}
+
+
+.info {
     background-color: #ffca28;
     color: #000;
-    font-weight: bold;
+}
+
+.error {
+    background-color: #a10202;
+    color: #fff;
 }
 
 main {

@@ -46,19 +46,19 @@ def register():
         if len(username) < 3 or len(username) > 16:
             flash('Registration Failed:\
                  Username must be between 3-16 characters in length.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return render_template('register.html')
 
         if re.search('[^A-z0-9]', username):
             flash('Registration Failed:\
                  Username must only contain letters and numbers.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return render_template('register.html')
 
         if password != password_confirm:
             flash('Registration Failed:\
                  Passwords do not match.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return render_template('register.html')
 
         existing_user = User.query.filter_by(username=username).first()
@@ -66,7 +66,7 @@ def register():
         if existing_user:
             flash('Registration Failed:\
                  Username taken.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return render_template('register.html')
 
         password_hash = generate_password_hash(password)
@@ -79,7 +79,7 @@ def register():
         db.session.commit()
 
         session['username'] = user.username
-        flash('Successfully Registered & Logged In!')
+        flash('Successfully Registered & Logged In!', 'success')
         return redirect(url_for('home'))
 
     return render_template('register.html', title='Register')
@@ -101,17 +101,17 @@ def login():
         if not existing_user:
             flash('Log In Failed:\
                  Username not found.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return redirect(url_for('login'))
 
         if not check_password_hash(existing_user.password, password):
             flash('Log In Failed:\
                  Username/Password combination not recognized.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return redirect(url_for('login'))
 
         session['username'] = existing_user.username
-        flash('Successfully Logged In')
+        flash('Successfully Logged In', 'success')
         return redirect(url_for('home'))
 
     return render_template('login.html', title='Login')
@@ -125,7 +125,7 @@ def logout():
     try:
         if session['username']:
             session.clear()
-            flash('Successfully Logged Out')
+            flash('Successfully Logged Out', 'success')
     except KeyError:
         print('User attempted to log out when not logged in.')
 
@@ -147,7 +147,7 @@ def profile():
         if password != confirm_password:
             flash('Password Change Failed:\
                  Passwords do not match.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return redirect(url_for('profile'))
 
         existing_user = User.query.filter_by(
@@ -156,7 +156,7 @@ def profile():
         if not existing_user:
             flash('Password Change Failed:\
                  Username not found.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return redirect(url_for('profile'))
 
         passwords_match = check_password_hash(
@@ -171,7 +171,7 @@ def profile():
         existing_user.password = generate_password_hash(password)
 
         db.session.commit()
-        flash('Password Changed Successfully')
+        flash('Password Changed Successfully', 'success')
         return redirect(url_for('profile'))
 
     # GET Request
@@ -193,10 +193,10 @@ def delete_user():
         username = request.form.get('username')
         if username != session['username']:
             flash('Error deleting profile, '
-                  'please contact an administrator')
+                  'please contact an administrator', 'error')
             return redirect(url_for('profile'))
 
-        flash('User profile successfully deleted!')
+        flash('User profile successfully deleted!', 'success')
         return redirect(url_for('home'))
 
     # GET Request
@@ -341,13 +341,13 @@ def submit_review(game_id):
 
     if existing_review:
         print(request)
-        flash('You have already created a review for this game')
+        flash('You have already created a review for this game', 'error')
         return redirect(url_for('manage'))
 
     db.session.add(review)
     db.session.commit()
 
-    flash('Review added successfully')
+    flash('Review added successfully', 'success')
     return redirect(url_for('home'))
 
 
