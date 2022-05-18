@@ -81,6 +81,10 @@ main {
     font-size: 1.1rem;
 }
 
+.card .card-image img {
+    height: 270px;
+}
+
 #register-dialog,
 #login-dialog,
 #profile-dialog {
