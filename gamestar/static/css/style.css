@@ -40,6 +40,8 @@ h6 {
 
 .toast {
     font-weight: bold;
+    max-width: 310px;
+    text-align: center;
 }
 
 .success {
