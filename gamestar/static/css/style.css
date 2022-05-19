@@ -185,6 +185,10 @@ input[type=password]:not(.browser-default):not([readonly]) {
     margin: 5px 0px;
 }
 
+.review-text {
+    white-space: pre-wrap;
+}
+
 .card .rating-outer::before,
 .card .rating-inner::before {
     font-size: 1.75rem;

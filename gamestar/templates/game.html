@@ -65,13 +65,13 @@
                 <div class="row grey darken-2">
                     <div id="review-like" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Liked:</h6>
-                        <p>{{review.liked_text}}</p>
+                        <p class="review-text">{{review.liked_text}}</p>
                     </div>
                 </div>
                 <div class="row grey darken-2">
                     <div id="review-dislike" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Disliked:</h6>
-                        <p>{{review.disliked_text}}</p>
+                        <p class="review-text">{{review.disliked_text}}</p>
                     </div>
                 </div>
                 {% if session.username == review.username or session.username == 'admin' %}
