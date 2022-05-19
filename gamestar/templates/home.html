@@ -13,7 +13,7 @@
                 <p>
                     <a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a> / 
                     <a href="{{url_for('login')}}" class="amber-text text-lighten-1">Login</a> 
-                    to create a review?
+                    to Create Reviews
                 </p>
             {% else %}
                     <a href="{{url_for('search')}}" class="btn-large amber black-text waves-effect waves-light">Add Review</a>
@@ -48,8 +48,7 @@
         </a>
         {% endfor %}
     </div>
-    {% endif %}
-    {% if not session.username %}
+        {% if not session.username %}
         <div class="row">
             <div class="col s12 white-text center-align">
                 <p class="white-text">
@@ -59,5 +58,6 @@
                 </p>
             </div>
         </div>
+        {% endif %}
     {% endif %}
 {% endblock content %}
