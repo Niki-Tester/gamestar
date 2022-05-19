@@ -16,7 +16,7 @@
 
         * [ ] Write Python code that is consistent in style and conforms to the PEP8 style guide (or another explicitly mentioned style guide, such as Google's) and validated HTML and CSS code.
 
-        * [ ] DWrite Python logic to demonstrate proficiency in the language. 
+        * [ ] Write Python logic to demonstrate proficiency in the language. 
 
         * [ ] Include functions with compound statements such as if conditions and/or loops in Python code
 
@@ -71,7 +71,7 @@
     
     * [ ] PASS CRITERIA:
 
-        * [ ] Deploy a final version of the fullstack application code to a cloud-based hosting platform (e.g. Heroku) and test to ensure it  matches the development version.
+        * [ ] Deploy a final version of the fullstack application code to a cloud-based hosting platform (e.g. Heroku) and test to ensure it matches the development version.
         
         * [ ] Ensure that final deployed code is free of commented out code and has no broken internal links.
         
@@ -93,6 +93,7 @@
         * [ ] Commit final code that is free of any passwords or secret keys, to the repository and to the hosting platform.
         
         * [ ] Use environment variables, or files that are in gitignore, to hide all secret keys.
+        
         * [ ] Ensure that DEBUG mode is turned off in production versions.
 
     * [ ] MERIT CRITERIA:
