@@ -78,20 +78,18 @@
                     <div class="row">
                         <div class="col s12 center-align white-text">
                             <a href="{{url_for('edit_review', review_id=review.id)}}" class="waves-effect waves-light btn">Edit</a>
-                            <a href="#confirm" class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
+                            <a href="#confirm{{review.id}}" class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
                         </div>
                     </div>
                     <!-- Modal Structure -->
-                    <div id="confirm" class="modal center-align">
+                    <div id="confirm{{review.id}}" class="modal center-align">
                         <div class="modal-content grey darken-3 white-text">
                             <h4 class="red-text">Are You Sure?</h4>
                         </div>
                     <div class="modal-footer grey darken-1">
-                        <form action="" method="POST">
                             <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
                             <a href="#" class="modal-close waves-effect waves-light btn">No</a>
-                            <button type="submit" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</button>
-                        </form>
+                            <a href="{{url_for('delete_review', review_id=review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
                         </div>
                     </div>
                 {% endif %}

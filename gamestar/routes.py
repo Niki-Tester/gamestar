@@ -343,7 +343,7 @@ def submit_review(game_id):
     return redirect(url_for('home'))
 
 
-@app.route('/edit_review<int:review_id>', methods=['GET', 'POST'])
+@app.route('/edit_review/<int:review_id>', methods=['GET', 'POST'])
 def edit_review(review_id):
     """
     Renders edit_review.html template.
@@ -374,6 +374,31 @@ def edit_review(review_id):
                            title='Edit Review',
                            game=game,
                            review=review)
+
+
+@app.route('/delete_review/<int:review_id>')
+def delete_review(review_id):
+    """Delete review stored in database"""
+    review = Review.query.filter_by(id=review_id).first()
+    user = User.query.filter_by(id=review.user_id).first()
+
+    if session['username'] != 'admin' and user.username != session['username']:
+        flash('You can only delete your own reviews', 'error')
+        return redirect(url_for('home'))
+
+    db.session.delete(review)
+    db.session.commit()
+
+    game = Game.query.get_or_404(review.game_id)
+
+    reviews = Review.query.filter_by(game_id=game.id).all()
+
+    if not reviews:
+        db.session.delete(game)
+        db.session.commit()
+
+    flash('Review has be deleted successfully.', 'success')
+    return redirect(url_for('home'))
 
 
 @app.route('/game/<int:game_id>')
