@@ -191,12 +191,32 @@ def delete_user():
     # POST Request
     if request.method == 'POST':
         username = request.form.get('username')
-        if username != session['username']:
+        if session['username'] != 'admin' and username != session['username']:
             flash('Error deleting profile, '
                   'please contact an administrator', 'error')
             return redirect(url_for('profile'))
 
+        user = User.query.filter_by(username=username).first()
+        users_reviews = Review.query.filter_by(user_id=user.id).all()
+
+        for review in users_reviews:
+            game = Game.query.filter_by(id=review.game_id).first()
+
+            db.session.delete(review)
+            db.session.commit()
+
+            reviews = Review.query.filter_by(game_id=game.id).all()
+
+            if not reviews:
+                db.session.delete(game)
+                db.session.commit()
+
+        db.session.delete(user)
+        db.session.commit()
+
+        session.clear()
         flash('User profile successfully deleted!', 'success')
+
         return redirect(url_for('home'))
 
     # GET Request
