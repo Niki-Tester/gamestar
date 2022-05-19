@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row white-text center-align">
+    <div class="col s12">
+        <h1>User Manager</h1>
+    </div>
+</div>
+<div class="row white-text center-align">
+    <div class="col s12">
+        <div class="row">
+            <div class="row">
+            <div class="input-field col s6">
+                <input id="username" type="text" autocomplete="off" class="white-text">
+                <label for="username">Search Users</label>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row white-text center-align">
+    {% for user in users %}
+        {% if user.username != 'admin' %}
+            <div class="col s12 m3">
+                <div class="card grey darken-3">
+                <div class="card-content white-text">
+                    <h5>{{user.username|capitalize}}</h5>
+                </div>
+                <div class="card-action">
+                    <a href="#confirm-{{user.username}}" class="btn-small red darken-2 waves-effect waves-light modal-trigger"><i class="fa-solid fa-user-xmark"></i></a>
+                </div>
+                </div>
+            </div>
+            <!-- Modal Structure -->
+            <div id="confirm-{{user.username}}" class="modal center-align">
+                <div class="modal-content grey darken-3 white-text">
+                    <h4 class="red-text text-shadow">Are You Sure?</h4>
+                    <p class="white-text text-shadow">Deleting {{user.username|capitalize}}'s profile will remove all user data including any reviews that {{user.username|capitalize}} has created.</p>
+                    <p>This will also allow another user to register as {{user.username|capitalize}}</p>
+                    <h3 class="red-text text-shadow">WARNING!</h3>
+                    <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
+                </div>
+            <div class="modal-footer grey darken-1">
+                <form action="{{url_for('delete_user')}}" method="POST">
+                    <input type="text" name="username" id="username" value="{{user.username}}" class="hide">
+                    <a href="#" class="modal-close waves-effect waves-light btn">No</a>
+                    <button type="submit" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</button>
+                </form>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

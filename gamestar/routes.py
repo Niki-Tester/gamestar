@@ -191,6 +191,11 @@ def delete_user():
     # POST Request
     if request.method == 'POST':
         username = request.form.get('username')
+
+        if username == 'admin':
+            flash('User: Admin, Can not be deleted', 'error')
+            return redirect(url_for('profile'))
+
         if session['username'] != 'admin' and username != session['username']:
             flash('Error deleting profile, '
                   'please contact an administrator', 'error')
@@ -214,9 +219,13 @@ def delete_user():
         db.session.delete(user)
         db.session.commit()
 
+        if session['username'] == 'admin':
+            flash(f'{user.username.capitalize()} '
+                  'profile successfully deleted!', 'success')
+            return redirect(url_for('user_manager'))
+
         session.clear()
         flash('User profile successfully deleted!', 'success')
-
         return redirect(url_for('home'))
 
     # GET Request
@@ -226,6 +235,22 @@ def delete_user():
     except KeyError:
         print('User attempted to delete user while not logged in.')
         return redirect(url_for('home'))
+
+
+@app.route('/user_manager')
+def user_manager():
+    """
+    GET: Displays list of registered users
+    """
+    if session['username'] != 'admin':
+        flash('You are not authorized to access this page', 'error')
+        return redirect(url_for('home'))
+
+    users = User.query.all()
+
+    return render_template('user_manager.html',
+                           title='User Manager',
+                           users=users)
 
 
 @app.route('/manage', methods=['GET', 'POST'])
