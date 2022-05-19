@@ -343,6 +343,34 @@ def submit_review(game_id):
     return redirect(url_for('home'))
 
 
+@app.route('/edit_review<int:review_id>', methods=['GET', 'POST'])
+def edit_review(review_id):
+    """
+    Renders edit_review.html template.
+    POST: Updates users review with new review data.
+    """
+
+    review = Review.query.filter_by(id=review_id).first()
+    game = Game.query.filter_by(id=review.game_id).first()
+
+    if request.method == 'POST':
+
+        review.heading = request.form.get('review-heading')
+        review.rating = request.form.get('review-rating')
+        review.liked_text = request.form.get('liked-text')
+        review.disliked_text = request.form.get('disliked-text')
+        review.hours = request.form.get('review-hours')
+
+        db.session.commit()
+
+        return redirect(url_for('game', game_id=game.id))
+
+    return render_template('edit_review.html',
+                           title='Edit Review',
+                           game=game,
+                           review=review)
+
+
 @app.route('/game/<int:game_id>')
 def game(game_id):
     """Render users reviews for selected game"""
@@ -364,5 +392,7 @@ def game(game_id):
 
     background = random.choice(json.loads(game_data.artwork))
 
-    return render_template('game.html', game=game_data,
+    return render_template('game.html',
+                           title=game_data.name,
+                           game=game_data,
                            reviews=reviews_data, background=background)

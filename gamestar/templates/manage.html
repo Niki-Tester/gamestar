@@ -57,7 +57,7 @@
                             <p class="white-text">{{user_review.review.hours}} Hours</p>
                         </div>
                         <div class="modal-footer grey darken-3">
-                            <a href="" class="btn text-shadow">Edit</a>
+                            <a href="{{url_for('edit_review', review_id=user_review.review.id)}}" class="btn text-shadow">Edit</a>
                             <a href="" class="btn red darken-2 text-shadow">Delete</a>
                         </div>
                     </div>

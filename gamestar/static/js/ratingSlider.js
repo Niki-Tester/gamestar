@@ -10,3 +10,7 @@ function updateRating() {
 function mapNum(number, inMin, inMax, outMin, outMax) {
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateRating();
+})
