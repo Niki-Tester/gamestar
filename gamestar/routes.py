@@ -446,6 +446,30 @@ def delete_review(review_id):
     return redirect(url_for('home'))
 
 
+@app.route('/review_manager')
+def review_manager():
+    """
+    Displays all reviews if user is admin
+    """
+
+    if session['username'] != 'admin':
+        flash('You are not authorized to view this page', 'error')
+        return redirect(url_for('home'))
+
+    reviews = Review.query.all()
+
+    for review in reviews:
+        username = User.query.filter_by(id=review.user_id).first().username
+        game = Game.query.filter_by(id=review.game_id).first()
+
+        review.username = username
+        review.game = game
+
+    return render_template('review_manager.html',
+                           title='Review Manager',
+                           reviews=reviews)
+
+
 @app.route('/game/<int:game_id>')
 def game(game_id):
     """Render users reviews for selected game"""

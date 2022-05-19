@@ -77,6 +77,14 @@ main {
     height: 270px;
 }
 
+.collection .collection-item.avatar {
+    padding-top: 1.25rem;
+}
+
+.collection .collection-item.avatar .secondary-content {
+    top: 25px;
+}
+
 #register-dialog,
 #login-dialog,
 #profile-dialog {
