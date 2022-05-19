@@ -352,6 +352,11 @@ def edit_review(review_id):
 
     review = Review.query.filter_by(id=review_id).first()
     game = Game.query.filter_by(id=review.game_id).first()
+    user = User.query.filter_by(id=review.user_id).first()
+
+    if session['username'] != 'admin' and user.username != session['username']:
+        flash('You can only edit your own reviews', 'error')
+        return redirect(url_for('home'))
 
     if request.method == 'POST':
 

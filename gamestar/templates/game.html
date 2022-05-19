@@ -74,7 +74,7 @@
                         <p>{{review.disliked_text}}</p>
                     </div>
                 </div>
-                {% if session.username == review.username %}
+                {% if session.username == review.username or session.username == 'admin' %}
                     <div class="row">
                         <div class="col s12 center-align white-text">
                             <a href="{{url_for('edit_review', review_id=review.id)}}" class="waves-effect waves-light btn">Edit</a>
