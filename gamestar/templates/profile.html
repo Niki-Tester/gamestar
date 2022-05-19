@@ -35,18 +35,20 @@
         <div class="row">
             <div id="delete-profile" class="col s12 m6 offset-m3 center-align grey darken-2 white-text">
                 <h5 class="red-text text-shadow">Delete User Profile</h5>
-                <a href="#confirm" class="btn-small red darken-2 waves-effect waves-light modal-trigger"><i class="fa-solid fa-user-xmark"></i></a>
+                <a href="#confirm-{{user}}" class="btn-small red darken-2 waves-effect waves-light modal-trigger"><i class="fa-solid fa-user-xmark"></i></a>
             </div>
         </div>
-        <!-- Modal Structure -->
-        <div id="confirm" class="modal center-align">
+        <div id="confirm-{{user}}" class="modal center-align">
             <div class="modal-content grey darken-3 white-text">
-                <h4 class="red-text">Are You Sure?</h4>
-                <p>Deleting your profile will remove all user data including any reviews that you have created.</p>
+                <h4 class="red-text text-shadow">Are You Sure?</h4>
+                <p class="white-text text-shadow">Deleting your profile will remove all user data including any reviews that you have created.</p>
+                <p>This will also allow another user to register as {{user|capitalize}}</p>
+                <h3 class="red-text text-shadow">WARNING!</h3>
+                <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
             </div>
         <div class="modal-footer grey darken-1">
             <form action="{{url_for('delete_user')}}" method="POST">
-                <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
+                <input type="text" name="username" id="username" value="{{user}}" class="hide">
                 <a href="#" class="modal-close waves-effect waves-light btn">No</a>
                 <button type="submit" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</button>
             </form>
