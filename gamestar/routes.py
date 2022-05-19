@@ -456,8 +456,10 @@ def game(game_id):
     for review in reviews_data:
         review.username = User.query.filter_by(
             id=review.user_id).first().username
+
         review.created_date = datetime.fromtimestamp(
             review.timestamp).strftime('%B %d, %Y')
+
         total_rating += review.rating
 
     game_data = Game.query.filter_by(id=game_id).first()
@@ -465,9 +467,13 @@ def game(game_id):
     average_rating = total_rating / len(reviews_data)
     game_data.average_rating = average_rating
 
-    background = random.choice(json.loads(game_data.artwork))
+    if len(json.loads(game_data.artwork)) > 0:
+        background = random.choice(json.loads(game_data.artwork))
+    else:
+        background = None
 
     return render_template('game.html',
                            title=game_data.name,
                            game=game_data,
-                           reviews=reviews_data, background=background)
+                           reviews=reviews_data,
+                           background=background)
