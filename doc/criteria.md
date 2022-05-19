@@ -1,14 +1,14 @@
 ## **Project Criteria**
 
-* [ ] Design, develop and implement a Backend for a web application using Python and a microframework:
+* [ ] Design, develop and implement a Backend for a web application using Python and a micro-framework:
 
     * [ ] PASS CRITERIA:
 
-        * [ ] Design a Frontend for a datadriven web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
+        * [ ] Design a Frontend for a data driven web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provides a set of user interactions.
 
         * [ ] Implement custom HTML and CSS code to create a responsive full-stack application consisting of one or more HTML pages with relevant responses to user actions and a set of data manipulation functions.
 
-        * [ ] Build a relational databasebacked Flask web application that allows users to store and manipulate data records about a particular domain.
+        * [ ] Build a relational database backed Flask web application that allows users to store and manipulate data records about a particular domain.
 
         * [ ] Design a database structure that is relevant to the domain, including relationships between records of different entities.
 
@@ -22,7 +22,7 @@
 
         * [ ] Write code that meets minimum standards for readability (comments, indentation, consistent and meaningful naming conventions).
 
-        * [ ] Name files consistently and descriptively, without spaces or capitalisation to allow for crossplatform compatibility.
+        * [ ] Name files consistently and descriptively, without spaces or capitalization to allow for crossplatform compatibility.
 
     * [ ] MERIT CRITERIA:
 
@@ -44,9 +44,9 @@
 
         * [ ] Design a data model that fits the purpose of the project.
 
-        * [ ] Develop the model into a usable relational database where data is stored in a consistent and wellorganised manner.
+        * [ ] Develop the model into a usable relational database where data is stored in a consistent and well organized manner.
     
-    * [ ] MERRIT CRITERIA:
+    * [ ] MERIT CRITERIA:
 
         * [ ] Describe the data schema fully in the README file.
 
@@ -61,7 +61,7 @@
 
         * [ ] Create functionality for users to create, locate, display, edit and delete records.
     
-    * [ ] MERRIT CRITERIA:
+    * [ ] MERIT CRITERIA:
 
         * [ ] Implement working Create, Read, Update and Delete (CRUD)
 
@@ -77,7 +77,7 @@
         
         * [ ] Document the deployment process in a README file that also explains The application’s purpose and the value that it provides to its users.
     
-    * [ ] MERRIT CRITERIA:
+    * [ ] MERIT CRITERIA:
 
         * [ ] Commit often for each individual feature/fix, ensuring that commits are small, well-defined and have clear descriptive messages. 
 
@@ -97,4 +97,4 @@
 
     * [ ] MERIT CRITERIA:
 
-        * [ ] Present a clear rationale for the development of the project, in the README, demonstrating that it has a clear, welldefined purpose addressing the needs of a particular target audience (or multiple related audiences), explaining the data, and explaining the security features considered.
+        * [ ] Present a clear rationale for the development of the project, in the README, demonstrating that it has a clear, well defined purpose addressing the needs of a particular target audience (or multiple related audiences), explaining the data, and explaining the security features considered.
