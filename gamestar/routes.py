@@ -341,6 +341,12 @@ def submit_review(game_id):
     """
     Adds users review to database.
     """
+    review_rating = request.form.get('review-rating')
+    review_heading = request.form.get('review-heading')
+    review_liked = request.form.get('liked-text')
+    review_disliked = request.form.get('disliked-text')
+    review_hours = request.form.get('review-hours')
+
     try:
         if session['username']:
 
@@ -371,11 +377,11 @@ def submit_review(game_id):
             review = Review(
                 user_id=user.id,
                 game_id=game.id,
-                rating=float(request.form.get('review-rating')),
-                heading=request.form.get('review-heading'),
-                liked_text=request.form.get('liked-text'),
-                disliked_text=request.form.get('disliked-text'),
-                hours=int(request.form.get('review-hours')),
+                rating=float(review_rating),
+                heading=review_heading,
+                liked_text=review_liked,
+                disliked_text=review_disliked,
+                hours=int(review_hours),
                 likes='[]'
             )
 
