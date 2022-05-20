@@ -14,7 +14,7 @@
         </div>
     {% else %}
     <div class="row">
-        <div class="col s12 left-align">
+        <div class="col s12 right-align">
             <a href="{{url_for('search')}}" class="btn-small amber black-text waves-effect waves-light">Add Review</a>
         </div>
     </div>
@@ -36,11 +36,11 @@
                             </div>
                         </div>
                     </a>
-
                     <!-- Modal Structure -->
                     <div id="modal{{user_review.review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
                         <div class="modal-content">
                             <h5>{{user_review.game.name}}</h5>
+                            <br>
                             <h6>Heading:</h6>
                             <p class="white-text">{{user_review.review.heading}}</p>
                             <br>
@@ -58,7 +58,20 @@
                         </div>
                         <div class="modal-footer grey darken-3">
                             <a href="{{url_for('edit_review', review_id=user_review.review.id)}}" class="btn text-shadow">Edit</a>
-                            <a href="" class="btn red darken-2 text-shadow">Delete</a>
+                            <a href="#confirm-{{user_review.review.id}}" class="btn red darken-2 text-shadow modal-trigger">Delete</a>
+                        </div>
+                    </div>
+                    <!-- Modal Structure -->
+                    <div id="confirm-{{user_review.review.id}}" class="modal center-align">
+                        <div class="modal-content grey darken-3 white-text">
+                            <h4 class="red-text text-shadow">Are You Sure?</h4>
+                            <h3 class="red-text text-shadow">WARNING!</h3>
+                            <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
+                        </div>
+                    <div class="modal-footer grey darken-1">
+                            <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
+                            <a href="#" class="modal-close waves-effect waves-light btn">No</a>
+                            <a href="{{url_for('delete_review', review_id=user_review.review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
                         </div>
                     </div>
                 {% endfor %}
