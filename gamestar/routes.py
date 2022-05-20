@@ -453,9 +453,13 @@ def review_manager():
     Displays all reviews if user is admin
     """
 
-    if session['username'] != 'admin':
-        flash('You are not authorized to view this page', 'error')
-        return redirect(url_for('home'))
+    try:
+        if session['username'] != 'admin':
+            flash('You are not authorized to view this page', 'error')
+            return redirect(url_for('home'))
+    except: # noqa
+        flash('You must log in to view this page', 'error')
+        return redirect(url_for('login'))
 
     reviews = Review.query.all()
 
