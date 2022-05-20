@@ -471,6 +471,26 @@ def review_manager():
                            reviews=reviews)
 
 
+@app.route('/user_reviews/<username>')
+def user_reviews(username):
+    """
+    Displays all reviews by a given user
+    """
+
+    user = User.query.filter_by(username=username).first()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+
+    for review in reviews:
+        game = Game.query.filter_by(id=review.game_id).first()
+        review.game = game
+        review.likes = json.loads(review.likes)
+
+    return render_template('user_reviews.html',
+                           title='Review Manager',
+                           reviews=reviews,
+                           user=user)
+
+
 @app.route('/game/<int:game_id>')
 def game(game_id):
     """Render users reviews for selected game"""
