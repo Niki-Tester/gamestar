@@ -85,6 +85,10 @@ main {
     top: 25px;
 }
 
+.likes-number {
+    margin-left: 0.5rem;
+}
+
 #register-dialog,
 #login-dialog,
 #profile-dialog {
