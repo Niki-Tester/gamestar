@@ -45,7 +45,7 @@
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
                     <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i>
-                    <span class="white-text likes-number">{{review.likes|length}}</span>
+                    <span id="review-counter-{{review.id}}" class="white-text likes-number">{{review.likes|length}}</span>
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
                     <a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
