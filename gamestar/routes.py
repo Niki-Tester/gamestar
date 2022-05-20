@@ -341,52 +341,58 @@ def submit_review(game_id):
     """
     Adds users review to database.
     """
+    try:
+        if session['username']:
 
-    existing_game = Game.query.filter_by(igdb_id=game_id).first()
+            existing_game = Game.query.filter_by(igdb_id=game_id).first()
 
-    if not existing_game:
-        igdb_game_data = get_game_data_by_id(game_id)[0]
-        igdb_game_artwork = get_game_artwork(game_id)
-        igdb_game_cover = get_game_cover_art(game_id)
+            if not existing_game:
+                igdb_game_data = get_game_data_by_id(game_id)[0]
+                igdb_game_artwork = get_game_artwork(game_id)
+                igdb_game_cover = get_game_cover_art(game_id)
 
-        game = Game(
-            name=igdb_game_data['name'],
-            artwork=json.dumps(igdb_game_artwork),
-            summary=igdb_game_data['summary'],
-            igdb_id=igdb_game_data['id'],
-            cover_art=igdb_game_cover
-        )
+                game = Game(
+                    name=igdb_game_data['name'],
+                    artwork=json.dumps(igdb_game_artwork),
+                    summary=igdb_game_data['summary'],
+                    igdb_id=igdb_game_data['id'],
+                    cover_art=igdb_game_cover
+                )
 
-        db.session.add(game)
-        db.session.commit()
+                db.session.add(game)
+                db.session.commit()
 
-    user = User.query.filter_by(username=session['username']).first()
-    game = Game.query.filter_by(igdb_id=game_id).first()
+            user = User.query.filter_by(username=session['username']).first()
+            game = Game.query.filter_by(igdb_id=game_id).first()
 
-    existing_review = Review.query.filter_by(user_id=user.id,
-                                             game_id=game.id).first()
+            existing_review = Review.query.filter_by(user_id=user.id,
+                                                     game_id=game.id).first()
 
-    review = Review(
-        user_id=user.id,
-        game_id=game.id,
-        rating=float(request.form.get('review-rating')),
-        heading=request.form.get('review-heading'),
-        liked_text=request.form.get('liked-text'),
-        disliked_text=request.form.get('disliked-text'),
-        hours=int(request.form.get('review-hours')),
-        likes='[]'
-    )
+            review = Review(
+                user_id=user.id,
+                game_id=game.id,
+                rating=float(request.form.get('review-rating')),
+                heading=request.form.get('review-heading'),
+                liked_text=request.form.get('liked-text'),
+                disliked_text=request.form.get('disliked-text'),
+                hours=int(request.form.get('review-hours')),
+                likes='[]'
+            )
 
-    if existing_review:
-        print(request)
-        flash('You have already created a review for this game', 'error')
-        return redirect(url_for('manage'))
+            if existing_review:
+                print(request)
+                flash('You have already created a review for this game',
+                      'error')
+                return redirect(url_for('manage'))
 
-    db.session.add(review)
-    db.session.commit()
+            db.session.add(review)
+            db.session.commit()
 
-    flash('Review added successfully', 'success')
-    return redirect(url_for('home'))
+            flash('Review added successfully', 'success')
+            return redirect(url_for('home'))
+    except: # noqa
+        flash('You must log in to submit a review', 'error')
+        return redirect(url_for('login'))
 
 
 @app.route('/edit_review/<int:review_id>', methods=['GET', 'POST'])
