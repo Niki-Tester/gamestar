@@ -48,7 +48,7 @@
                     <span id="review-counter-{{review.id}}" class="white-text likes-number">{{review.likes|length}}</span>
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
-                    <a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
+                    <a href="{{url_for('user_reviews', username=review.username)}}" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
                     <span class="review-date">- {{review.created_date}}</span>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                         </a>
                     </div>
                     <div class="col s6">
-                        <p class="text-shadow"><a href="#" class="amber-text text-lighten1">{{review.username|capitalize}}</a> ({{review.hours}}
+                        <p class="text-shadow"><a href="{{url_for('user_reviews', username=review.username)}}" class="amber-text text-lighten1">{{review.username|capitalize}}</a> ({{review.hours}}
                             hours) - {{review.created_date}} </p>
                     </div>
                 </div>
@@ -118,7 +118,6 @@
                     <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
                 </div>
             <div class="modal-footer grey darken-1">
-                    <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
                     <a href="#" class="modal-close waves-effect waves-light btn">No</a>
                     <a href="{{url_for('delete_review', review_id=review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
                 </div>
@@ -136,7 +135,7 @@
             </div>
         </div>
     {% endif %}
-    {% if session.username %}
+    {% if session.username and session.username != 'admin' %}
         <script defer src="{{url_for('static', filename="js/likesCounter.js")}}"></script>
     {% endif %}
 {% endblock content %}
