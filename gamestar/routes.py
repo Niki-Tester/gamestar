@@ -374,6 +374,7 @@ def submit_review(game_id):
         liked_text=request.form.get('liked-text'),
         disliked_text=request.form.get('disliked-text'),
         hours=int(request.form.get('review-hours')),
+        likes='[]'
     )
 
     if existing_review:
@@ -474,6 +475,12 @@ def review_manager():
 def game(game_id):
     """Render users reviews for selected game"""
 
+    try:
+        if session['username']:
+            user = User.query.filter_by(username=session['username']).first()
+    except: # noqa
+        user = None
+
     reviews_data = Review.query.filter_by(game_id=game_id).all()
 
     total_rating = 0
@@ -483,6 +490,8 @@ def game(game_id):
 
         review.created_date = datetime.fromtimestamp(
             review.timestamp).strftime('%B %d, %Y')
+
+        review.likes = json.loads(review.likes)
 
         total_rating += review.rating
 
@@ -498,6 +507,26 @@ def game(game_id):
 
     return render_template('game.html',
                            title=game_data.name,
+                           user=user,
                            game=game_data,
                            reviews=reviews_data,
                            background=background)
+
+
+@app.route('/likes', methods=['POST'])
+def likes():
+    """Like button pressed, toggles user ID in games liked list"""
+    user_id = User.query.filter_by(username=session['username']).first().id
+    review = Review.query.get_or_404(request.form['review_id'])
+    likes = json.loads(review.likes)
+    if user_id in likes:
+        likes.remove(user_id)
+    else:
+        likes.append(user_id)
+
+    review.likes = json.dumps(likes)
+
+    db.session.add(review)
+    db.session.commit()
+
+    return f"{len(likes)}"

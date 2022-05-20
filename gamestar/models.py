@@ -32,21 +32,14 @@ class Game(db.Model):
 class Review(db.Model):
     """Schema for the review model"""
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(
-        db.Integer, db.ForeignKey("user.id"), nullable=False
-        )
-    game_id = db.Column(
-        db.Integer, db.ForeignKey('game.id'), nullable=False
-    )
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
     rating = db.Column(db.Float, nullable=False)
     heading = db.Column(db.Text, nullable=False)
     liked_text = db.Column(db.Text, nullable=False)
     disliked_text = db.Column(db.Text, nullable=False)
     hours = db.Column(db.Integer, nullable=False)
-    likes = db.Column(
-        db.Integer, db.ForeignKey("user.id"), nullable=True
-        )
-
+    likes = db.Column(db.Text, nullable=True)
     timestamp = db.Column(db.Integer,
                           nullable=False,
                           default=math.floor(time.time()))

@@ -45,7 +45,7 @@
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
                     <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i>
-                    <span class="white-text likes-number">{{review.likes if review.likes is not none else 0}}</span>
+                    <span class="white-text likes-number">{{review.likes|length}}</span>
                 </div>
                 <div class="col s4 grey darken-3 center-align review-details">
                     <a href="" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
@@ -96,7 +96,10 @@
             <div class="modal-footer grey darken-1">
                 <div class="row">
                     <div class="col s6 left-align">
-                        <a href="#" class="btn-flat white-text text-shadow"><i class="fa-solid fa-thumbs-up grey-text text-lighten-1"></i> <span class="likes-number">{{review.likes if review.likes is not none else 0}}</span></a>
+                        <a href="#" class="btn-flat like-btn white-text text-shadow" data-review-id="{{review.id}}">
+                            <i class="fa-solid fa-thumbs-up {{ 'liked' if (user.id in review.likes) else '' }}"></i>
+                            <span class="likes-number">{{review.likes|length}}</span>
+                        </a>
                     </div>
                     <div class="col s6">
                         <p class="text-shadow"><a href="#" class="amber-text text-lighten1">{{review.username|capitalize}}</a> ({{review.hours}}
@@ -132,5 +135,8 @@
                 </p>
             </div>
         </div>
+    {% endif %}
+    {% if session.user %}
+        <script defer src="{{url_for('static', filename="js/likesCounter.js")}}"></script>
     {% endif %}
 {% endblock content %}

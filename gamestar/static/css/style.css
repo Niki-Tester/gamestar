@@ -85,8 +85,21 @@ main {
     top: 25px;
 }
 
+.like-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.like-btn i,
+.like-btn span {
+    pointer-events: none;
+}
+
 .likes-number {
     margin-left: 0.5rem;
+}
+
+.liked {
+    color: #ffca28;
 }
 
 #register-dialog,
