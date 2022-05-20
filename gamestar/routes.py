@@ -317,23 +317,31 @@ def add_review(game_id):
     """
     GET: Search IGDB for game by ID, return and render result
     """
+    try:
+        if session['username']:
 
-    game = get_game_data_by_id(game_id)[0]
-    if 'cover' in game:
-        game['cover'] = get_game_cover_art(game_id)
-    else:
-        game['cover'] = url_for('static', filename='images/no_cover.webp')
+            game = get_game_data_by_id(game_id)[0]
+            if 'cover' in game:
+                game['cover'] = get_game_cover_art(game_id)
+            else:
+                game['cover'] = url_for('static',
+                                        filename='images/no_cover.webp')
 
-    game['artworks'] = get_game_artwork(game_id)
+            game['artworks'] = get_game_artwork(game_id)
 
-    if len(game['artworks']) > 0:
-        return render_template('add_review.html',
-                               data=game,
-                               background=random.choice(game['artworks']),
-                               title='Create Review')
+            if len(game['artworks']) > 0:
+                background = random.choice(game['artworks'])
+                return render_template('add_review.html',
+                                       data=game,
+                                       background=background,
+                                       title='Create Review')
 
-    return render_template('add_review.html', data=game,
-                           title='Create Review')
+            return render_template('add_review.html',
+                                   data=game,
+                                   title='Create Review')
+    except: # noqa
+        flash('You must be logged in to add a review!', 'error')
+        return redirect(url_for('login'))
 
 
 @app.route('/submit_review/<game_id>', methods=['POST'])
