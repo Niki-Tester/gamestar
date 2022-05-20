@@ -81,17 +81,6 @@
                             <a href="#confirm{{review.id}}" class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
                         </div>
                     </div>
-                    <!-- Modal Structure -->
-                    <div id="confirm{{review.id}}" class="modal center-align">
-                        <div class="modal-content grey darken-3 white-text">
-                            <h4 class="red-text">Are You Sure?</h4>
-                        </div>
-                    <div class="modal-footer grey darken-1">
-                            <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
-                            <a href="#" class="modal-close waves-effect waves-light btn">No</a>
-                            <a href="{{url_for('delete_review', review_id=review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
-                        </div>
-                    </div>
                 {% endif %}
             </div>
             <div class="modal-footer grey darken-1">
@@ -99,6 +88,21 @@
                     hours) - {{review.created_date}} </p>
             </div>
         </div>
+        {% if session.username == review.username or session.username == 'admin' %}
+            <!-- Modal Structure -->
+            <div id="confirm{{review.id}}" class="modal center-align">
+                <div class="modal-content grey darken-3 white-text">
+                    <h4 class="red-text text-shadow">Are You Sure?</h4>
+                    <h3 class="red-text text-shadow">WARNING!</h3>
+                    <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
+                </div>
+            <div class="modal-footer grey darken-1">
+                    <input type="text" name="username" id="username" value="{{session.username}}" class="hide">
+                    <a href="#" class="modal-close waves-effect waves-light btn">No</a>
+                    <a href="{{url_for('delete_review', review_id=review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
     {% if not session.username %}
         <div class="row">
