@@ -21,6 +21,11 @@ def home():
     games = Game.query.all()
     for game in games:
         reviews = Review.query.filter_by(game_id=game.id).all()
+
+        if len(reviews) == 0:
+            games = None
+            break
+
         total_rating = 0
         for review in reviews:
             total_rating += review.rating
