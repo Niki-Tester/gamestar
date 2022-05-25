@@ -435,10 +435,10 @@ def edit_review(review_id):
 
         return redirect(url_for('game', game_id=game.id))
 
-    if not user_logged_in():
-        flash('You must log in to view this page', 'error')
-        return redirect(url_for('login'))
-    return redirect(url_for('home'))
+    return render_template('edit_review.html',
+                           title='Edit Review',
+                           game=game,
+                           review=review)
 
 
 @app.route('/delete_review/<int:review_id>')
