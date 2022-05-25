@@ -342,11 +342,38 @@ def submit_review(game_id):
     """
     Adds users review to database.
     """
-    review_rating = request.form.get('review-rating')
-    review_heading = request.form.get('review-heading')
-    review_liked = request.form.get('liked-text')
-    review_disliked = request.form.get('disliked-text')
-    review_hours = request.form.get('review-hours')
+    validation_error = False
+
+    review_rating = request.form.get('review-rating').strip()
+    review_heading = request.form.get('review-heading').strip()
+    review_liked = request.form.get('liked-text').strip()
+    review_disliked = request.form.get('disliked-text').strip()
+    review_hours = request.form.get('review-hours').strip()
+
+    if len(review_heading) < 10 or len(review_heading) > 65:
+        validation_error = True
+        flash('Review Heading does not match required length!', 'error')
+
+    if len(review_liked) < 30 or len(review_liked) > 2500:
+        flash('Review Liked does not match required length!', 'error')
+
+    if len(review_disliked) < 30 or len(review_disliked) > 2500:
+        validation_error = True
+        flash('Review Disliked does not match required length!', 'error')
+
+    if len(review_hours) < 1 or len(review_hours) > 5:
+        validation_error = True
+        flash('Review Hours does not match required length!', 'error')
+
+    if validation_error:
+        return redirect(url_for('add_review',
+                                game_id=game_id,
+                                review_rating=review_rating,
+                                review_heading=review_heading,
+                                review_liked=review_liked,
+                                review_disliked=review_disliked,
+                                review_hours=review_hours
+                                ))
 
     if user_logged_in():
 
