@@ -32,6 +32,17 @@ h6 {
     position: relative;
 }
 
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-center img {
+    width: 270px;
+}
+
 #page-logo {
     max-width: 100%;
     margin-top: 1rem;
@@ -166,6 +177,7 @@ input[type=password]:not(.browser-default):not([readonly])+label {
 .rating {
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .rating-outer {
@@ -200,7 +212,7 @@ input[type=password]:not(.browser-default):not([readonly])+label {
 
 .rating-small .rating-inner::before,
 .rating-small .rating-outer::before {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .review-details {
