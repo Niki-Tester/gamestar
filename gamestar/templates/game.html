@@ -96,7 +96,9 @@
             <div class="modal-footer grey darken-1">
                 <div class="row">
                     <div class="col s6 left-align">
-                        <a href="#" class="btn-flat like-btn white-text text-shadow" data-review-id="{{review.id}}">
+                        <a href="#" class="btn-flat like-btn white-text text-shadow" data-review-id="{{review.id}}" 
+                        style="{{'cursor: not-allowed;' if not user}}"
+                        title="{{'You must be logged in to leave a like on this review.' if not user}}">
                             <i class="fa-solid fa-thumbs-up {{ 'liked' if (user.id in review.likes) else '' }}"></i>
                             <span class="likes-number">{{review.likes|length}}</span>
                         </a>
