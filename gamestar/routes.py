@@ -178,6 +178,7 @@ def profile():
 
     # GET Request
     if not user_logged_in():
+        flash('You must log in to view this page', 'error')
         return redirect(url_for('login'))
 
     return render_template('profile.html', user=session['username'],
@@ -230,6 +231,7 @@ def delete_user():
 
     # GET Request
         if not user_logged_in():
+            flash('You must log in to view this page', 'error')
             return redirect(url_for('login'))
 
         return redirect(url_for('profile'))
@@ -269,6 +271,7 @@ def manage():
         return render_template('manage.html', user_reviews=user_reviews,
                                title='Your Reviews')
 
+    flash('You must log in to view this page', 'error')
     return redirect(url_for('login'))
 
 
@@ -297,6 +300,7 @@ def search():
 
     # GET:
     if not user_logged_in():
+        flash('You must log in to view this page', 'error')
         return redirect(url_for('login'))
 
     return render_template('search.html', title='Search Games')
@@ -329,6 +333,7 @@ def add_review(game_id):
                                data=game,
                                title='Create Review')
 
+    flash('You must log in to view this page', 'error')
     return redirect(url_for('login'))
 
 
@@ -390,6 +395,7 @@ def submit_review(game_id):
         flash('Review added successfully', 'success')
         return redirect(url_for('home'))
 
+    flash('You must log in to view this page', 'error')
     return redirect(url_for('login'))
 
 
@@ -408,6 +414,7 @@ def edit_review(review_id):
 
     if not user_logged_in():
         flash('You must be logged in to edit a review', 'error')
+        return redirect(url_for('login'))
 
     game = Game.query.filter_by(id=review.game_id).first()
     user = User.query.filter_by(id=review.user_id).first()
@@ -429,6 +436,7 @@ def edit_review(review_id):
         return redirect(url_for('game', game_id=game.id))
 
     if not user_logged_in():
+        flash('You must log in to view this page', 'error')
         return redirect(url_for('login'))
     return redirect(url_for('home'))
 
@@ -465,6 +473,7 @@ def review_manager():
     """
 
     if not user_logged_in():
+        flash('You must log in to view this page', 'error')
         return redirect(url_for('login'))
 
     if session['username'] != 'admin':
@@ -573,5 +582,4 @@ def user_logged_in():
         if session['username']:
             return True
     except: # noqa
-        flash('You must log in to view this page', 'error')
         return False
