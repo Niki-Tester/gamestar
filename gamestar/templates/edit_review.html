@@ -22,8 +22,10 @@
             <div class="row">
                 <div class="col s6">
                     <h6 class="amber-text text-shadow">How do you Rate {{game.name}}?</h6>
-                    <input type="range" id="review-rating" name='review-rating' min="0" max="5" step="0.1"
-                        value="{{review.rating}}" aria-label="Your game rating score, from 0 to 5" />
+                    <p class="range-field">
+                        <input type="range" id="review-rating" name='review-rating' min="0" max="5" step="0.1"
+                            value="{{review.rating}}" aria-label="Your game rating score, from 0 to 5" />
+                    </p>
                     <div class="rating-outer">
                         <div class="rating-inner"></div>
                     </div>
