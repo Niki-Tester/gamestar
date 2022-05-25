@@ -3,17 +3,19 @@
     <div class="row">
         <div class="col s12 white-text center-align">
             <h3>Add Game Review</h3>
-            <p>Add your review to your selected game.</p>
+            <p>Add your review for {{data.name|capitalize}}.</p>
         </div>
     </div>
-    <div class="row white-text">
-        <div class="col s12">
-            <img class="hoverable" src="{{data.cover}}" alt="game image">
+    <div class="row white-text center-align">
+        <div class="col s12 flex-center">
+            <img class="hoverable" src="{{data.cover}}" alt="{{data.name}} cover art">
         </div>
-        <div class="col s12">
+        <div class="col s12 flex-center">
             <h1 class="text-shadow">{{data.name}}</h1>
         </div>
-        <div class="col s12">
+    </div>
+    <div class="row">
+        <div class="col s12 white-text">
             <h6 class="amber-text text-shadow">{{data.name}} Summary:</h6>
             <p>{{data.summary}}</p>
         </div>
@@ -21,9 +23,9 @@
     <div class="row">
         <form class="col s12" action="{{url_for('submit_review', game_id=data.id)}}" method='POST'>
             <div class="row">
-                <div class="col s6">
-                    <h6 class="amber-text text-shadow">How do you Rate {{data.name}}?</h6>
-                    <p class="range-field">              
+                <div class="col s12 m6">
+                    <h6 class="amber-text text-shadow left-align">How do you Rate {{data.name}}?</h6>
+                    <p class="range-field ">              
                         <input type="range" id="review-rating" name='review-rating' min="0" max="5" step="0.1" 
                             value="{{ request.args.get('review_rating') if request.args.get('review_rating') else 0}}"
                             aria-label="Your game rating score, from 0 to 5" />
@@ -38,7 +40,7 @@
                     <input id="review-heading" name="review-heading" type="text" class="white-text validate" minlength="10"
                         maxlength="65" data-length="65" 
                         value="{{ request.args.get('review_heading') if request.args.get('review_heading') }}" required>
-                    <label for="review-heading">Review Heading</label>
+                    <label for="review-heading">Your Review Heading</label>
                 </div>
             </div>
             <div class="row">
