@@ -30,13 +30,15 @@
                         <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
                         <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
                         {% if session.username == 'admin' %}
-                            <!-- Dropdown Trigger -->
-                            <a class='dropdown-trigger btn red darken-2' href='#' data-target='admin-panel'>Admin</a>
-                            <!-- Dropdown Structure -->
-                            <ul id='admin-panel' class='dropdown-content'>
-                                <li><a href="{{url_for('user_manager')}}" class="black-text">Users</a></li>
-                                <li><a href="{{url_for('review_manager')}}" class="black-text">Reviews</a></li>
-                            </ul>
+                            <li>
+                                <!-- Dropdown Trigger -->
+                                <a class='dropdown-trigger btn red darken-2' href='#' data-target='admin-panel'>Admin</a>
+                                <!-- Dropdown Structure -->
+                                <ul id='admin-panel' class='dropdown-content'>
+                                    <li><a href="{{url_for('user_manager')}}" class="black-text">Users</a></li>
+                                    <li><a href="{{url_for('review_manager')}}" class="black-text">Reviews</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
                     {% else %}
                         <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
@@ -52,6 +54,17 @@
                 <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a></li>
                 <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
                 <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
+                {% if session.username == 'admin' %}
+                    <li>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn red darken-2' href='#' data-target='admin-panel-mobile'>Admin</a>
+                        <!-- Dropdown Structure -->
+                        <ul id='admin-panel-mobile' class='dropdown-content'>
+                            <li><a href="{{url_for('user_manager')}}" class="black-text">Users</a></li>
+                            <li><a href="{{url_for('review_manager')}}" class="black-text">Reviews</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             {% else %}
                 <li><a href="{{url_for('register')}}" class="amber-text text-lighten-1">Register</a></li>
                 <li><a href="{{url_for('login')}}" class="amber-text text-lighten-1">Log In</a></li>
@@ -103,11 +116,10 @@
     <script>
         const body = document.querySelector('body');
         {% if background %}
-            body.style.backgroundImage = `url({{background.url}})`
+            body.style.backgroundImage = `url({{background.url}})`;
         {% else %}
             body.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.jpg')}})`;
         {% endif %}
-        body.style.backgroundAttachment = 'fixed';
         body.style.backgroundPosition = 'top';
         body.style.backgroundSize = 'cover';
         body.style.backgroundRepeat = 'no-repeat';
