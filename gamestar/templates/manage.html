@@ -29,8 +29,10 @@
                                 </div>
                                 <div class="card-content grey darken-3">
                                     <p class="card-title bold-text center-align white-text text-shadow truncate">{{user_review.game.name}}</p>
-                                    <div class="rating-outer center-align text-shadow">
-                                        <div class="rating-inner center-align text-shadow" style="width: {{user_review.review.rating * (100 / 5)}}%"></div>
+                                    <div class="rating">
+                                        <div class="rating-outer text-shadow center-align">
+                                            <div class="rating-inner text-shadow center-align" style="width: {{user_review.review.rating * (100 / 5)}}%"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +67,7 @@
                     <div id="confirm-{{user_review.review.id}}" class="modal center-align">
                         <div class="modal-content grey darken-3 white-text">
                             <h4 class="red-text text-shadow">Are You Sure?</h4>
-                            <h3 class="red-text text-shadow">WARNING!</h3>
+                            <h4 class="red-text text-shadow">WARNING!</h4>
                             <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
                         </div>
                     <div class="modal-footer grey darken-1">
