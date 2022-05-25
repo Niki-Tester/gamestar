@@ -127,12 +127,9 @@ def logout():
     """
     Logs user out by clearing the session cookie.
     """
-    try:
-        if session['username']:
-            session.clear()
-            flash('Successfully Logged Out', 'success')
-    except KeyError:
-        print('User attempted to log out when not logged in.')
+    if user_logged_in():
+        session.clear()
+        flash('Successfully Logged Out', 'success')
 
     return redirect(url_for('home'))
 
@@ -180,13 +177,11 @@ def profile():
         return redirect(url_for('profile'))
 
     # GET Request
-    try:
-        if session['username']:
-            return render_template('profile.html', user=session['username'],
-                                   title='Your Profile')
-    except KeyError:
-        print('User attempted to view profile while not logged in.')
-        return redirect(url_for('home'))
+    if not user_logged_in():
+        return redirect(url_for('login'))
+
+    return render_template('profile.html', user=session['username'],
+                           title='Your Profile')
 
 
 @app.route('/profile/delete', methods=['GET', 'POST'])
@@ -234,12 +229,10 @@ def delete_user():
         return redirect(url_for('home'))
 
     # GET Request
-    try:
-        if session['username']:
-            return redirect(url_for('profile'))
-    except KeyError:
-        print('User attempted to delete user while not logged in.')
-        return redirect(url_for('home'))
+        if not user_logged_in():
+            return redirect(url_for('login'))
+
+        return redirect(url_for('profile'))
 
 
 @app.route('/user_manager')
@@ -264,24 +257,19 @@ def manage():
     GET: Renders manage.html template.
     Displaying reviews user has created if any.
     """
-    try:
-        if session['username']:
-            user = User.query.filter_by(username=session['username']).first()
-            reviews = Review.query.filter_by(user_id=user.id).all()
-            user_reviews = []
-            for review in reviews:
-                game = Game.query.filter_by(id=review.game_id).first()
-                user_reviews.append({
-                                'game': game,
-                                'review': review
-                                })
 
-            return render_template('manage.html', user_reviews=user_reviews,
-                                   title='Your Reviews')
-    except KeyError:
-        print('User attempted to manage reviews when not logged in.')
+    if user_logged_in():
+        user = User.query.filter_by(username=session['username']).first()
+        reviews = Review.query.filter_by(user_id=user.id).all()
+        user_reviews = []
+        for review in reviews:
+            game = Game.query.filter_by(id=review.game_id).first()
+            user_reviews.append({'game': game, 'review': review})
 
-    return redirect(url_for('home'))
+        return render_template('manage.html', user_reviews=user_reviews,
+                               title='Your Reviews')
+
+    return redirect(url_for('login'))
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -308,13 +296,10 @@ def search():
         return jsonify(data)
 
     # GET:
-    try:
-        if session['username']:
-            return render_template('search.html', title='Search Games')
-    except KeyError:
-        print('User attempted to search games when not logged in.')
+    if not user_logged_in():
+        return redirect(url_for('login'))
 
-    return redirect(url_for('home'))
+    return render_template('search.html', title='Search Games')
 
 
 @app.route('/add_review/<game_id>', methods=['GET'])
@@ -322,31 +307,29 @@ def add_review(game_id):
     """
     GET: Search IGDB for game by ID, return and render result
     """
-    try:
-        if session['username']:
+    if user_logged_in():
 
-            game = get_game_data_by_id(game_id)[0]
-            if 'cover' in game:
-                game['cover'] = get_game_cover_art(game_id)
-            else:
-                game['cover'] = url_for('static',
-                                        filename='images/no_cover.webp')
+        game = get_game_data_by_id(game_id)[0]
+        if 'cover' in game:
+            game['cover'] = get_game_cover_art(game_id)
+        else:
+            game['cover'] = url_for('static',
+                                    filename='images/no_cover.webp')
 
-            game['artworks'] = get_game_artwork(game_id)
+        game['artworks'] = get_game_artwork(game_id)
 
-            if len(game['artworks']) > 0:
-                background = random.choice(game['artworks'])
-                return render_template('add_review.html',
-                                       data=game,
-                                       background=background,
-                                       title='Create Review')
-
+        if len(game['artworks']) > 0:
+            background = random.choice(game['artworks'])
             return render_template('add_review.html',
                                    data=game,
+                                   background=background,
                                    title='Create Review')
-    except: # noqa
-        flash('You must be logged in to add a review!', 'error')
-        return redirect(url_for('login'))
+
+        return render_template('add_review.html',
+                               data=game,
+                               title='Create Review')
+
+    return redirect(url_for('login'))
 
 
 @app.route('/submit_review/<game_id>', methods=['POST'])
@@ -360,58 +343,54 @@ def submit_review(game_id):
     review_disliked = request.form.get('disliked-text')
     review_hours = request.form.get('review-hours')
 
-    try:
-        if session['username']:
+    if user_logged_in():
 
-            existing_game = Game.query.filter_by(igdb_id=game_id).first()
+        existing_game = Game.query.filter_by(igdb_id=game_id).first()
 
-            if not existing_game:
-                igdb_game_data = get_game_data_by_id(game_id)[0]
-                igdb_game_artwork = get_game_artwork(game_id)
-                igdb_game_cover = get_game_cover_art(game_id)
+        if not existing_game:
+            igdb_game_data = get_game_data_by_id(game_id)[0]
+            igdb_game_artwork = get_game_artwork(game_id)
+            igdb_game_cover = get_game_cover_art(game_id)
 
-                game = Game(
-                    name=igdb_game_data['name'],
-                    artwork=json.dumps(igdb_game_artwork),
-                    summary=igdb_game_data['summary'],
-                    igdb_id=igdb_game_data['id'],
-                    cover_art=igdb_game_cover
-                )
-
-                db.session.add(game)
-                db.session.commit()
-
-            user = User.query.filter_by(username=session['username']).first()
-            game = Game.query.filter_by(igdb_id=game_id).first()
-
-            existing_review = Review.query.filter_by(user_id=user.id,
-                                                     game_id=game.id).first()
-
-            review = Review(
-                user_id=user.id,
-                game_id=game.id,
-                rating=float(review_rating),
-                heading=review_heading,
-                liked_text=review_liked,
-                disliked_text=review_disliked,
-                hours=int(review_hours),
-                likes='[]'
+            game = Game(
+                name=igdb_game_data['name'],
+                artwork=json.dumps(igdb_game_artwork),
+                summary=igdb_game_data['summary'],
+                igdb_id=igdb_game_data['id'],
+                cover_art=igdb_game_cover
             )
 
-            if existing_review:
-                print(request)
-                flash('You have already created a review for this game',
-                      'error')
-                return redirect(url_for('manage'))
-
-            db.session.add(review)
+            db.session.add(game)
             db.session.commit()
 
-            flash('Review added successfully', 'success')
-            return redirect(url_for('home'))
-    except: # noqa
-        flash('You must log in to submit a review', 'error')
-        return redirect(url_for('login'))
+        user = User.query.filter_by(username=session['username']).first()
+        game = Game.query.filter_by(igdb_id=game_id).first()
+
+        existing_review = Review.query.filter_by(user_id=user.id,
+                                                 game_id=game.id).first()
+
+        review = Review(
+            user_id=user.id,
+            game_id=game.id,
+            rating=float(review_rating),
+            heading=review_heading,
+            liked_text=review_liked,
+            disliked_text=review_disliked,
+            hours=int(review_hours),
+            likes='[]'
+        )
+
+        if existing_review:
+            flash('You have already created a review for this game', 'error')
+            return redirect(url_for('manage'))
+
+        db.session.add(review)
+        db.session.commit()
+
+        flash('Review added successfully', 'success')
+        return redirect(url_for('home'))
+
+    return redirect(url_for('login'))
 
 
 @app.route('/edit_review/<int:review_id>', methods=['GET', 'POST'])
@@ -422,6 +401,14 @@ def edit_review(review_id):
     """
 
     review = Review.query.filter_by(id=review_id).first()
+
+    if not review:
+        flash('Review Not Found!', 'error')
+        return redirect(url_for('home'))
+
+    if not user_logged_in():
+        flash('You must be logged in to edit a review', 'error')
+
     game = Game.query.filter_by(id=review.game_id).first()
     user = User.query.filter_by(id=review.user_id).first()
 
@@ -441,10 +428,9 @@ def edit_review(review_id):
 
         return redirect(url_for('game', game_id=game.id))
 
-    return render_template('edit_review.html',
-                           title='Edit Review',
-                           game=game,
-                           review=review)
+    if not user_logged_in():
+        return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 @app.route('/delete_review/<int:review_id>')
@@ -478,13 +464,12 @@ def review_manager():
     Displays all reviews if user is admin
     """
 
-    try:
-        if session['username'] != 'admin':
-            flash('You are not authorized to view this page', 'error')
-            return redirect(url_for('home'))
-    except: # noqa
-        flash('You must log in to view this page', 'error')
+    if not user_logged_in():
         return redirect(url_for('login'))
+
+    if session['username'] != 'admin':
+        flash('You are not authorized to view this page', 'error')
+        return redirect(url_for('home'))
 
     reviews = Review.query.all()
 
@@ -524,11 +509,10 @@ def user_reviews(username):
 def game(game_id):
     """Render users reviews for selected game"""
 
-    try:
-        if session['username']:
-            user = User.query.filter_by(username=session['username']).first()
-    except: # noqa
-        user = None
+    if not user_logged_in():
+        return redirect(url_for('login'))
+
+    user = User.query.filter_by(username=session['username']).first()
 
     reviews_data = Review.query.filter_by(game_id=game_id).all()
 
@@ -579,3 +563,16 @@ def likes():
     db.session.commit()
 
     return f"{len(likes)}"
+
+
+def user_logged_in():
+    """
+    Checks if user is logged in.
+    If user is not logged in direct user to login screen
+    """
+    try:
+        if session['username']:
+            return True
+    except: # noqa
+        flash('You must log in to view this page', 'error')
+        return False
