@@ -17,16 +17,16 @@ searchInput.addEventListener('keyup', () => {
 function submitForm() {
 
     // Clears previously received results
-    results.innerHTML = ''
+    results.innerHTML = '';
 
     // Clears results when search input is empty
     if (searchInput.value.length == 0) {
-        return results.innerHTML = ''
+        return results.innerHTML = '';
     }
 
     // Provides user feedback if search query is less than 3 characters
     if (searchInput.value.length < 3) {
-        return results.innerHTML = '<p>Enter a minimum of 3 characters to search</p>'
+        return results.innerHTML = '<p>Enter a minimum of 3 characters to search</p>';
     }
 
     // Displays loading animation while waiting for API response
@@ -40,9 +40,9 @@ function submitForm() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // Hides loading animation as response received from API
-            loader.classList.add('hide')
-            const data = JSON.parse(xhttp.responseText)
-            displayResults(data)
+            loader.classList.add('hide');
+            const data = JSON.parse(xhttp.responseText);
+            displayResults(data);
         }
     };
 
@@ -53,14 +53,14 @@ function submitForm() {
 function displayResults(data) {
 
     // Clears previously received results
-    results.innerHTML = ''
+    results.innerHTML = '';
 
     // User feedback when no results found from API
     if (data.length === 0) {
-        return results.innerHTML = `<p>Game Not Found!</p>`
+        return results.innerHTML = `<p>Game Not Found!</p>`;
     }
 
-    const ul = document.createElement('ul')
+    const ul = document.createElement('ul');
 
     // Creates required elements for each result received from the API
     for (let i = 0; i < data.length; i++) {
@@ -75,30 +75,30 @@ function displayResults(data) {
         icon.setAttribute('class', 'fa-solid fa-caret-down');
         icon.after(gameName);
 
-        divHeader.append(gameName)
-        divHeader.append(icon)
+        divHeader.append(gameName);
+        divHeader.append(icon);
 
         const divBody = document.createElement('div');
         divBody.setAttribute('class', 'collapsible-body grey darken-4');
 
         const divBodyInner = document.createElement('div');
-        divBodyInner.setAttribute('class', 'row')
+        divBodyInner.setAttribute('class', 'row');
 
         const gameImage = document.createElement('img');
         gameImage.src = data[i].img_url;
-        gameImage.setAttribute('class', 'col hide-on-small-only m4 l3')
+        gameImage.setAttribute('class', 'col hide-on-small-only m4 l3');
 
         const gameSummary = document.createElement('p');
         if (data[i].summary == undefined) data[i].summary = 'No Game Summary Found!';
         gameSummary.innerText = data[i].summary;
         gameSummary.setAttribute('class', 'white-text col s12 m8 l9');
 
-        const hiddenInput = document.createElement('input')
-        hiddenInput.setAttribute('class', 'hide')
-        hiddenInput.setAttribute('type', 'number')
-        hiddenInput.setAttribute('id', 'game_id')
-        hiddenInput.setAttribute('name', 'game_id')
-        hiddenInput.setAttribute('value', data[i].id)
+        const hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('class', 'hide');
+        hiddenInput.setAttribute('type', 'number');
+        hiddenInput.setAttribute('id', 'game_id');
+        hiddenInput.setAttribute('name', 'game_id');
+        hiddenInput.setAttribute('value', data[i].id);
 
         const addReviewLink = document.createElement('a');
         addReviewLink.innerText = 'Add Game';
@@ -106,9 +106,9 @@ function displayResults(data) {
         addReviewLink.href = data[i].anchor_href;
 
         divBodyInner.append(gameImage);
-        divBodyInner.append(addReviewLink)
+        divBodyInner.append(addReviewLink);
         divBodyInner.append(gameSummary);
-        divBody.append(divBodyInner)
+        divBody.append(divBodyInner);
 
 
         const li = document.createElement('li');
@@ -117,8 +117,8 @@ function displayResults(data) {
         ul.append(li);
     }
 
-    ul.setAttribute('class', 'collapsible')
-    results.append(ul)
+    ul.setAttribute('class', 'collapsible');
+    results.append(ul);
 
     // Initializes collapsible element from Materialize CSS
     $('.collapsible').collapsible();
@@ -152,10 +152,10 @@ function displayResults(data) {
         wrapper.append(spinner);
 
         e.currentTarget.replaceWith(wrapper);
-    }
+    };
 
     const links = document.getElementsByClassName('btn');
     for (const link of links) {
-        link.addEventListener('click', loading)
+        link.addEventListener('click', loading);
     }
 }
