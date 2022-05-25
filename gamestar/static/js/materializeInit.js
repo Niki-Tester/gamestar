@@ -11,3 +11,13 @@ $(document).ready(function () {
 });
 
 $('.dropdown-trigger').dropdown();
+
+$(document).ready(function () {
+  $(`
+    input#review-heading,
+    input#review-hours,
+    textarea#liked-text,
+    textarea#disliked-text,
+    textarea#liked-text
+    `).characterCounter();
+});
