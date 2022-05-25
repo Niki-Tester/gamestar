@@ -1,14 +1,14 @@
-likeButtons = document.getElementsByClassName('like-btn')
+const likeButtons = document.getElementsByClassName('like-btn');
 
 let gAwaitingResult = false;
 
 for (const likeButton of likeButtons) {
-    likeButton.addEventListener('click', toggleLike)
+    likeButton.addEventListener('click', toggleLike);
 }
 
 function toggleLike(e) {
-    e.preventDefault()
-    likeCounter = document.getElementById(`review-counter-${e.target.dataset.reviewId}`)
+    e.preventDefault();
+    const likeCounter = document.getElementById(`review-counter-${e.target.dataset.reviewId}`);
 
     const formData = new FormData();
     formData.append("review_id", e.target.dataset.reviewId);
@@ -16,10 +16,10 @@ function toggleLike(e) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            e.target.children[0].classList.toggle('liked')
-            e.target.children[1].innerText = xhttp.responseText
-            likeCounter.innerText = xhttp.responseText
-            gAwaitingResult = false
+            e.target.children[0].classList.toggle('liked');
+            e.target.children[1].innerText = xhttp.responseText;
+            likeCounter.innerText = xhttp.responseText;
+            gAwaitingResult = false;
         }
     };
 
