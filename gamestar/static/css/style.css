@@ -200,7 +200,7 @@ input[type=password]:not(.browser-default):not([readonly])+label {
 
 .rating-small .rating-inner::before,
 .rating-small .rating-outer::before {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .review-details {
