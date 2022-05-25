@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
     <br>
+    <!-- Game Header -->
     <div class="row">
-        <div class="col s12 center-align">
+        <!-- Game Cover Art -->
+        <div class="col s12 center-align flex-center">
             <img src="{{game.cover_art}}" alt="{{game.name}} cover art">
         </div>
+        <!-- Overall Game Rating -->
         <div class="col s12">
             <div class="rating">
                 <div class="rating-outer text-shadow">
@@ -12,30 +15,32 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row center-align">
-        <div class="col s12 m8 offset-m2">
-            <p class="white-text">{{game.summary}}</p>
+        <!-- Game Summary -->
+        <div class="row center-align">
+            <div class="col s12 m8 offset-m2">
+                <p class="white-text">{{game.summary}}</p>
+            </div>
         </div>
     </div>
+    <!-- Users Reviews -->
     <div class="row">
         <div class="col s12 right-align">
             {% if session.username %}
-                <a href="{{url_for('add_review', game_id=game.igdb_id)}}"
-                    class="btn-small amber black-text waves-effect waves-light">Add Review</a>
+            <a href="{{url_for('add_review', game_id=game.igdb_id)}}"
+                class="btn-small amber black-text waves-effect waves-light">Add Review</a>
             {% endif %}
         </div>
     </div>
     {% for review in reviews %}
-        <!-- Modal Trigger -->
+        <!-- Review Info - Modal Trigger -->
         <a href="#review{{review.id}}" class="modal-trigger">
             <div class="row grey darken-1 hoverable center-align white-text">
                 <!-- Review Heading -->
                 <div class="col s12">
                     <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
                 </div>
-                <!-- Review Details -->
-                <div class="col s4 grey darken-3 review-details">
+                <!-- Review Detail - Rating -->
+                <div class="col s6 grey darken-3 review-details">
                     <span class="rating-small">
                         <span class="rating-outer">
                             <span class="rating-inner" style="width: {{review.rating * (100 / 5)}}%">
@@ -43,25 +48,30 @@
                         </span>
                     </span>
                 </div>
-                <div class="col s4 grey darken-3 center-align review-details">
+                <!-- Review Detail - Likes -->
+                <div class="col s6 grey darken-3 center-align review-details">
                     <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i>
                     <span id="review-counter-{{review.id}}" class="white-text likes-number">{{review.likes|length}}</span>
                 </div>
-                <div class="col s4 grey darken-3 center-align review-details">
-                    <a href="{{url_for('user_reviews', username=review.username)}}" class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
+                <!-- Review Detail - Username / Date Posted -->
+                <div class="col s12 grey darken-3 center-align review-details">
+                    <a href="{{url_for('user_reviews', username=review.username)}}"
+                        class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
                     <span class="review-date">- {{review.created_date}}</span>
                 </div>
             </div>
         </a>
 
-        <!-- Modal Structure -->
-        <div id="review{{review.id}}" class="modal white-text">
+        <!-- Review Info - Modal Structure -->
+        <div id="review{{review.id}}" class="modal white-text grey darken-1">
             <div class="modal-content grey darken-3 white-text">
+                <!-- Review Header -->
                 <div class="row">
                     <div class="col s12">
                         <h4 class='center-align'>{{review.heading}}</h4>
                     </div>
                 </div>
+                <!-- Review Rating -->
                 <div class="row">
                     <div class="col s12">
                         <div class="rating">
@@ -71,12 +81,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Review Liked Text -->
                 <div class="row grey darken-2">
                     <div id="review-like" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Liked:</h6>
                         <p class="review-text">{{review.liked_text}}</p>
                     </div>
                 </div>
+                <!-- Review Disliked Text -->
                 <div class="row grey darken-2">
                     <div id="review-dislike" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Disliked:</h6>
@@ -84,49 +96,58 @@
                     </div>
                 </div>
                 {% if session.username == review.username or session.username == 'admin' %}
+                    <!-- Edit / Delete Buttons -->
                     <div class="row">
                         <div class="col s12 center-align white-text">
                             <a href="{{url_for('edit_review', review_id=review.id)}}" class="waves-effect waves-light btn">Edit</a>
-                            <a href="#confirm{{review.id}}" class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
+                            <!--  Delete Confirmation - Modal Trigger  -->
+                            <a href="#confirm{{review.id}}"
+                                class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
                         </div>
                     </div>
                 {% endif %}
-                
             </div>
+            <!-- Model Footer -->
             <div class="modal-footer grey darken-1">
-                <div class="row">
-                    <div class="col s6 left-align">
-                        <a href="#" class="btn-flat like-btn white-text text-shadow" data-review-id="{{review.id}}" 
-                        style="{{'cursor: not-allowed;' if not user}}"
-                        title="{{'You must be logged in to leave a like on this review.' if not user}}">
-                            <i class="fa-solid fa-thumbs-up {{ 'liked' if (user.id in review.likes) else '' }}"></i>
+                <div class="row grey darken-1">
+                    <!-- Like Button / Counter -->
+                    <div class="col s6 grey darken-1 left-align">
+                        <a href="#" class="btn-flat like-btn white-text text-shadow" data-review-id="{{review.id}}"
+                            style="{{'cursor: not-allowed;' if not user}}"
+                            title="{{'You must be logged in to leave a like on this review.' if not user}}">
+                            <i class="fa-solid fa-thumbs-up {{ 'liked' if user.id in review.likes else '' }}"></i>
                             <span class="likes-number">{{review.likes|length}}</span>
                         </a>
                     </div>
-                    <div class="col s6">
-                        <p class="text-shadow"><a href="{{url_for('user_reviews', username=review.username)}}" class="amber-text text-lighten1">{{review.username|capitalize}}</a> ({{review.hours}}
-                            hours) - {{review.created_date}} </p>
+                    <!-- Username / Date Posted -->
+                    <div class="col s6 grey darken-1 right-align">
+                        <p class="text-shadow"><a href="{{url_for('user_reviews', username=review.username)}}"
+                                class="amber-text text-lighten1">{{review.username|capitalize}}</a>
+                                {{review.hours}}hrs <span class="hide-on-small-only">- {{review.created_date}}</span> </p>
                     </div>
                 </div>
             </div>
 
         </div>
         {% if session.username == review.username or session.username == 'admin' %}
-            <!-- Modal Structure -->
+            <!-- Delete Confirmation - Modal Structure -->
             <div id="confirm{{review.id}}" class="modal center-align">
                 <div class="modal-content grey darken-3 white-text">
                     <h4 class="red-text text-shadow">Are You Sure?</h4>
                     <h3 class="red-text text-shadow">WARNING!</h3>
                     <h5 class="white-text text-shadow">This Action Is Not Reversible</h5>
                 </div>
-            <div class="modal-footer grey darken-1">
+                <!-- Delete Confirmation Buttons -->
+                <div class="modal-footer grey darken-1">
                     <a href="#" class="modal-close waves-effect waves-light btn">No</a>
-                    <a href="{{url_for('delete_review', review_id=review.id)}}" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
+                    <a href="{{url_for('delete_review', review_id=review.id)}}"
+                        class="waves-effect waves-effect waves-light red darken-2 btn">Yes</a>
                 </div>
             </div>
         {% endif %}
     {% endfor %}
     {% if not session.username %}
+        <!-- User Prompt Login/Register -->
         <div class="row">
             <div class="col s12 white-text center-align">
                 <p class="white-text">
@@ -138,6 +159,7 @@
         </div>
     {% endif %}
     {% if session.username and session.username != 'admin' %}
+        <!-- Like Button Functionality -->
         <script defer src="{{url_for('static', filename="js/likesCounter.js")}}"></script>
     {% endif %}
 {% endblock content %}
