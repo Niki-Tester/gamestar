@@ -508,11 +508,10 @@ def user_reviews(username):
 @app.route('/game/<int:game_id>')
 def game(game_id):
     """Render users reviews for selected game"""
-
-    if not user_logged_in():
-        return redirect(url_for('login'))
-
-    user = User.query.filter_by(username=session['username']).first()
+    if user_logged_in():
+        user = User.query.filter_by(username=session['username']).first()
+    else:
+        user = None
 
     reviews_data = Review.query.filter_by(game_id=game_id).all()
 
