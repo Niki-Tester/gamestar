@@ -6,11 +6,11 @@
         </div>
     </div>
     <div class="row white-text">
-        <div class="col s12">
+        <div class="col s12 flex-center">
             <img class="hoverable" src="{{game.cover_art}}" alt="game image">
         </div>
-        <div class="col s12">
-            <h1 class="text-shadow">{{game.name}}</h1>
+        <div class="col s12 center-align">
+            <h3 class="text-shadow">{{game.name}}</h3>
         </div>
         <div class="col s12">
             <h6 class="amber-text text-shadow">{{game.name}} Summary:</h6>
@@ -20,7 +20,7 @@
     <div class="row">
         <form class="col s12" action="{{url_for('edit_review', review_id=review.id)}}" method='POST'>
             <div class="row">
-                <div class="col s6">
+                <div class="col s12 m6">
                     <h6 class="amber-text text-shadow">How do you Rate {{game.name}}?</h6>
                     <p class="range-field">
                         <input type="range" id="review-rating" name='review-rating' min="0" max="5" step="0.1"
