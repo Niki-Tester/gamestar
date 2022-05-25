@@ -142,13 +142,6 @@ input[type=password]:not(.browser-default):not([readonly])+label {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-textarea.materialize-textarea:not([readonly]),
-input[type=text]:not(.browser-default):not([readonly]),
-input[type=number]:not(.browser-default):not([readonly]),
-input[type=password]:not(.browser-default):not([readonly]) {
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 1px 0 0 #ccc;
-}
 
 .progress {
     background-color: #000;
