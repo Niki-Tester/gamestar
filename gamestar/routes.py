@@ -608,5 +608,5 @@ def user_logged_in():
     try:
         if session['username']:
             return True
-    except: # noqa
+    except:  # noqa
         return False
