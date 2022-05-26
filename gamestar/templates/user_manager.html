@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row white-text center-align">
+    <!-- Page Heading -->
     <div class="col s12">
         <h1>User Manager</h1>
     </div>
 </div>
 <div class="row white-text center-align">
+    <!-- Username Search Bar -->
     <div class="col s12">
         <div class="row">
             <div class="row">
@@ -18,19 +20,21 @@
     </div>
 </div>
 <div class="row white-text center-align">
-    {% for user in users|sort(attribute='username')  %}
+    {% for user in users|sort(attribute='username') %}
         {% if user.username != 'admin' %}
             <div class="col s12 m6 xl3 flex-center">
                 <div class="card grey darken-3">
                 <div class="card-content white-text searchable">
+                    <!-- Username -->
                     <h5>{{user.username|capitalize}}</h5>
                 </div>
                 <div class="card-action">
+                    <!-- Modal Confirm Delete Trigger -->
                     <a href="#confirm-{{user.username}}" class="btn-small red darken-2 waves-effect waves-light modal-trigger"><i class="fa-solid fa-user-xmark"></i></a>
                 </div>
                 </div>
             </div>
-            <!-- Modal Structure -->
+            <!-- Modal Confirm Delete Structure -->
             <div id="confirm-{{user.username}}" class="modal center-align">
                 <div class="modal-content grey darken-3 white-text">
                     <h4 class="red-text text-shadow">Are You Sure?</h4>

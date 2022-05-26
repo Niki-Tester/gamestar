@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row white-text center-align">
+    <!-- Page Heading -->
     <div class="col s12">
         <h1>Reviews By {{user.username|capitalize}}</h1>
         {% if not reviews %}
@@ -14,13 +15,17 @@
             <ul class="collection">
                 {% for review in reviews %}
                     <li class="collection-item avatar grey darken-3">
+                        <!-- Game Cover Art -->
                         <img src="{{review.game.cover_art}}" alt="" class="circle">
+                        <!-- Game Name -->
                         <p class="title amber-text text-lighten-1">Game:
                             <span class="white-text">{{review.game.name|capitalize}}</span>
                         </p>
+                        <!-- Review Heading -->
                         <p class="amber-text text-lighten-1">Heading:
                             <span class="white-text">{{review.heading|capitalize}}</span>
                         </p>
+                        <!-- Review Rating -->
                         <p class="amber-text text-lighten-1">Rating:
                             <span class="rating-small">
                                 <span class="rating-outer">
@@ -29,25 +34,32 @@
                                 </span>
                             </span>
                         </p>
+                        <!-- Modal View Review Trigger -->
                         <a href="#modal-{{review.id}}" class="btn secondary-content amber black-text modal-trigger">View</a>
 
-                        <!-- Modal Structure -->
+                        <!-- Modal View Review Structure -->
                         <div id="modal-{{review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
                             <div class="modal-content">
+                                <!-- Game Name -->
                                 <h5>{{review.game.name}}</h5>
                                 <br>
+                                <!-- Review Heading -->
                                 <h6>Heading:</h6>
                                 <p class="white-text">{{review.heading}}</p>
                                 <br>
+                                <!-- Review Liked Text -->
                                 <h6>What {{user.username|capitalize}} Liked:</h6>
                                 <p class="white-text review-text">{{review.liked_text}}</p>
                                 <br>
+                                <!-- Review Disliked Text -->
                                 <h6>What {{user.username|capitalize}} Didn't Like:</h6>
                                 <p class="white-text review-text">{{review.disliked_text}}</p>
                                 <br>
+                                <!-- Review Rating -->
                                 <h6>{{user.username|capitalize}}'s Rating:</h6>
                                 <p class="white-text">{{review.rating}} stars out of 5</p>
                                 <br>
+                                <!-- Review Hours -->
                                 <h6>Hours {{user.username|capitalize}} Played:</h6>
                                 <p class="white-text">{{review.hours}} Hours</p>
                             </div>
@@ -59,6 +71,7 @@
                                         <span class="likes-number">{{review.likes|length}}</span>
                                     </a>
                                     <a href="{{url_for('edit_review', review_id=review.id)}}" class="btn text-shadow">Edit</a>
+                                    <!-- Modal Confirm Delete Trigger -->
                                     <a href="#confirm-{{review.id}}" class="btn red darken-2 text-shadow modal-trigger">Delete</a>
                                 </div>
                             {% else %}
@@ -72,7 +85,7 @@
                             {% endif %}
                         </div>
                         {% if session.username == 'admin' %}
-                        <!-- Modal Structure -->
+                        <!-- Modal Confirm Delete Structure -->
                             <div id="confirm-{{review.id}}" class="modal center-align">
                                 <div class="modal-content grey darken-3 white-text">
                                     <h4 class="red-text text-shadow">Are You Sure?</h4>

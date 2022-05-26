@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
+        <!-- Page Header -->
         <div class="col s12 center-align">
             <img id="page-logo" src="{{url_for('static', filename='images/gamestar_full_logo.png')}}" alt="GameStar full logo">
             <p id="page-caption" class="white-text">Your place for video game reviews</p>
         </div>
     </div>
     {% if not games %}
+        <!-- User Prompt -->
         <div class="col s12 center-align white-text">
             <p>Want to be the first to create a review?</p>
             {% if not session.username %}
@@ -23,32 +25,37 @@
     <div class="row">
         <div class="col s12 right-align">
             {% if session.username %}
+                <!-- Add Review Button -->
                 <a href="{{url_for('search')}}" class="btn-small amber black-text waves-effect waves-light">Add Review</a>
             {% endif %}
         </div>
     </div>
     <div class="row">
         {% for game in games %}
-        <a href="{{url_for('game', game_id=game.id)}}">
-            <div class="card-container col s12 m6 l4 xl3">
-                <div class="card hoverable">
-                    <div class="card-image">
-                        <img src="{{game.cover_art}}" alt="Cover art for {{game.name}}">
-                    </div>
-                    <div class="card-content grey darken-3">
-                        <p class="card-title bold-text center-align white-text text-shadow truncate">{{game.name}}</p>
-                        <div class="rating">
-                            <div class="rating-outer text-shadow center-align">
-                                <div class="rating-inner text-shadow center-align" style="width: {{game.average_rating * (100 / 5)}}%"></div>
+            <a href="{{url_for('game', game_id=game.id)}}">
+                <div class="card-container col s12 m6 l4 xl3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <!-- Card Game Cover Art -->
+                            <img src="{{game.cover_art}}" alt="Cover art for {{game.name}}">
+                        </div>
+                        <div class="card-content grey darken-3">
+                            <!-- Card Game Name -->
+                            <p class="card-title bold-text center-align white-text text-shadow truncate">{{game.name}}</p>
+                            <!-- Card Game Average Rating -->
+                            <div class="rating">
+                                <div class="rating-outer text-shadow center-align">
+                                    <div class="rating-inner text-shadow center-align" style="width: {{game.average_rating * (100 / 5)}}%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
         {% endfor %}
     </div>
         {% if not session.username %}
+        <!-- User Prompt -->
         <div class="row">
             <div class="col s12 white-text center-align">
                 <p class="white-text">

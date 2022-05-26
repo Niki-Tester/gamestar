@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="row white-text center-align">
+    <!-- Page Heading -->
     <div class="col s12">
         <h1>Review Manager</h1>
         {% if not reviews %}
@@ -14,38 +15,50 @@
             <ul class="collection">
                 {% for review in reviews %}
                     <li class="collection-item avatar grey darken-3">
+                        <!-- Game Cover Art -->
                         <img src="{{review.game.cover_art}}" alt="" class="circle">
+                        <!-- Username -->
                         <span class="title amber-text text-lighten-1">Username: </span>{{review.username|capitalize}}
                         <p>
+                            <!-- Game Name -->
                             <span class="amber-text text-lighten-1">Game: </span>{{review.game.name}}
                         </p>
+                        <!-- Modal View Review Trigger -->
                         <a href="#modal-{{review.id}}" class="btn secondary-content amber black-text modal-trigger">View</a>
-                        <!-- Modal Structure -->
+                        <!-- Modal View Review Structure -->
                         <div id="modal-{{review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
                             <div class="modal-content">
+                                <!-- Game Name -->
                                 <h5>{{review.game.name}}</h5>
                                 <br>
+                                <!-- Review Heading -->
                                 <h6>Heading:</h6>
                                 <p class="white-text">{{review.heading}}</p>
                                 <br>
+                                <!-- Review Liked Text -->
                                 <h6>What {{review.username|capitalize}} Liked:</h6>
                                 <p class="white-text review-text">{{review.liked_text}}</p>
                                 <br>
+                                <!-- Review Disliked Text -->
                                 <h6>What {{review.username|capitalize}} Didn't Like:</h6>
                                 <p class="white-text review-text">{{review.disliked_text}}</p>
                                 <br>
+                                <!-- Review Rating -->
                                 <h6>{{review.username|capitalize}}'s Rating:</h6>
                                 <p class="white-text">{{review.rating}} stars out of 5</p>
                                 <br>
+                                <!-- Review Hours -->
                                 <h6>Hours {{review.username|capitalize}} Played:</h6>
                                 <p class="white-text">{{review.hours}} Hours</p>
                             </div>
+                            <!-- Review Edit / Delete Buttons -->
                             <div class="modal-footer grey darken-3">
                                 <a href="{{url_for('edit_review', review_id=review.id)}}" class="btn text-shadow">Edit</a>
+                                <!-- Modal Confirm Delete Trigger -->
                                 <a href="#confirm-{{review.id}}" class="btn red darken-2 text-shadow modal-trigger">Delete</a>
                             </div>
                         </div>
-                        <!-- Modal Structure -->
+                        <!-- Modal Confirm Delete Structure -->
                         <div id="confirm-{{review.id}}" class="modal center-align">
                             <div class="modal-content grey darken-3 white-text">
                                 <h4 class="red-text text-shadow">Are You Sure?</h4>

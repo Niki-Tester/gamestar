@@ -6,16 +6,19 @@
             <p>Register and create your own reviews!</p>
             <form id="register-form" method="POST" action="{{url_for('register')}}">
                 <div class="row">
+                    <!-- Username -->
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-user-plus prefix"></i>
                         <input id="username" name="username" type="text" class="validate white-text" minlength="3" maxlength="16" pattern="[a-zA-Z0-9]+" title="Usernames must be between 3-16 characters long and can include lower/uppercase characters and numbers." required>
                         <label for="username">Username</label>
                     </div>
+                    <!-- Password -->
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-lock prefix"></i>
                         <input id="password" name="password" type="password" class="white-text validate" minlength="8" title="Passwords must be at least 8 characters long." required>
                         <label for="password">Password</label>
                     </div>
+                    <!-- Confirm Password -->
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-lock prefix"></i>
                         <input id="confirm_password" name="confirm_password" type="password" class="white-text validate" minlength="8" title="Must match Password exactly." required>
@@ -23,6 +26,7 @@
                     </div>
                 </div>
                 <div class="col s12 center-align">
+                    <!-- Register Button -->
                     <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Register</button>
                     <p class="white-text">Already Registered? <a href="{{url_for('login')}}" class="amber-text text-lighten-">Log In</a></p>
                 </div>

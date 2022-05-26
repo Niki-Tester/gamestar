@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
+        <!-- Page Header -->
         <div class="col s12 center-align white-text">
             <h1>Manage Reviews</h1>
         </div>
     </div>
     {% if not user_reviews %}
         <div class="row">
+            <!-- User Prompt -->
             <div class="col s12 center-align white-text">
                 <p>You have not created any reviews yet.</p>
                 <p>Would you like to create one? <a href="{{url_for('search')}}" class="amber-text lighten-1">Add Review</a></p>
@@ -14,21 +16,27 @@
         </div>
     {% else %}
     <div class="row">
+        <!-- Add Review Button -->
         <div class="col s12 right-align">
             <a href="{{url_for('search')}}" class="btn-small amber black-text waves-effect waves-light">Add Review</a>
         </div>
     </div>
         <div class="row">
+            <!-- Users Reviews -->
             <div class="col s12 white-text">
                 {% for user_review in user_reviews %}
+                    <!-- Modal Trigger -->
                     <a href="#modal{{user_review.review.id}}" class="modal-trigger">
                         <div class="card-container col s12 m3 l3">
                             <div class="card hoverable">
                                 <div class="card-image">
+                                    <!-- Game Cover Art -->
                                     <img src="{{user_review.game.cover_art}}">
                                 </div>
                                 <div class="card-content grey darken-3">
+                                    <!-- Game Name -->
                                     <p class="card-title bold-text center-align white-text text-shadow truncate">{{user_review.game.name}}</p>
+                                    <!-- Review Rating -->
                                     <div class="rating">
                                         <div class="rating-outer text-shadow center-align">
                                             <div class="rating-inner text-shadow center-align" style="width: {{user_review.review.rating * (100 / 5)}}%"></div>
@@ -41,29 +49,37 @@
                     <!-- Modal Structure -->
                     <div id="modal{{user_review.review.id}}" class="modal modal-fixed-footer grey darken-4 amber-text lighten-1">
                         <div class="modal-content">
+                            <!-- Game Name -->
                             <h5>{{user_review.game.name}}</h5>
                             <br>
+                            <!-- Review Heading -->
                             <h6>Heading:</h6>
                             <p class="white-text">{{user_review.review.heading}}</p>
                             <br>
+                            <!-- Review Liked Text -->
                             <h6>What You Liked:</h6>
                             <p class="white-text review-text">{{user_review.review.liked_text}}</p>
                             <br>
+                            <!-- Review Disliked Text -->
                             <h6>What You Didn't Like:</h6>
                             <p class="white-text review-text">{{user_review.review.disliked_text}}</p>
                             <br>
+                            <!-- Review Rating -->
                             <h6>Your Rating:</h6>
                             <p class="white-text">{{user_review.review.rating}} stars out of 5</p>
                             <br>
+                            <!-- Review Hours -->
                             <h6>Hours You Played:</h6>
                             <p class="white-text">{{user_review.review.hours}} Hours</p>
                         </div>
+                        <!-- Review Edit / Delete Buttons -->
                         <div class="modal-footer grey darken-3">
                             <a href="{{url_for('edit_review', review_id=user_review.review.id)}}" class="btn text-shadow">Edit</a>
+                            <!-- Modal Confirm Delete Trigger -->
                             <a href="#confirm-{{user_review.review.id}}" class="btn red darken-2 text-shadow modal-trigger">Delete</a>
                         </div>
                     </div>
-                    <!-- Modal Structure -->
+                    <!-- Modal Confirm Delete Structure -->
                     <div id="confirm-{{user_review.review.id}}" class="modal center-align">
                         <div class="modal-content grey darken-3 white-text">
                             <h4 class="red-text text-shadow">Are You Sure?</h4>

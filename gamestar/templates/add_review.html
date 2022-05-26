@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <!-- Page Heading -->
     <div class="row">
         <div class="col s12 white-text center-align">
             <h3>Add Game Review</h3>
@@ -7,14 +8,17 @@
         </div>
     </div>
     <div class="row white-text center-align">
+        <!-- Game Cover Art -->
         <div class="col s12 flex-center">
             <img class="hoverable" src="{{data.cover}}" alt="{{data.name}} cover art">
         </div>
+        <!-- Game Name -->
         <div class="col s12 flex-center">
             <h1 class="text-shadow">{{data.name}}</h1>
         </div>
     </div>
     <div class="row">
+        <!-- Game Summary -->
         <div class="col s12 white-text">
             <h6 class="amber-text text-shadow">{{data.name}} Summary:</h6>
             <p>{{data.summary}}</p>
@@ -23,6 +27,7 @@
     <div class="row">
         <form class="col s12" action="{{url_for('submit_review', game_id=data.id)}}" method='POST'>
             <div class="row">
+                <!-- Rating -->
                 <div class="col s12 m6">
                     <h6 class="amber-text text-shadow left-align">How do you Rate {{data.name}}?</h6>
                     <p class="range-field ">              
@@ -30,12 +35,14 @@
                             value="{{ request.args.get('review_rating') if request.args.get('review_rating') else 0}}"
                             aria-label="Your game rating score, from 0 to 5" />
                     </p>
+                    <!-- Rating Stars -->
                     <div class="rating-outer">
                         <div class="rating-inner"></div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                <!-- Review Heading -->
                 <div class="input-field col s12">
                     <input id="review-heading" name="review-heading" type="text" class="white-text validate" minlength="10"
                         maxlength="65" data-length="65" 
@@ -44,6 +51,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Review Liked Text -->
                 <div class="input-field col s12">
                     <textarea id="liked-text" name="liked-text" class="validate materialize-textarea white-text"
                         minlength="30" maxlength="2500" data-length="2500" required>{{ request.args.get('review_liked') if request.args.get('review_liked') }}</textarea>
@@ -51,6 +59,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Review Disliked Text -->
                 <div class="input-field col s12">
                     <textarea id="disliked-text" name="disliked-text" class="validate materialize-textarea white-text"
                         minlength="30" maxlength="2500" data-length="2500" required>{{ request.args.get('review_disliked') if request.args.get('review_disliked') }}</textarea>
@@ -58,14 +67,17 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Review Hours -->
                 <div class="input-field col s12">
                     <input id="review-hours" name="review-hours" type="number" class="validate white-text" min="1"
                         minlength="1" maxlength="5" data-length="5" value="{{ request.args.get('review_hours') if request.args.get('review_hours') }}" required>
                     <label for="review-hours">How many hours have you played {{data.name}}?</label>
                 </div>
             </div>
+            <!-- Review Submit Button -->
             <button id="submit-review" class="btn waves-effect waves-light amber black-text" type="submit">Submit</button>
         </form>
+        <!-- Range Slider Script -->
         <script defer src="{{url_for('static', filename='js/ratingSlider.js')}}"></script>
     </div>
 {% endblock content %}
