@@ -123,6 +123,7 @@
         {% else %}
             body.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.webp')}})`;
         {% endif %}
+        body.style.backgroundAttachment = 'fixed'
         body.style.backgroundPosition = 'top';
         body.style.backgroundSize = 'cover';
         body.style.backgroundRepeat = 'no-repeat';
