@@ -1,5 +1,5 @@
 """
-EXAMPLE: Environment variabled for Gamestar application
+EXAMPLE: Environment variables for Gamestar application
 """
 import os
 
