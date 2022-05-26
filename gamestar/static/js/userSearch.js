@@ -7,9 +7,9 @@ searchInput.addEventListener('keyup', e => {
     for (const userCard of userCards) {
         const username = userCard.firstElementChild.textContent.toLowerCase();
         if (!username.includes(searchQuery)) {
-            userCard.parentElement.classList.add('hide')
+            userCard.parentElement.parentElement.classList.add('hide')
         } else {
-            userCard.parentElement.classList.remove('hide')
+            userCard.parentElement.parentElement.classList.remove('hide')
         }
     }
 })
