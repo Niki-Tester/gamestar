@@ -24,7 +24,7 @@
     </div>
     <!-- Users Reviews -->
     <div class="row">
-        <div class="col s12 right-align">
+        <div class="col s12 xl8 offset-xl2 right-align">
             {% if session.username %}
             <a href="{{url_for('add_review', game_id=game.igdb_id)}}"
                 class="btn-small amber black-text waves-effect waves-light">Add Review</a>
@@ -34,30 +34,32 @@
     {% for review in reviews %}
         <!-- Review Info - Modal Trigger -->
         <a href="#review{{review.id}}" class="modal-trigger">
-            <div class="row grey darken-1 hoverable center-align white-text">
-                <!-- Review Heading -->
-                <div class="col s12">
-                    <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
-                </div>
-                <!-- Review Detail - Rating -->
-                <div class="col s6 grey darken-3 review-details">
-                    <span class="rating-small">
-                        <span class="rating-outer">
-                            <span class="rating-inner" style="width: {{review.rating * (100 / 5)}}%">
+            <div class="row center-align white-text">
+                <div class="col s12 xl8 offset-xl2 grey darken-3 hoverable ">
+                    <!-- Review Heading -->
+                    <div class="col s12">
+                        <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
+                    </div>
+                    <!-- Review Detail - Rating -->
+                    <div class="col s6 grey darken-4 review-details">
+                        <span class="rating-small">
+                            <span class="rating-outer">
+                                <span class="rating-inner" style="width: {{review.rating * (100 / 5)}}%">
+                                </span>
                             </span>
                         </span>
-                    </span>
-                </div>
-                <!-- Review Detail - Likes -->
-                <div class="col s6 grey darken-3 center-align review-details">
-                    <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i>
-                    <span id="review-counter-{{review.id}}" class="white-text likes-number">{{review.likes|length}}</span>
-                </div>
-                <!-- Review Detail - Username / Date Posted -->
-                <div class="col s12 grey darken-3 center-align review-details">
-                    <a href="{{url_for('user_reviews', username=review.username)}}"
-                        class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
-                    <span class="review-date">- {{review.created_date}}</span>
+                    </div>
+                    <!-- Review Detail - Likes -->
+                    <div class="col s6 grey darken-4 center-align review-details">
+                        <i class="fa-solid fa-thumbs-up amber-text text-lighten-1"></i>
+                        <span id="review-counter-{{review.id}}" class="white-text likes-number">{{review.likes|length}}</span>
+                    </div>
+                    <!-- Review Detail - Username / Date Posted -->
+                    <div class="col s12 grey darken-4 center-align review-details">
+                        <a href="{{url_for('user_reviews', username=review.username)}}"
+                            class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
+                        <span class="review-date">- {{review.created_date}}</span>
+                    </div>
                 </div>
             </div>
         </a>
