@@ -31,7 +31,7 @@
             {% endif %}
         </div>
     </div>
-    {% for review in reviews %}
+    {% for review in reviews|sort(reverse=true, attribute="likes") %}
         <!-- Review Info - Modal Trigger -->
         <a href="#review{{review.id}}" class="modal-trigger">
             <div class="row center-align white-text">
