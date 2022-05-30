@@ -242,6 +242,9 @@ def user_manager():
     """
     GET: Displays list of registered users
     """
+    if not user_logged_in():
+        flash('You must log in to view this page', 'error')
+
     if session['username'] != 'admin':
         flash('You are not authorized to access this page', 'error')
         return redirect(url_for('home'))
