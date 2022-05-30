@@ -244,6 +244,7 @@ def user_manager():
     """
     if not user_logged_in():
         flash('You must log in to view this page', 'error')
+        return redirect(url_for('login'))
 
     if session['username'] != 'admin':
         flash('You are not authorized to access this page', 'error')
