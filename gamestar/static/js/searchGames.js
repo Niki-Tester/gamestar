@@ -69,6 +69,7 @@ function displayResults(data) {
         divHeader.setAttribute('class', 'collapsible-header grey darken-3 amber-text text-lighten-1');
 
         const gameName = document.createElement('h6');
+        gameName.setAttribute('class', 'text-shadow')
         gameName.textContent = data[i].name;
 
         const icon = document.createElement('i');
