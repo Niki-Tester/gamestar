@@ -180,7 +180,7 @@ input[type=password]:not(.browser-default):not([readonly])+label {
 
 
 .progress {
-    background-color: #000;
+    background-color: #ffca2822;
 }
 
 .progress .indeterminate {
@@ -190,9 +190,8 @@ input[type=password]:not(.browser-default):not([readonly])+label {
 .collapsible .collapsible-header i {
     position: absolute;
     font-size: 3rem;
-    top: 20px;
     right: 30px;
-    transition: all 400ms ease-in-out;
+    transition: all 450ms ease-in-out;
 }
 
 .collapsible .active .collapsible-header i {
