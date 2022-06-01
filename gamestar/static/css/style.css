@@ -5,6 +5,21 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: #333;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+    transition: width 300ms ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f8ce0b;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(10, 10, 10, 5);
+    box-shadow: inset 0 0 .1rem #f8ce0b;
 }
 
 h1,
