@@ -40,7 +40,7 @@
                     <i class="fa-solid fa-expand expand-icon amber-text text-lighten-1"></i>
                     <!-- Review Heading -->
                     <div class="col s12">
-                        <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
+                        <h5 class="amber-text text-lighten-1 wrap-break-word">{{review.heading}}</h5>
                     </div>
                     <!-- Review Detail - Rating -->
                     <div class="col s6 grey darken-4 review-details">
@@ -72,7 +72,7 @@
                 <!-- Review Header -->
                 <div class="row">
                     <div class="col s12">
-                        <h4 class='center-align'>{{review.heading}}</h4>
+                        <h4 class='center-align wrap-break-word'>{{review.heading}}</h4>
                     </div>
                 </div>
                 <!-- Review Rating -->
@@ -89,24 +89,24 @@
                 <div class="row grey darken-2">
                     <div id="review-like" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Liked:</h6>
-                        <p class="review-text">{{review.liked_text}}</p>
+                        <p class="review-text wrap-break-word">{{review.liked_text}}</p>
                     </div>
                 </div>
                 <!-- Review Disliked Text -->
                 <div class="row grey darken-2">
                     <div id="review-dislike" class="col s12">
                         <h6 class="amber-text text-lighten-1">What {{review.username|capitalize}} Disliked:</h6>
-                        <p class="review-text">{{review.disliked_text}}</p>
+                        <p class="review-text wrap-break-word">{{review.disliked_text}}</p>
                     </div>
                 </div>
                 {% if session.username == review.username or session.username == 'admin' %}
                     <!-- Edit / Delete Buttons -->
                     <div class="row">
                         <div class="col s12 center-align white-text">
-                            <a href="{{url_for('edit_review', review_id=review.id)}}" class="waves-effect waves-light btn">Edit</a>
+                            <a href="{{url_for('edit_review', review_id=review.id)}}" class="waves-effect waves-light btn-small">Edit</a>
                             <!--  Delete Confirmation - Modal Trigger  -->
                             <a href="#confirm{{review.id}}"
-                                class="waves-effect waves-effect waves-light red darken-2 btn modal-trigger">Delete</a>
+                                class="waves-effect waves-effect waves-light red darken-2 btn-small modal-trigger">Delete</a>
                         </div>
                     </div>
                 {% endif %}
