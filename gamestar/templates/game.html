@@ -33,9 +33,11 @@
     </div>
     {% for review in reviews|sort(reverse=true, attribute="likes") %}
         <!-- Review Info - Modal Trigger -->
-        <a href="#review{{review.id}}" class="modal-trigger">
+        <a href="#review{{review.id}}" class="modal-trigger review-modal-trigger">
             <div class="row center-align white-text">
                 <div class="col s12 xl8 offset-xl2 grey darken-3 hoverable ">
+                    <!-- Expand Review Icon -->
+                    <i class="fa-solid fa-expand expand-icon amber-text text-lighten-1"></i>
                     <!-- Review Heading -->
                     <div class="col s12">
                         <h5 class="amber-text text-lighten-1">{{review.heading}}</h5>
