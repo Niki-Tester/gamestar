@@ -172,6 +172,18 @@ input[type=password]:not(.browser-default):not([readonly])+label {
     background-color: #f8ce0b;
 }
 
+.collapsible .collapsible-header i {
+    position: absolute;
+    font-size: 3rem;
+    top: 20px;
+    right: 30px;
+    transition: all 400ms ease-in-out;
+}
+
+.collapsible .active .collapsible-header i {
+    transform: rotate(180deg);
+}
+
 .collapsible-header {
     position: relative;
     display: flex;
