@@ -91,7 +91,7 @@ These are the main colors used throughout the project:
   * ![#FFF](https://via.placeholder.com/15/FFF/000000?text=+) `#FFF`
   * ![#F8CE0B](https://via.placeholder.com/15/F8CE0B/000000?text=+) `#F8CE0B`
 
-  A contrast grid was used to ensure that the contrast between background and forground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
+  A contrast grid was used to ensure that the contrast between background and foreground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
 
   ![Contrast Grid Image](doc/images/contrast_grid.png)
 
@@ -99,41 +99,55 @@ These are the main colors used throughout the project:
   * Two fonts are used throughout the project, Roboto is used for all main text. With Saira Stencil One being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
 
 ## **Imagery**:
-  * Imagery is especially important in this project, the background image is used throughout the website, with the execption where a game review is being displayed, and a game image is available.
+  * Imagery is especially important in this project, the background image is used throughout the website, with the exception where a game is being displayed, and a game image is available.
 
 ## **Features**
 
 ### **Home Page**:
 
-  This is the page that the user will be greeted with upon arriving at the site. This page will consist of a navigation bar along the top, containint the website name, as well as links to other pages within the web app.
+  This is the page that the user will be greeted with upon arriving at the site, and can be accessed at anytime by clicking either the **GameStar Logo** or **Home** link in the navigation bar/menu.
+  
+  This page will consist of a navigation bar/menu along the top, containing the GameStar logo, along with links to other pages within the web application, providing different links if the user is logged in, and if the user is Admin.
+
+  Below the navigation bar/menu will be displayed the GameStar logo, tag line, and a paginated list of games that users have created reviews for.
+
+  Finally at the bottom of the page will be the extended version of the footer.
 
 ### **Register Page**:
 
-  This page will be available by clicking the register link in the naviagion bar/menu. A user will be able to create a profile by choosing a username, and setting a password. 
+  This page will be available by clicking the **Register** link in the navigation bar/menu, and via various user prompts throughout the site.
+  
+  A user will be able to create a profile by choosing a username, and setting a password.
 
-  If a user chooses a username that already exists, or the passwords do not match, they will be presented the relevant flash message.
+  If a user chooses a username that already exists, or the passwords entered do not match, they will be presented with the relevant error message.
+
+  Once the user has registered they will be automatically logged in, and returned to the Home Page.
 
 ### **Log In Page**:
 
-  This page will be available by clicking the login link in the naviagion bar/menu. A user will be able to log in to a previously created user profile.
+  This page will be available by clicking the **Login** link in the navigation bar/menu, and via various user prompts throughout the site.
+  
+  A user will be able to log in to a previously created user profile.
 
-  If a user enteres a username that does not exist, or the if password is incorrect, they will be presented with the flash message "Username/Password combination not recognised".
+  If a user enters a username that does not exist, or the if password is incorrect, they will be presented with the relevant error message.
+
+  Once the user has logged in, they will be redirected to the Home Page.
 
 ### **User Profile Page**:
 
-  This page will be available by clicking the profile link in the naviagion bar/menu, allowing a user to change their password by first confiriming their current password, followed by entering their new password and matching confirm password.
+  This page will be available by clicking the **Profile** link in the navigation bar/menu, allowing a user to change their password after first confirming their current password, followed by their new password and matching confirm password.
 
 ### **Manage Reviews Page**:
 
-  This page will be available by clicking the manage reviews link in the naviagion bar/menu.
+  This page will be available by clicking the **Manage Reviews** link in the navigation bar/menu.
 
   On this page a user with be greeted by one of two outcomes.
 
   1. If a user has not submitted any reviews, the page will display "You have not added any reviews yet". Followed by a prompt to add a review.
 
-  2. If a user has submitted a review, this page will display a list of the reviews they have created, each with a link to the review, along with the option to delete or edit their review.
+  2. If a user has submitted a review, this page will display a list of the reviews they have created, each opening a modal so that the user can view the review, while providing the user with the option to delete or edit their review.
 
-### **Add Game Page**:
+### **Search Page**:
 
   This page will be available by clicking the add review link/button found on the home page if the user is logged in, or via the Manage Reviews page.
 
@@ -141,31 +155,64 @@ These are the main colors used throughout the project:
 
   This will make a request to the IGDB api, returning a list of games matching the users search criteria.
 
-  Each game returned from the api will generate a collapsable list containing the game cover art, game name and a summary of the game.
+  Each game returned from the api will generate a collapsible list containing the game cover art, game name and a summary of the game.
 
-  The user will also find a button prompting them to add the game.
+  Within the collapsible list the user will also find a button prompting them to add a review.
 
 ### **Add Review Page**:
 
-  This page will be available by clicking the add game button found in the collapsible list of the relevant game from the Add Game Page.
+  This page will be available by clicking the add review button found in the collapsible list of the relevant game from the Search Page.
 
-  Once loaded the user will be greeted with a form asking them to give their review a heading, what they liked about the game, what they disliked about the game and how many hours they played the game.
+  Once loaded the user will be greeted with a form asking them to give the game a rating, and give the review a heading, describe what they liked about the game, describe what they disliked about the game and how many hours they played the game.
 
-  The user will then be asked "How do you rate" the game, and will be presented with a range slider that has a range between 0-5. When the user activates the slider, they will all so that the "rating stars" will update dynamically with the value of the range slider.
+  The user will be able to rate the game, by using a range slider that has a range between 0-5. When the user activates the slider, the user will also see that the "rating stars" will update dynamically with the value of the range slider.
 
-  The user will then need to click the submit button in order for their review to be saved. This will submit their review and return them to the home screen, displaying a flash message if the review has/not been successfully created.
+  The user will then need to click the submit button in order for their review to be submitted. This will submit their review and return them to the home screen, displaying a message if the review has/not been successfully submitted.
+
+  If the review was not successfully submitted, the user will be returned to the Add Review Page, with each field populated with what the user attempted to submit.
 
 ### **Game Review Page**:
 
-  This page will be visible after a user selects to view reviews on a particular game, displayed on the home page.
+  This page will be visible after a user selects to view reviews on a particular game, selected from the home page.
 
-  At the top of the page there will be an image depicting the game cover art, with a heading displaying the name of the game along side the image and below the heading will be the official summary of the game.
+  At the top of the page there will be an image depicting the game cover art, a heading displaying the name of the game, followed by the official summary of the game.
 
-  Under the heading described above, will be each review a user has created.
+  The user will then see a list of all the reviews created for the relevant game as a summary, displaying the review heading, the rating, the number of likes the review has, along with the username of the user that created the review and the date it was created.
 
-  Within the review a user will find the username of the user that left the review along with a time stamp, under which will be the rating and review text left by that user.
+  The user will be able to click on a review which renders a modal allowing the user to view the full review, and allow them to add/remove a like.
 
-  At the very bottom of each review, will be a like and dislkie button and counter.
+  If a user adds/removes their like, the like counter on the review is immediately updated, without the page reloading.
+
+  Each review contains a link to the **User Reviews** page.
+
+  There will also be buttons displayed to edit or delete the review, but these will only be visible to either the user that created the review, or the site Admin.
+
+### **User Reviews Page**:
+
+  This page will be visible after a user clicks on a username within a game review element.
+
+  At the top of the page there will be a heading, "Reviews By" followed by the username of the selected user.
+
+  Below the heading will be a list of all the reviews the selected user has created, containing a summary of the review, and a view button that renders a modal containing the full review.
+
+### **Admin Pages**
+
+  If the username of the logged in user is Admin, they will be presented with an Admin button in the nav bar/menu, that when clicked will provide two options.
+
+  1. Users - This will direct the Admin to the User Manager page.
+  2. Reviews - This will direct the Admin to the User Reviews page.
+
+### **User Manager**
+  This page will be only visible to the site Admin user.
+
+  It will contain a list of all the registered users, displaying the username, along with a button to delete that particular user.
+
+  There is also a Search Users input above the list of users, to aid in the Admin finding a particular username.
+
+### **Review Manager**
+  This page will be only visible to the site Admin user.
+
+  It will contain a list of all the created reviews, displaying the username and game name, along with a button to view the full review, where there will be a further two buttons, one to edit the review, and the other to delete the review.  
 
 ## **Wireframes**
   To organize and streamline the development process, I created wireframes for this project, to help me during the development process and to prevent scope creep.
