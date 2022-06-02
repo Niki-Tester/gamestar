@@ -309,6 +309,12 @@ These are the main colors used throughout the project:
   1. [MaterializeCSS](https://en.wikipedia.org/wiki/Material_Design):
     MaterializeCSS was used to help in constructing an attractive, consistent, and functional web page.
 
+  1. [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)):
+    Flask is a micro web framework written in Python.
+
+  1. [SQLAlchemy](https://en.wikipedia.org/wiki/SQLAlchemy):
+    SQLAlchemy is an open-source SQL toolkit and object-relational mapper (ORM) for the Python programming language
+
 ## **Deployment**
 
   ### **Heroku**
