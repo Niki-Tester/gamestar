@@ -304,6 +304,26 @@ input[type=range]+.thumb.active .value {
     border-color: #f8ce0b;
 }
 
+#page-numbers hr {
+    border: #a7882b 1px solid;
+}
+
+#page-numbers a {
+    font-size: 1.5rem;
+    color: #f8ce0b;
+    margin-right: 1rem;
+}
+
+#page-numbers .ellipsis {
+    font-size: 1.5rem;
+    color: #f8ce0b;
+    margin-right: 1rem;
+}
+
+#page-numbers .current-page {
+    border-bottom: #f8ce0b 2px solid;
+}
+
 @media screen and (min-width: 601px) {
     #nav-logo {
         margin-top: 0.75rem;

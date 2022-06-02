@@ -13,13 +13,17 @@ from gamestar import app, db
 from gamestar.models import User, Game, Review
 
 
-@app.route('/')
-def home():
+@app.route('/', defaults={"page": 1})
+@app.route('/<int:page>')
+def home(page):
     """
     Render home.html template.
     """
-    games = Game.query.all()
-    for game in games:
+    per_page = 8
+    games = Game.query.paginate(page, per_page, error_out=True)
+
+    for game in games.items:
+        print(game)
         reviews = Review.query.filter_by(game_id=game.id).all()
 
         if len(reviews) == 0:
