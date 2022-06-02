@@ -221,7 +221,7 @@ These are the main colors used throughout the project:
 
 ### **Mobile Wireframes**:
 
-  [Homepage](/doc/Wireframes/Mobile/Home.png)
+  [Home Page](/doc/Wireframes/Mobile/Home.png)
 
   [Register](/doc/Wireframes/Mobile/Register.png)
 
@@ -242,23 +242,23 @@ These are the main colors used throughout the project:
 
 ### **Desktop Wireframes**:
 
-  ![Homepage](/doc/Wireframes/Desktop/Home.png)
+  [Home Page](/doc/Wireframes/Desktop/Home.png)
 
-  ![Register](/doc/Wireframes/Desktop/Register.png)
+  [Register](/doc/Wireframes/Desktop/Register.png)
 
-  ![Login](/doc/Wireframes/Desktop/Login.png)
+  [Login](/doc/Wireframes/Desktop/Login.png)
 
-  ![User_Profile](/doc/Wireframes/Desktop/User_Profile.png)
+  [User_Profile](/doc/Wireframes/Desktop/User_Profile.png)
 
-  ![Manage_Reviews_No_Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
+  [Manage_Reviews_No_Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
 
-  ![Manage_Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
+  [Manage_Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
 
-  ![Add_Game](/doc/Wireframes/Desktop/Add_Game.png)
+  [Add_Game](/doc/Wireframes/Desktop/Add_Game.png)
 
-  ![Add_Review](/doc/Wireframes/Desktop/Add_Review.png)
+  [Add_Review](/doc/Wireframes/Desktop/Add_Review.png)
 
-  ![Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
+  [Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
 
 ---
 
