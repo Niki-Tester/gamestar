@@ -101,7 +101,7 @@ These are the main colors used throughout the project:
 ## **Imagery**:
   * Imagery is especially important in this project, the background image is used throughout the website, with the exception where a game is being displayed, and a game image is available.
 
-## **Features**
+# **Features**
 
 ### **Home Page**:
 
