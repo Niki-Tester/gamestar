@@ -270,6 +270,8 @@ These are the main colors used throughout the project:
 
   ![Database_Schema](/doc/images/drawSQL-export.png)
 
+  During development I made the decision to remove the dislike counter, as I felt this was redundant.
+
 ---
 
 ## **Technologies Used**:
