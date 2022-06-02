@@ -227,17 +227,17 @@ These are the main colors used throughout the project:
 
   [Login](/doc/Wireframes/Mobile/Login.png)
 
-  [User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
+  [User Profile](/doc/Wireframes/Mobile/User_Profile.png)
 
-  [Manage_Reviews_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
+  [Manage Reviews No Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
 
-  [Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
+  [Manage Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
 
-  [Add_Game](/doc/Wireframes/Mobile/Add_Game.png)
+  [Add Game](/doc/Wireframes/Mobile/Add_Game.png)
 
-  [Add_Review](/doc/Wireframes/Mobile/Add_Review.png)
+  [Add Review](/doc/Wireframes/Mobile/Add_Review.png)
 
-  [Game_Review](/doc/Wireframes/Mobile/Game_Review.png)
+  [Game Review](/doc/Wireframes/Mobile/Game_Review.png)
 
 
 ### **Desktop Wireframes**:
@@ -248,17 +248,17 @@ These are the main colors used throughout the project:
 
   [Login](/doc/Wireframes/Desktop/Login.png)
 
-  [User_Profile](/doc/Wireframes/Desktop/User_Profile.png)
+  [User Profile](/doc/Wireframes/Desktop/User_Profile.png)
 
-  [Manage_Reviews_No_Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
+  [Manage Reviews No Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
 
-  [Manage_Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
+  [Manage Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
 
-  [Add_Game](/doc/Wireframes/Desktop/Add_Game.png)
+  [Add Game](/doc/Wireframes/Desktop/Add_Game.png)
 
-  [Add_Review](/doc/Wireframes/Desktop/Add_Review.png)
+  [Add Review](/doc/Wireframes/Desktop/Add_Review.png)
 
-  [Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
+  [Game Review](/doc/Wireframes/Desktop/Game_Review.png)
 
 ---
 
