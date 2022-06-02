@@ -1,6 +1,13 @@
-# **GAME REVIEW**
+# **GAMESTAR**
 
 ![Readme Landing Image](doc/images/amiresponsive.webp)
+
+### **Table Of Contents**
+Rather than reinventing the wheel, at the top of this section you will find a table of contents that is auto populated by GitHub.
+This will remain fixed to the top, even when you scroll through the readme.
+
+![TOCImage](doc/images/TOC.png)
+
 
 # **Project Overview**
 
