@@ -137,9 +137,14 @@ These are the main colors used throughout the project:
 
   Once the user has logged in, they will be redirected to the Home Page.
 
+  ![HomePageImage](/doc/images/screencapture-login.png)
+
 ### **User Profile Page**:
 
   This page will be available by clicking the **Profile** link in the navigation bar/menu, allowing a user to change their password after first confirming their current password, followed by their new password and matching confirm password.
+
+  ![HomePageImage](/doc/images/screencapture-profile.png)
+
 
 ### **Manage Reviews Page**:
 
@@ -150,6 +155,8 @@ These are the main colors used throughout the project:
   1. If a user has not submitted any reviews, the page will display "You have not added any reviews yet". Followed by a prompt to add a review.
 
   2. If a user has submitted a review, this page will display a list of the reviews they have created, each opening a modal so that the user can view the review, while providing the user with the option to delete or edit their review.
+
+  ![HomePageImage](/doc/images/screencapture-manage.png)
 
 ### **Search Page**:
 
@@ -163,6 +170,9 @@ These are the main colors used throughout the project:
 
   Within the collapsible list the user will also find a button prompting them to add a review.
 
+  ![HomePageImage](/doc/images/screencapture-search.png)
+
+
 ### **Add Review Page**:
 
   This page will be available by clicking the add review button found in the collapsible list of the relevant game from the Search Page.
@@ -174,6 +184,9 @@ These are the main colors used throughout the project:
   The user will then need to click the submit button in order for their review to be submitted. This will submit their review and return them to the home screen, displaying a message if the review has/not been successfully submitted.
 
   If the review was not successfully submitted, the user will be returned to the Add Review Page, with each field populated with what the user attempted to submit.
+
+  ![HomePageImage](/doc/images/screencapture-add_review.png)
+
 
 ### **Game Review Page**:
 
@@ -191,6 +204,9 @@ These are the main colors used throughout the project:
 
   There will also be buttons displayed to edit or delete the review, but these will only be visible to either the user that created the review, or the site Admin.
 
+  ![HomePageImage](/doc/images/screencapture-game.png)
+
+
 ### **User Reviews Page**:
 
   This page will be visible after a user clicks on a username within a game review element.
@@ -198,6 +214,9 @@ These are the main colors used throughout the project:
   At the top of the page there will be a heading, "Reviews By" followed by the username of the selected user.
 
   Below the heading will be a list of all the reviews the selected user has created, containing a summary of the review, and a view button that renders a modal containing the full review.
+
+  ![HomePageImage](/doc/images/screencapture-user_reviews.png)
+
 
 ### **Admin Pages**
 
@@ -213,10 +232,16 @@ These are the main colors used throughout the project:
 
   There is also a Search Users input above the list of users, to aid in the Admin finding a particular username.
 
+  ![HomePageImage](/doc/images/screencapture-user_manager.png)
+
+
 ### **Review Manager**
   This page will be only visible to the site Admin user.
 
   It will contain a list of all the created reviews, displaying the username and game name, along with a button to view the full review, where there will be a further two buttons, one to edit the review, and the other to delete the review.  
+
+  ![HomePageImage](/doc/images/screencapture-review_manager.png)
+
 
 ## **Wireframes**
   To organize and streamline the development process, I created wireframes for the main pages of this project, to help me during the development process and to prevent scope creep.
