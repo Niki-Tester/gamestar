@@ -102,7 +102,7 @@ function displayResults(data) {
         hiddenInput.setAttribute('value', data[i].id);
 
         const addReviewLink = document.createElement('a');
-        addReviewLink.innerText = 'Add Game';
+        addReviewLink.innerText = 'Add Review';
         addReviewLink.setAttribute('class', 'btn waves-effect waves-light green darken-4');
         addReviewLink.href = data[i].anchor_href;
 
