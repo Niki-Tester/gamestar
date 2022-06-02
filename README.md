@@ -221,78 +221,42 @@ These are the main colors used throughout the project:
 
 ### **Mobile Wireframes**:
 
-  **Home Page**:
-
   [Homepage](/doc/Wireframes/Mobile/Home.png)
-
-  **User Registration**:
 
   [Register](/doc/Wireframes/Mobile/Register.png)
 
-  **User Login**:
-
   [Login](/doc/Wireframes/Mobile/Login.png)
-  
-  **User Profile**:
 
   [User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
 
-  **Manage Reviews (No Reviews)**:
-
   [Game_Review_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
-
-  **Manage Reviews**:
 
   [Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
 
-  **Add Game**:
-
   [Add_Game](/doc/Wireframes/Mobile/Add_Game.png)
-  
-  **Add Review**:
 
   [Add_Review](/doc/Wireframes/Mobile/Add_Review.png)
-  
-  **Game Review**:
 
   [Game_Review](/doc/Wireframes/Mobile/Game_Review.png)
 
 
 ### **Desktop Wireframes**:
 
-  **Home Page**:
-
   ![Homepage](/doc/Wireframes/Desktop/Home.png)
-
-  **User Registration**:
 
   ![Register](/doc/Wireframes/Desktop/Register.png)
 
-  **User Login**:
-
   ![Login](/doc/Wireframes/Desktop/Login.png)
-  
-  **User Profile**:
 
   ![User_Profile](/doc/Wireframes/Desktop/User_Profile.png)
 
-  **Manage Reviews (No Reviews)**:
-
   ![Manage_Reviews_No_Reviews](/doc/Wireframes/Desktop/Manage_Reviews_No_Reviews_Found.png)
-
-  **Manage Reviews**:
 
   ![Manage_Reviews](/doc/Wireframes/Desktop/Manage_Reviews.png)
 
-  **Add Game**:
-
   ![Add_Game](/doc/Wireframes/Desktop/Add_Game.png)
-  
-  **Add Review**:
 
   ![Add_Review](/doc/Wireframes/Desktop/Add_Review.png)
-    
-  **Game Review**:
 
   ![Game_Review](/doc/Wireframes/Desktop/Game_Review.png)
 
