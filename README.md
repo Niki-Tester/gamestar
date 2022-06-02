@@ -113,6 +113,8 @@ These are the main colors used throughout the project:
 
   Finally at the bottom of the page will be the extended version of the footer.
 
+  ![HomePageImage](/doc/images/screencapture-homepage.png)
+
 ### **Register Page**:
 
   This page will be available by clicking the **Register** link in the navigation bar/menu, and via various user prompts throughout the site.
