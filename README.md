@@ -279,6 +279,11 @@ These are the main colors used throughout the project:
   * [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
   * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
   * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  * [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
+
+  Although I am capable of linking a Mongo DB to the project, there wasn't really a developmental need to do so, and in my opinion would be a bad practice to include it just for the sake of including it.
+  So for this reason I made the decision to not include a Non-Relational database, such as MongoDB.
+  
   * [MongoDB](https://en.wikipedia.org/wiki/MongoDB)
 
 ## **Frameworks, Libraries and Programs Used**:
