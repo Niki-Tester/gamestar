@@ -215,7 +215,7 @@ These are the main colors used throughout the project:
   It will contain a list of all the created reviews, displaying the username and game name, along with a button to view the full review, where there will be a further two buttons, one to edit the review, and the other to delete the review.  
 
 ## **Wireframes**
-  To organize and streamline the development process, I created wireframes for this project, to help me during the development process and to prevent scope creep.
+  To organize and streamline the development process, I created wireframes for the main pages of this project, to help me during the development process and to prevent scope creep.
 
   Below are links to each wireframe page of the project, created to cover both Mobile and Desktop versions.
 
@@ -223,39 +223,39 @@ These are the main colors used throughout the project:
 
   **Home Page**:
 
-  ![Homepage](/doc/Wireframes/Mobile/Home.png)
+  [Homepage](/doc/Wireframes/Mobile/Home.png)
 
   **User Registration**:
 
-  ![Register](/doc/Wireframes/Mobile/Register.png)
+  [Register](/doc/Wireframes/Mobile/Register.png)
 
   **User Login**:
 
-  ![Login](/doc/Wireframes/Mobile/Login.png)
+  [Login](/doc/Wireframes/Mobile/Login.png)
   
   **User Profile**:
 
-  ![User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
+  [User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
 
   **Manage Reviews (No Reviews)**:
 
-  ![Game_Review_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
+  [Game_Review_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
 
   **Manage Reviews**:
 
-  ![Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
+  [Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
 
   **Add Game**:
 
-  ![Add_Game](/doc/Wireframes/Mobile/Add_Game.png)
+  [Add_Game](/doc/Wireframes/Mobile/Add_Game.png)
   
   **Add Review**:
 
-  ![Add_Review](/doc/Wireframes/Mobile/Add_Review.png)
+  [Add_Review](/doc/Wireframes/Mobile/Add_Review.png)
   
   **Game Review**:
 
-  ![Game_Review](/doc/Wireframes/Mobile/Game_Review.png)
+  [Game_Review](/doc/Wireframes/Mobile/Game_Review.png)
 
 
 ### **Desktop Wireframes**:
