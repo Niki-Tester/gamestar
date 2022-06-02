@@ -232,6 +232,8 @@ These are the main colors used throughout the project:
   1. Users - This will direct the Admin to the User Manager page.
   2. Reviews - This will direct the Admin to the User Reviews page.
 
+  ![AdminButton](/doc/images/screencapture-admin_button.png)
+
 ### **User Manager**
   This page will be only visible to the site Admin user.
 
@@ -241,14 +243,12 @@ These are the main colors used throughout the project:
 
   ![HomePageImage](/doc/images/screencapture-user_manager.png)
 
-
 ### **Review Manager**
   This page will be only visible to the site Admin user.
 
   It will contain a list of all the created reviews, displaying the username and game name, along with a button to view the full review, where there will be a further two buttons, one to edit the review, and the other to delete the review.  
 
   ![HomePageImage](/doc/images/screencapture-review_manager.png)
-
 
 ## **Wireframes**
   To organize and streamline the development process, I created wireframes for the main pages of this project, to help me during the development process and to prevent scope creep.
@@ -274,7 +274,6 @@ These are the main colors used throughout the project:
   [Add Review](/doc/Wireframes/Mobile/Add_Review.png)
 
   [Game Review](/doc/Wireframes/Mobile/Game_Review.png)
-
 
 ### **Desktop Wireframes**:
 
@@ -309,6 +308,7 @@ These are the main colors used throughout the project:
   During development I made the decision to remove the dislike counter, as I felt this was redundant.
 
 ---
+
 # **Technology**
 
 ## **Technologies Used**:
@@ -409,7 +409,6 @@ These are the main colors used throughout the project:
   1. Change the current working directory to the location where you want the cloned directory to be made.
   1. Type git clone, and then paste the URL you copied in Step 3.
 
-  
     $ git clone https://github.com/Niki-Tester/gamestar.git
   
 
