@@ -91,7 +91,7 @@ These are the main colors used throughout the project:
   * ![FFF](https://via.placeholder.com/15/FFF/?text=+) `#FFF`
   * ![F8CE0B](https://via.placeholder.com/15/F8CE0B/?text=+) `#F8CE0B`
 
-  A contrast grid was used to ensure that the contrast between background and foreground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
+  A contrast grid was used to ensure that the contrast between background and foreground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/).
 
   ![Contrast Grid Image](doc/images/contrast_grid.png)
 
