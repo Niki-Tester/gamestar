@@ -37,7 +37,7 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
   * As a first time visitor, I want to be able to create a new account.
 
-  * As a first time visitor, I want to be able to search for a game, and read reviews left by other users.
+  * As a first time visitor, I want to be able to look through the games, and read reviews left by other users.
 
 * ### Returning Visitor Goals:
   * As a returning visitor, I want to find reviews on games I haven't played yet.
@@ -46,6 +46,10 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
   * As a returning visitor, I want to login to my user profile.
 
+  * As a returning visitor, I want to view the reviews I have created.
+
+  * As a returning visitor, I want to like reviews by other users.
+
 * ### Frequent Visitor Goals:
   * As a frequent visitor, I want to update my review to reflect my view on the game since the last time the game was updated.
 
@@ -53,19 +57,38 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
   * As a frequent visitor, I want to change my account password.
 
+  * As a frequent visitor, I want to view all reviews a particular user has created.
+
+  * As a frequent visitor, I want to change my account password.
+
+  * As a returning visitor, I want to remove my like from a review.
+
+  * As a frequent visitor, I want to delete my profile.
+
+* ### Admin Goals:
+  * As an Admin, I want to view a list of all registered users.
+
+  * As an Admin, I want to view a list of all reviews created.
+
+  * As an Admin, I want to remove a user.
+
+  * As an Admin, I want to edit a review.
+
+  * As an Admin, I want to remove a review.
+
+  * As an Admin, I want to change my account password.
+
 ---
 
 # **Frontend Design**
 
-## **Colours**:
+## **Colors**:
 
-These are the main colours used throughout the project:
+These are the main colors used throughout the project:
 
   * ![#212121](https://via.placeholder.com/15/212121/000000?text=+) `#212121`
   * ![#999](https://via.placeholder.com/15/999/000000?text=+) `#999`
   * ![#FFF](https://via.placeholder.com/15/FFF/000000?text=+) `#FFF`
-  * ![#64B5F6](https://via.placeholder.com/15/64B5F6/000000?text=+) `#64B5F6`
-  * ![#03A9F4](https://via.placeholder.com/15/03A9F4/000000?text=+) `#03A9F4`
   * ![#F8CE0B](https://via.placeholder.com/15/F8CE0B/000000?text=+) `#F8CE0B`
 
   A contrast grid was used to ensure that the contrast between background and forground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23212121%0D%0A%23999%0D%0A%23FFF%0D%0A%2364B5F6%0D%0A%2303A9F4%0D%0A%23F8CE0B%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp).
