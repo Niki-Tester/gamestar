@@ -302,6 +302,7 @@ These are the main colors used throughout the project:
   During development I made the decision to remove the dislike counter, as I felt this was redundant.
 
 ---
+# **Technology**
 
 ## **Technologies Used**:
   * [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -344,7 +345,12 @@ These are the main colors used throughout the project:
   1. [SQLAlchemy](https://en.wikipedia.org/wiki/SQLAlchemy):
     SQLAlchemy is an open-source SQL toolkit and object-relational mapper (ORM) for the Python programming language
 
-## **Deployment**
+# **Testing**
+  Testing has been documented separately, please see the Testing documentation linked below:
+
+- [Testing Documentation](doc/testing/TESTING.md)
+
+# **Deployment**
 
   ### **Heroku**
   Before you can deploy your app to Heroku, initialize a local Git repository and commit your application code to it.
@@ -400,5 +406,5 @@ These are the main colors used throughout the project:
     $ git clone https://github.com/Niki-Tester/gamestar.git
   
 
-### **Link to deployed website**:
+# **Link to deployed website**:
 [Heroku - GameStar](https://gamestar-app.herokuapp.com/)
