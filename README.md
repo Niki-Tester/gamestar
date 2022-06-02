@@ -229,7 +229,7 @@ These are the main colors used throughout the project:
 
   [User_Profile](/doc/Wireframes/Mobile/User_Profile.png)
 
-  [Game_Review_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
+  [Manage_Reviews_No_Reviews](/doc/Wireframes/Mobile/Manage_Reviews_No_Reviews_Found.png)
 
   [Manage_Reviews](/doc/Wireframes/Mobile/Manage_Reviews.png)
 
