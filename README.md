@@ -125,6 +125,8 @@ These are the main colors used throughout the project:
 
   Once the user has registered they will be automatically logged in, and returned to the Home Page.
 
+  ![HomePageImage](/doc/images/screencapture-register.png)
+
 ### **Log In Page**:
 
   This page will be available by clicking the **Login** link in the navigation bar/menu, and via various user prompts throughout the site.
