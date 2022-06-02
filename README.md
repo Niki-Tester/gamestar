@@ -1,4 +1,4 @@
-# **GAMESTAR**
+# **GameStar**
 
 ![Readme Landing Image](doc/images/amiresponsive.webp)
 
