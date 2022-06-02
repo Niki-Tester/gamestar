@@ -15,6 +15,7 @@
     {% endif %}
 </head>
 <body>
+    <div id="background"></div>
     <header>
         <nav class="grey darken-3 z-depth-3">
             <!-- Top Navbar -->
@@ -117,17 +118,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='js/materializeInit.js')}}"></script>
     <script>
-        const body = document.querySelector('body');
+        const background = document.querySelector('#background');
         {% if background %}
-            body.style.backgroundImage = `url({{background.url}})`;
+            background.style.backgroundImage = `url({{background.url}})`;
         {% else %}
-            body.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.webp')}})`;
+            background.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.webp')}})`;
         {% endif %}
-        body.style.backgroundAttachment = 'fixed'
-        body.style.backgroundPosition = 'top';
-        body.style.backgroundSize = 'cover';
-        body.style.backgroundRepeat = 'no-repeat';
-        body.style.backgroundBlendMode = 'overlay';
     </script>
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
