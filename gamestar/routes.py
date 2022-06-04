@@ -469,7 +469,7 @@ def edit_review(review_id):
         db.session.commit()
 
         return redirect(url_for('game', game_id=game.id))
-    
+
     if len(json.loads(game.artwork)) > 0:
         background = random.choice(json.loads(game.artwork))
     else:
