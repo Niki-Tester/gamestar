@@ -160,3 +160,13 @@ function displayResults(data) {
         link.addEventListener('click', loading);
     }
 }
+
+// Clear search results / search input if user returns to page using back button
+(() => {
+    window.onpageshow = e => {
+        if (e.persisted) {
+            results.innerHTML = '';
+            searchInput.value = '';
+        }
+    };
+})();
