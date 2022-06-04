@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
         <title>GameStar</title>
     {% endif %}
 </head>
+
 <body>
     <div id="background"></div>
     <header>
@@ -22,20 +24,25 @@
             <div class="nav-wrapper container">
                 <div class="row">
                     <div class="col s12">
-                        <a href="{{url_for('home')}}" class="brand-logo"><img id="nav-logo" src="{{url_for('static', filename='images/gamestar_logo_light.webp')}}" alt="GameStar navigation logo"></a>
-                        <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+                        <a href="{{url_for('home')}}" class="brand-logo"><img id="nav-logo"
+                                src="{{url_for('static', filename='images/gamestar_logo_light.webp')}}"
+                                alt="GameStar navigation logo"></a>
+                        <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i
+                                class="fa-solid fa-bars"></i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="{{url_for('home')}}" class="amber-text text-lighten-1">Home</a></li>
                             {% if session.username %}
                                 {% if session.username != 'admin' %}
-                                    <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a></li>
+                                <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a>
+                                </li>
                                 {% endif %}
-                                <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
-                                <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
+                            <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
+                            <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
                                 {% if session.username == 'admin' %}
                                     <li>
                                         <!-- Dropdown Trigger -->
-                                        <a class='dropdown-trigger btn red darken-2' href='#' data-target='admin-panel'>Admin</a>
+                                        <a class='dropdown-trigger btn red darken-2' href='#'
+                                            data-target='admin-panel'>Admin</a>
                                         <!-- Dropdown Structure -->
                                         <ul id='admin-panel' class='dropdown-content'>
                                             <li><a href="{{url_for('user_manager')}}" class="black-text">Users</a></li>
@@ -77,10 +84,12 @@
             {% endif %}
         </ul>
     </header>
+
     <main class="container">
         {% block content %}
         {% endblock content %}
     </main>
+
     <!--Footer -->
     <footer class="page-footer grey darken-3">
         {% if request.endpoint == 'home' %}
@@ -88,18 +97,25 @@
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="white-text">About GameStar</h5>
-                        <p class="grey-text text-lighten-4">Welcome to Gamestar! We are the games website that helps you make the most of your money and time.</p>
-                        <p class="grey-text text-lighten-4">On GameStar we always aim to inform and inspire through our game reviews.</p>
-                        <p class="grey-text text-lighten-4">We allow our community to grow, and share their thoughts on the games they have played.</p>
+                        <p class="grey-text text-lighten-4">Welcome to Gamestar! We are the games website that helps you
+                            make the most of your money and time.</p>
+                        <p class="grey-text text-lighten-4">On GameStar we always aim to inform and inspire through our game
+                            reviews.</p>
+                        <p class="grey-text text-lighten-4">We allow our community to grow, and share their thoughts on the
+                            games they have played.</p>
                         <p class="grey-text text-lighten-4">If the game exists, you can leave a review for it.</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Socials</h5>
                         <ul>
-                            <li><a class="amber-text text-lighten-3" href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                            <li><a class="amber-text text-lighten-3" href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
-                            <li><a class="amber-text text-lighten-3" href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
-                            <li><a class="amber-text text-lighten-3" href="https://www.discord.com" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                            <li><a class="amber-text text-lighten-3" href="https://www.facebook.com" target="_blank"><i
+                                        class="fa-brands fa-facebook"></i> Facebook</a></li>
+                            <li><a class="amber-text text-lighten-3" href="https://www.twitter.com" target="_blank"><i
+                                        class="fa-brands fa-twitter"></i> Twitter</a></li>
+                            <li><a class="amber-text text-lighten-3" href="https://www.youtube.com" target="_blank"><i
+                                        class="fa-brands fa-youtube"></i> YouTube</a></li>
+                            <li><a class="amber-text text-lighten-3" href="https://www.discord.com" target="_blank"><i
+                                        class="fa-brands fa-discord"></i> Discord</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,7 +123,10 @@
         {% endif %}
         <div class="footer-copyright grey darken-4">
             <div class="container footer-info">
-                <a href="https://github.com/Niki-Tester" target="_blank" class="amber-text text-lighten-1 footer-link"><i class="fa-brands fa-github-square"></i></a>&copy; 2022 Niki Tester<a href="https://www.linkedin.com/in/niki-tester/" target="_blank" class="amber-text text-lighten-1"><i class="fa-brands fa-linkedin footer-link"></i>
+                <a href="https://github.com/Niki-Tester" target="_blank"
+                    class="amber-text text-lighten-1 footer-link"><i class="fa-brands fa-github-square"></i></a>&copy;
+                2022 Niki Tester<a href="https://www.linkedin.com/in/niki-tester/" target="_blank"
+                    class="amber-text text-lighten-1"><i class="fa-brands fa-linkedin footer-link"></i>
             </div>
         </div>
     </footer>
@@ -123,16 +142,24 @@
         {% if background %}
             background.style.backgroundImage = `url({{background.url}})`;
         {% else %}
-            background.style.backgroundImage = `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.webp')}})`;
+            background.style.backgroundImage =
+                `url({{url_for('static', filename='images/carl-raw-m3hn2Kn5Bns-unsplash.webp')}})`;
         {% endif %}
     </script>
+
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-                <script> M.toast({html: '{{message}}', classes: '{{category}}'})</script>
+                <script>
+                    M.toast({
+                        html: '{{message}}',
+                        classes: '{{category}}'
+                    })
+                </script>
             {% endfor %}
         {% endif %}
     {% endwith %}
 </body>
+
 </html>
