@@ -20,6 +20,17 @@ body {
     z-index: -1;
 }
 
+#mobile-nave {
+    position: relative;
+}
+
+.sidenav-close {
+    position: absolute;
+    font-size: 2rem;
+    right: 20px;
+    top: 2.5px;
+}
+
 ::-webkit-scrollbar {
     width: 1rem;
     transition: width 300ms ease-in-out;
