@@ -23,7 +23,7 @@ def home(page):
     games = Game.query.paginate(page, per_page, error_out=True)
 
     for game in games.items:
-        print(game)
+
         reviews = Review.query.filter_by(game_id=game.id).all()
 
         if len(reviews) == 0:
