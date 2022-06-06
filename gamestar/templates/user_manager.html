@@ -37,6 +37,8 @@
             <!-- Modal Confirm Delete Structure -->
             <div id="confirm-{{user.username}}" class="modal center-align">
                 <div class="modal-content grey darken-3 white-text">
+                    <!-- Modal Close Button-->
+                    <a href="#" class="modal-close"><i class="fa-solid fa-xmark amber-text text-lighten-1"></i></a>
                     <h4 class="red-text text-shadow">Are You Sure?</h4>
                     <p class="white-text text-shadow">Deleting {{user.username|capitalize}}'s profile will remove all user data including any reviews that {{user.username|capitalize}} has created.</p>
                     <p>This will also allow another user to register as {{user.username|capitalize}}</p>

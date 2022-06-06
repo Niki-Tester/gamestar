@@ -366,6 +366,14 @@ input[type=range]+.thumb.active .value {
     width: 60%;
 }
 
+.modal .modal-close {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #f8ce0b;
+}
+
 @media screen and (max-width: 420px) {
 
     h1 {
