@@ -366,7 +366,7 @@ input[type=range]+.thumb.active .value {
     width: 60%;
 }
 
-.modal .modal-close {
+.modal .modal-close-top {
     position: absolute;
     top: 0px;
     left: 10px;
