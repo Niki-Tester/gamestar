@@ -322,9 +322,7 @@ def add_review(game_id):
     if user_logged_in():
 
         game = get_game_data_by_id(game_id)[0]
-        print('-----------------------')
-        print('cover' in game)
-        print('-----------------------')
+
         if 'cover' in game:
             game['cover'] = get_game_cover_art(game_id)
         else:

@@ -78,7 +78,7 @@ def get_game_cover_art(game_id):
                     '//', 'https://').replace('t_thumb', 't_cover_big')
     else:
         image_url = None
-    
+
     return image_url
 
 
