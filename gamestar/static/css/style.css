@@ -358,6 +358,56 @@ input[type=range]+.thumb.active .value {
     border-bottom: #f8ce0b 2px solid;
 }
 
+.collection .collection-item.avatar p {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 60%;
+}
+
+@media screen and (max-width: 420px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    .btn,
+    .btn-small,
+    .btn-lrg {
+        font-size: 0.75rem;
+    }
+
+    .sidenav li>a.btn {
+        width: 50%;
+        font-size: 0.75rem;
+    }
+
+    .collection .collection-item.avatar {
+        padding-left: 20px;
+    }
+
+    .collection .collection-item.avatar:not(.circle-clipper)>.circle {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 601px) {
     #nav-logo {
         margin-top: 0.75rem;
