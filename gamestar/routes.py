@@ -19,7 +19,7 @@ def home(page):
     """
     Render home.html template.
     """
-    per_page = 8
+    per_page = 24
     games = Game.query.paginate(page, per_page, error_out=True)
 
     for game in games.items:
