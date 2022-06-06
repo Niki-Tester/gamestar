@@ -392,9 +392,13 @@ def submit_review(game_id):
             igdb_game_data = get_game_data_by_id(game_id)[0]
             igdb_game_artwork = get_game_artwork(game_id)
             igdb_game_cover = get_game_cover_art(game_id)
+
             if igdb_game_cover is None:
                 igdb_game_cover = url_for('static',
                                           filename='images/no_cover.webp')
+
+            if 'summary' not in igdb_game_data:
+                igdb_game_data['summary'] = ''
 
             game = Game(
                 name=igdb_game_data['name'],
