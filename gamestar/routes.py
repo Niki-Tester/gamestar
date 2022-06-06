@@ -322,6 +322,9 @@ def add_review(game_id):
     if user_logged_in():
 
         game = get_game_data_by_id(game_id)[0]
+        print('-----------------------')
+        print('cover' in game)
+        print('-----------------------')
         if 'cover' in game:
             game['cover'] = get_game_cover_art(game_id)
         else:
@@ -391,6 +394,9 @@ def submit_review(game_id):
             igdb_game_data = get_game_data_by_id(game_id)[0]
             igdb_game_artwork = get_game_artwork(game_id)
             igdb_game_cover = get_game_cover_art(game_id)
+            if igdb_game_cover is None:
+                igdb_game_cover = url_for('static',
+                                          filename='images/no_cover.webp')
 
             game = Game(
                 name=igdb_game_data['name'],

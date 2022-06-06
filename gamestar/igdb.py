@@ -73,8 +73,12 @@ def get_game_cover_art(game_id):
     """
     cover_url = api_request('covers',
                             f'fields url; where game = {game_id};')
-    image_url = cover_url[0]['url'].replace(
-                '//', 'https://').replace('t_thumb', 't_cover_big')
+    if cover_url:
+        image_url = cover_url[0]['url'].replace(
+                    '//', 'https://').replace('t_thumb', 't_cover_big')
+    else:
+        image_url = None
+    
     return image_url
 
 
