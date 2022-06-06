@@ -166,7 +166,7 @@
             </div>
         </div>
     {% endif %}
-    {% if session.username and session.username != 'admin' %}
+    {% if session.username %}
         <!-- Like Button Functionality -->
         <script defer src="{{url_for('static', filename="js/likesCounter.js")}}"></script>
     {% endif %}
