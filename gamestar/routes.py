@@ -123,6 +123,9 @@ def login():
         flash('Successfully Logged In', 'success')
         return redirect(url_for('home'))
 
+    if 'username' in session:
+        flash('You are already logged in.', 'error')
+        return redirect(url_for('home'))
     return render_template('login.html', title='Login')
 
 
