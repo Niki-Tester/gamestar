@@ -94,12 +94,6 @@ def register():
     return render_template('register.html', title='Register')
 
 
-@app.errorhandler(404)
-def page_not_found(e):
-    """Custom 404 Page Not Found"""
-    return render_template('404.html'), 404
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """
@@ -626,6 +620,12 @@ def likes():
     db.session.commit()
 
     return f"{len(likes)}"
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """Custom 404 Page Not Found"""
+    return render_template('404.html'), 404
 
 
 def user_logged_in():
