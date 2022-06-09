@@ -9,21 +9,26 @@
                     <!-- Username -->
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-user prefix"></i>
-                        <input id="username" name="username" type="text" class="validate white-text" minlength="3" maxlength="16" pattern="[a-zA-Z0-9]+" title="Usernames are between 3-16 characters long and can include lower/uppercase letters and numbers." required>
+                        <input id="username" name="username" type="text" class="validate white-text" minlength="3"
+                            maxlength="16" pattern="[a-zA-Z0-9]+"
+                            title="Usernames are between 3-16 characters long and can include lower/uppercase letters and numbers."
+                            required>
                         <label for="username">Username</label>
                     </div>
                     <!-- Password -->
                     <div class="input-field col s12 amber-text text-lighten-1">
                         <i class="fa-solid fa-lock prefix"></i>
-                        <input id="password" name="password" type="password" class="white-text validate" minlength="8" title="Passwords are at least 8 characters long." required>
+                        <input id="password" name="password" type="password" class="white-text validate" minlength="8"
+                            title="Passwords are at least 8 characters long." required>
                         <label for="password">Password</label>
                     </div>
-                </div>
-                <!-- Log In Button -->
-                <div class="col s12 center-align">
-                    <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Log In</button>
-                    <p class="white-text">Not Registered? <a href="{{url_for('register')}}" class="amber-text text-lighten-">Register</a></p>
-                </div>
+                    <!-- Log In Button -->
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light amber lighten-1 black-text" type="submit">Log
+                            In</button>
+                        <p class="white-text">Not Registered? <a href="{{url_for('register')}}"
+                                class="amber-text text-lighten-">Register</a></p>
+                    </div>
                 </div>
             </form>
         </div>
