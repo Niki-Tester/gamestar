@@ -109,7 +109,7 @@ def login():
 
         if not existing_user:
             flash('Log In Failed:\
-                 Username not found.\
+                 Username/Password combination not recognized.\
                       Please Try Again!', 'error')
             return redirect(url_for('login'))
 
