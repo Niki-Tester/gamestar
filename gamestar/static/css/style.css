@@ -374,6 +374,7 @@ input[type=range]+.thumb.active .value {
     color: #f8ce0b;
 }
 
+/* Styling for screens less than 420px */
 @media screen and (max-width: 420px) {
 
     h1 {
@@ -407,6 +408,12 @@ input[type=range]+.thumb.active .value {
         font-size: 0.75rem;
     }
 
+    .collapsible .collapsible-header i {
+        font-size: 1.5rem;
+        right: 0px;
+        bottom: 0px;
+    }
+
     .collection .collection-item.avatar {
         padding-left: 20px;
     }
@@ -416,6 +423,16 @@ input[type=range]+.thumb.active .value {
     }
 }
 
+/* Styling for screens above 420px */
+@media screen and (min-width: 420px) {
+    .collapsible .collapsible-header i {
+        font-size: 1.75rem;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+/* Styling for screens above 601px */
 @media screen and (min-width: 601px) {
     #nav-logo {
         margin-top: 0.75rem;
