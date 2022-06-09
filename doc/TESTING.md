@@ -98,7 +98,7 @@ Commit - [](https://github.com/Niki-Tester/gamestar/commit/)
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project, along with JsHint for validating all Javascript used, along with PEP8 for all Python code.
 
 - [W3C Markup Validator](https://validator.w3.org/) - [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fniki-tester.github.io%2Fbattle-dice%2F)
-    - W3C Markup Validator displays no errors, but does display 2 warnings, advising that two sections lack headings, this is by design and is not of concern.
+    - 
 
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
