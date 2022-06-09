@@ -58,7 +58,9 @@
         </nav>
         <!-- Mobile Navbar -->
         <ul class="sidenav grey darken-3 z-depth-3" id="mobile-nav">
-            <a href="#" class="sidenav-close"><i class="fa-solid fa-xmark white-text"></i></a>
+            <div id="mobile-side-nav">
+                <a href="#" class="sidenav-close"><i class="fa-solid fa-xmark white-text"></i></a>
+            </div>
             <li><a href="{{url_for('home')}}" class="amber-text text-lighten-1">Home</a></li>
             {% if session.username %}
                 <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a></li>

@@ -31,14 +31,14 @@ body {
     margin: 0.1rem 1.5rem;
 }
 
-#mobile-nave {
+#mobile-side-nav {
     position: relative;
 }
 
 .sidenav-close {
     position: absolute;
     font-size: 2rem;
-    right: 20px;
+    right: 10px;
     top: 2.5px;
 }
 
