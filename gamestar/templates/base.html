@@ -32,12 +32,9 @@
                         <ul class="right hide-on-med-and-down">
                             <li><a href="{{url_for('home')}}" class="amber-text text-lighten-1">Home</a></li>
                             {% if session.username %}
-                                {% if session.username != 'admin' %}
-                                <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a>
-                                </li>
-                                {% endif %}
-                            <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
-                            <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
+                                <li><a href="{{url_for('manage')}}" class="amber-text text-lighten-1">Manage Reviews</a></li>
+                                <li><a href="{{url_for('profile')}}" class="amber-text text-lighten-1">Profile</a></li>
+                                <li><a href="{{url_for('logout')}}" class="amber-text text-lighten-1">Log Out</a></li>
                                 {% if session.username == 'admin' %}
                                     <li>
                                         <!-- Dropdown Trigger -->
