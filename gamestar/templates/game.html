@@ -62,8 +62,9 @@
                     <!-- Review Detail - Username / Date Posted -->
                     <div class="col s12 grey darken-4 center-align review-details">
                         <a href="{{url_for('user_reviews', username=review.username)}}"
-                            class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}</a>
-                        <span class="review-date">- {{review.created_date}}</span>
+                            class="amber-text text-lighten1 text-shadow">{{review.username|capitalize}}
+                            <span class="review-date">- {{review.created_date}}</span>
+                        </a>
                     </div>
                 </div>
             </div>
