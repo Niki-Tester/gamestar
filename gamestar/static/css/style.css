@@ -31,15 +31,13 @@ body {
     margin: 0.1rem 1.5rem;
 }
 
-#mobile-side-nav {
-    position: relative;
-}
-
 .sidenav-close {
     position: absolute;
+    right: -30px;
+}
+
+.sidenav-close i {
     font-size: 2rem;
-    right: 10px;
-    top: 2.5px;
 }
 
 ::-webkit-scrollbar {
