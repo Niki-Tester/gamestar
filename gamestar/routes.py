@@ -174,7 +174,7 @@ def profile():
         if not passwords_match:
             flash('Password Change Failed:\
                  Current Password incorrect.\
-                      Please Try Again!')
+                      Please Try Again!', 'error')
             return redirect(url_for('profile'))
 
         existing_user.password = generate_password_hash(password)
