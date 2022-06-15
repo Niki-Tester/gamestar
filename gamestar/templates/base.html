@@ -145,8 +145,8 @@
         {% endif %}
     </script>
 
-    <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- Flash Messages -->
         {% if messages %}
             {% for category, message in messages %}
                 <script>
