@@ -326,8 +326,8 @@ input[type=range]+.thumb.active .value {
     border: 2px #df0101 solid;
 }
 
-#review-like p,
-#review-dislike p {
+.review-like p,
+.review-dislike p {
     white-space: pre-wrap;
     line-height: 1.5;
 }
