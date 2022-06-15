@@ -135,6 +135,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{url_for('static', filename='js/materializeInit.js')}}"></script>
+
+    <!-- Background Selector -->
     <script>
         const background = document.querySelector('#background');
         {% if background %}
@@ -146,8 +148,8 @@
     </script>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
-    <!-- Flash Messages -->
         {% if messages %}
+        <!-- Flash Messages -->
             {% for category, message in messages %}
                 <script>
                     M.toast({
