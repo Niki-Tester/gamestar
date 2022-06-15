@@ -5,17 +5,17 @@ const submitButton = document.getElementById('submit-button');
 const valid = element => {
     element.classList.remove('invalid');
     element.classList.add('valid');
-}
+};
 
 const invalid = element => {
     element.classList.remove('valid');
     element.classList.add('invalid');
-}
+};
 
 const clearValidation = element => {
     element.classList.remove('valid');
     element.classList.remove('invalid');
-}
+};
 
 const enableButton = () => {
     if (password.classList.contains('valid') &&
@@ -24,7 +24,7 @@ const enableButton = () => {
     } else {
         submitButton.disabled = true;
     }
-}
+};
 
 const validateInputs = () => {
 
@@ -37,9 +37,9 @@ const validateInputs = () => {
 
     // Check Length Of Confirm Password
     if (confirmPassword.value.length < 8) {
-        invalid(confirmPassword)
+        invalid(confirmPassword);
     } else {
-        valid(confirmPassword)
+        valid(confirmPassword);
     }
 
     // Check If Password & Check Password Match
@@ -61,7 +61,7 @@ const validateInputs = () => {
 
     enableButton();
 
-}
+};
 
-password.addEventListener('keyup', validateInputs)
-confirmPassword.addEventListener('keyup', validateInputs)
+password.addEventListener('keyup', validateInputs);
+confirmPassword.addEventListener('keyup', validateInputs);
