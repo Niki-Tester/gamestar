@@ -355,7 +355,7 @@ These are the main colors used throughout the project:
 # **Testing**
   Testing has been documented separately, please see the Testing documentation linked below:
 
-- [Testing Documentation](doc/testing/TESTING.md)
+- [Testing Documentation](doc/TESTING.md)
 
 # **Deployment**
 
