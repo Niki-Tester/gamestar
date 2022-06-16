@@ -401,7 +401,25 @@ The aim behind this project is to demonstrate my skills in the following areas:
   1. Type git clone, and then paste the URL you copied in Step 3.
 
     $ git clone https://github.com/Niki-Tester/gamestar.git
-  
+
+# Credits
+
+### Code
+
+- All code was written and validated by the developer
+
+### Media
+
+- Main Background image from [Unsplash.com](https://unsplash.com/)
+  - Source: [Carl Raw](https://unsplash.com/photos/m3hn2Kn5Bns)
+
+- Dynamic Game Backgrounds are licensed to the relevant game publisher, and are sourced from the [IGDB API](https://api-docs.igdb.com/#about)
+
+### Acknowledgements
+
+- My Mentor for continuous helpful feedback.
+
+- Tutor support at Code Institute for their support.
 
 # **Link to deployed website**:
 [Heroku - GameStar](https://gamestar-app.herokuapp.com/)
