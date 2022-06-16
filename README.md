@@ -89,13 +89,6 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
 ## **Colors**:
 
-These are the main colors used throughout the project:
-
-  * ![212121](https://via.placeholder.com/15/212121/?text=+) `#212121`
-  * ![999](https://via.placeholder.com/15/999/?text=+) `#999`
-  * ![FFF](https://via.placeholder.com/15/FFF/?text=+) `#FFF`
-  * ![F8CE0B](https://via.placeholder.com/15/F8CE0B/?text=+) `#F8CE0B`
-
   A contrast grid was used to ensure that the contrast between background and foreground elements are compliant with WCAG 2.0 minimum contrast [Contrast Grid](https://contrast-grid.eightshapes.com/).
 
   ![Contrast Grid Image](doc/images/contrast_grid.png)
