@@ -29,6 +29,8 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
 * **Deployment**: Deploy the final version of your code to a hosting platform such as Heroku.
 
+* **Testing**: Test and deploy frontend web application to a cloud platform.
+
 ---
 
 # **User Experience (UX)** 
