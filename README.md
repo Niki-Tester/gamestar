@@ -66,8 +66,6 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
   * As a frequent visitor, I want to view all reviews a particular user has created.
 
-  * As a frequent visitor, I want to change my account password.
-
   * As a returning visitor, I want to remove my like from a review.
 
   * As a frequent visitor, I want to delete my profile.
