@@ -23,8 +23,8 @@ During the development process, manual testing was carried out in the following 
 
 * ### First Time Visitor Goals:
   * As a first time visitor, I want to easily understand the main purpose of the site.
-   - When the user first visits the page, they are greeted with the main logo for the website, with a the tagline "Your place for video game reviews"
-   - Scrolling to the bottom of the page the user will see a short "About Gamestar" proving the user with further information on what this website is about.
+    - When the user first visits the page, they are greeted with the main logo for the website, with a the tagline "Your place for video game reviews"
+    - Scrolling to the bottom of the page the user will see a short "About Gamestar" proving the user with further information on what this website is about.
 
   * As a first time visitor, I want to be able to navigate the site to find content easily.
     - Responsive design is employed across all pages to deliver a satisfying UX on mobile, tablet, laptop and large desktop PC displays. Where the Nav elements are easily reachable regardless of screen size, with the elements collapsing into a menu for small screens
