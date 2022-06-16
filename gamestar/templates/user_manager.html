@@ -47,7 +47,7 @@
                 </div>
             <div class="modal-footer grey darken-1">
                 <form action="{{url_for('delete_user')}}" method="POST">
-                    <input type="text" name="username" id="username" value="{{user.username}}" class="hide">
+                    <input type="text" name="username" value="{{user.username}}" class="hide">
                     <a href="#" class="modal-close waves-effect waves-light btn">No</a>
                     <button type="submit" class="waves-effect waves-effect waves-light red darken-2 btn">Yes</button>
                 </form>
